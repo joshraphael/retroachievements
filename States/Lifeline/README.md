@@ -1,0 +1,1 @@
+These are memcards for pcsx2 with saves at various important places in the game, meant for set development and debugging
