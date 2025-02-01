@@ -11,40 +11,6 @@ function is_set(acc) => acc > prev(acc)
 function plural(x) => rich_presence_lookup("_Plural", x, {1: ""}, fallback="s")
 function ptr(x) => dword(x)
 
-function zfill(num, c)
-{
-	result = format("{0}", num)
-	for i in range(0, 10)
-	{
-		if (length(result) >= c) return result
-		result = format("0{0}", result)
-	}
-	return result
-}
-
-function commas(x)
-{
-	function comma_join(list)
-	{
-		res = ""
-		for i in range(0, length(list)-1)
-		{
-			if (i == length(list) - 1)
-				res = format("{0}", list[i]) + res
-			else res = "," + zfill(list[i], 3) + res
-		}
-		return res
-	}
-
-	parts = []
-	for i in range(1, 10)
-	{
-		if (x == 0) return comma_join(parts)
-		array_push(parts, x % 1000)
-		x = x / 1000
-	}
-}
-
 // --- MEMORY -------------------------------------------------------------------
 
 // $34F440: Message Identifier [32 bit]
@@ -158,10 +124,12 @@ function categories_game_losses() => dword(player_vars_tbl() + 0x04f8)
 //          +0x0 | Pointer to Start of Voice Stream Data [32 bit]
 //          +0x4 | Pointer to Table of Voice Offsets by ID [32 bit]
 //          +0x8 | Size of Voice Data Table
+//          +0xC | Size of individual Voice Table Entries [32 bit] (1 = 0x10, 2 = 0x20)
 function voice_stream_ptr() => ptr(0x38D174)
 function ptr_to_voice_stream_data() => ptr(voice_stream_ptr() + 0x0)
 function ptr_to_voice_table() => ptr(voice_stream_ptr() + 0x4)
 function voice_table_size() => dword(voice_stream_ptr() + 0x8)
+function voice_table_entry_size() => dword(voice_stream_ptr() + 0xC) * 0x10
 
 // $3E5130: Flags [8 bit]
 function shutter1() => bit2(0x3E5130) // Shutter 7
@@ -288,6 +256,13 @@ CHIPS = [
 	bit6(0x3E5184), // [Chip] Observatory Restaurant VIP Seat 2
 ]
 
+CANDY = [
+	bit3(0x3E519F), // Staff Room Table - Eat Candy (#1 Orange)
+	bit4(0x3E519F), // Staff Room Table - Eat Candy (#2 Banana)
+	bit5(0x3E519F), // Staff Room Table - Eat Candy (#3 Watermelon)
+	bit6(0x3E519F), // Staff Room Table - Eat Candy (#4 Grape)
+]
+
 TONGUE_TWISTERS = [
 	{"name": "Peter Piper", "voice": 0x5054},
 	{"name": "Woodchuck", "voice": 0x5055},
@@ -302,22 +277,34 @@ function in_game() => meta_state() <= 0x5E
 
 function complete_tutorial() => prev(meta_state()) == META_TUTORIAL && meta_state() == LOC_SECURITY_ROOM
 
+function bits_completion(a, p=1, when=always_true())
+{
+	t = length(a)*p
+	return sum_of(a, x => prev(x)) == t-1 && measured(sum_of(a, x => x) >= t, when=when)
+}
+
 // I owe Souzooka big time for helping me work this logic out :)
 // usable ids can be found by putting an execution breakpoint at 00162E80 and checking the contents of register a1
 TABLE_MAX = 300
-function _rio_says(id, size, step) => is_rio_talking() < prev(is_rio_talking()) && any_of(range(0, size), (i) => (
-	// the index is within the bounds of the table
-	i < voice_table_size() &&
+function rio_says(id, size = 300, step = 0x10) => (
+	// rio stopped talking
+	is_rio_talking() < prev(is_rio_talking()) &&
 
-	// the id of the voice line in the table matches the id we are looking for
-	dword(ptr_to_voice_table() + (i * step) + 0x0) == id &&
+	// if we know what the size should be, this could be an explicit, or it will be optimized out
+	voice_table_entry_size() == step &&
 
-	// the pointer to the current spoken voice line matches this entry with a 0x10 offset
-	ptr_to_voice_stream_data() + dword(ptr_to_voice_table() + (i * step) + 0x8) + 0x10 == ptr_to_active_voice_stream()
-))
+	// loop through voice table
+	any_of(range(0, size), (i) => (
+		// the index is within the bounds of the table
+		i < voice_table_size() &&
 
-// typically assume the largest possible table
-function rio_says(id) => _rio_says(id, TABLE_MAX, 0x10)
+		// the id of the voice line in the table matches the id we are looking for
+		dword(ptr_to_voice_table() + (i * step) + 0x0) == id &&
+
+		// the pointer to the current spoken voice line matches this entry with a 0x10 offset
+		ptr_to_voice_stream_data() + dword(ptr_to_voice_table() + (i * step) + 0x8) + 0x10 == ptr_to_active_voice_stream()
+	))
+)
 
 // --- RICH PRESENCE -------------------------------------------------------------------
 
@@ -476,14 +463,14 @@ rich_presence_display(
 
 achievement(
 	title="RTFM | Read the Field Manual",
-	description="Complete the tutorial",
+	description="Start a new game and complete the tutorial",
 	type="progression",
 	points=2,
 	trigger=complete_tutorial()
 )
 
 achievement(
-	title="<bad end>",
+	title="Literally Not My Job",
 	description="Refuse to help Rio in the Security Room",
 	points=1,
 	trigger=location() == LOC_SECURITY_ROOM && rio_says(VOICE_GOODBYE_BADEND)
@@ -507,21 +494,21 @@ achievement(
 	title="Good Girl! Sit, Stay",
 	description="Rio, bark like a dog",
 	points=1,
-	trigger=rio_says(VOICE_RIO_BARKS)
+	trigger=in_game() && rio_says(VOICE_RIO_BARKS)
 )
 
 achievement(
 	title="Pose for the Fans",
 	description="Rio, strike a sexy pose",
 	points=2,
-	trigger=rio_says(VOICE_RIO_SEXY_POSE)
+	trigger=in_game() && rio_says(VOICE_RIO_SEXY_POSE)
 )
 
 achievement(
 	title="I Saw Esau Kissing Kate",
 	description="Win a game of tongue twisters and heal a bit of health back",
 	points=3,
-	trigger=rio_says(VOICE_SHE_SELLS_WIN)
+	trigger=in_game() && rio_says(VOICE_SHE_SELLS_WIN, step=0x20)
 )
 
 achievement(
@@ -583,16 +570,43 @@ achievement(
 )
 
 achievement(
+	title="Feed Me, Seymour",
+	description="Kill the weird plant monster in the Service Staff Quarters and collect the ID card",
+	type="progression",
+	points=5,
+	trigger=location() == LOC_SERVICE_STAFF_QTRS && is_set(bit3(0x3E5168))
+)
+
+achievement(
+	title="Taste the Rainbow",
+	description="Try every flavor of candy on the table in the Senior Staff Room",
+	type="missable",
+	points=1,
+	trigger=bits_completion(CANDY, when=location() == LOC_STAFF_ROOM)
+)
+
+achievement(
+	title="Waiting on a Windows Update",
+	description="The files are in the computer. Improve lowlight vision with the surveillance camera extension program",
+	type="progression",
+	points=3,
+	trigger=location() == LOC_STAFF_ROOM && is_set(bit1(0x3E5135))
+)
+
+achievement(
+	title="__CrossTheWarehouse",
+	description="Cross the warehouse",
+	type="progression",
+	points=5,
+	trigger=always_false()
+)
+
+achievement(
 	title="Seven Years of Bad Luck",
 	description="Rio, you can't just break every mirror on the JSL station",
-	points=5,
-	trigger=(
-		// previously one less than the total number of mirrors
-		sum_of(MIRRORS, x => prev(x)) == length(MIRRORS)-1 &&
-	
-		// found all of the mirrors
-		measured(sum_of(MIRRORS, x => x) >= length(MIRRORS))
-	)
+	type="missable",
+	points=10,
+	trigger=bits_completion(MIRRORS, when=in_game())
 )
 
 // --- LEADERBOARDS -------------------------------------------------------------------
@@ -623,7 +637,6 @@ leaderboard(
 	lower_is_better=true
 )
 
-/*
 ttid = 1
 for twist in TONGUE_TWISTERS
 {
@@ -631,9 +644,9 @@ for twist in TONGUE_TWISTERS
 		title=format("Tongue Twister Expert {0}", ttid),
 		description=format("Get the highest voice score on the \"{0}\" tongue twister", twist["name"]),
 
-		start=_rio_says(twist["voice"], 0x100, 0x20),
-		cancel=(prev(can_talk()) == 1 && can_talk() == 0 && voice_score() == 0) || prev(meta_state()) != meta_state(),
-		submit=(prev(can_talk()) == 1 && can_talk() == 0 && voice_score() != 0),
+		start=rio_says(twist["voice"], step=0x20),
+		cancel=voice_table_entry_size() != 0x20 || prev(meta_state()) != meta_state(),
+		submit=prev(can_talk()) == 1 && can_talk() == 0 && voice_score() != 0,
 
 		value=measured(voice_score()),
 		format="VALUE",
@@ -641,4 +654,3 @@ for twist in TONGUE_TWISTERS
 	)
 	ttid = ttid + 1
 }
-*/
