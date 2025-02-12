@@ -1,6 +1,7 @@
 // $3E5130: Flags [8 bit]
 //          bit2 = Shutter 7 (#1) opened
 //          bit5 = Shutter 4 closed (Spider)
+//          bit7 = Spider defeated
 
 // $3E5131: Flags [8 bit]
 //          bit0 = Shutter 3 (#2) opened
@@ -28,6 +29,7 @@
 
 // $3E5139: Flags [8 bit]
 //          bit1 = Laboratory examine shoe
+//          bit3 = Joe Powers shot cutscene ends
 //          bit5 = [Item] Manager's Office key
 
 // $3E513A: Flags [8 bit]
@@ -67,7 +69,6 @@
 
 // $3E514A: Flags [8 bit]
 //          bit0 = [Item] Allen's reference kit
-//          bit1 = Defeated Spider at Shutter 4
 //          bit3 = [Command] Sexy pose
 //          bit4 = [Command] Camera check
 //          bit5 = [Command] Jumpback
@@ -199,6 +200,7 @@
 
 // $3E517A: Flags [8 bit]
 //          bit1 = Manager's Office Open the safe
+//          bit5 = Escape the Warehouse
 //          bit7 = Warehouse Night Vision Simon Says
 
 // $3E517B: Flags [8 bit]
@@ -242,7 +244,7 @@
 // $3E5189: Flags [8 bit]
 //          bit2 = Exhibit Room Bomb Answer #1
 //          bit3 = Exhibit Room Bomb Answer #2
-//          bit3 = Exhibit Room Bomb Answer #3
+//          bit4 = Exhibit Room Bomb Answer #3
 //          bit5 = Exhibit Room Bomb Light #1 (0 in post-cutscene)
 //          bit6 = Exhibit Room Bomb Light #2 (0 in post-cutscene)
 //          bit7 = Exhibit Room Bomb Light #3 (0 in post-cutscene)
@@ -252,6 +254,7 @@
 //          bit3 = [Item] Allen's disc
 //          bit4 = [Item] Exhibit room key
 //          bit5 = [Item] Tanaka's note
+//          bit6 = bomb defused in Exhibit Room
 //          bit7 = [Combat] Manager's Office Humanoid Alien defeated
 
 // $3E5190: Flags [8 bit]
@@ -283,7 +286,7 @@
 //          bit6 = Staff Room Table - Eat Candy (#4 Grape)
 
 // $3E51A1: Flags [8 bit]
-//          bit2 = [Mirror] Guest Room 2 Dresser
+//          bit1 = [Mirror] Guest Room 2 Dresser
 //          bit6 = [Mirror] Guest Room 2 Bathroom
 
 // $3E51A2: Flags [8 bit]
