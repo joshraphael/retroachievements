@@ -1,0 +1,22 @@
+DDA6-DF07
+free movement:
+- L+A to activate instant flight
+- L+A again for debug movement (hold Y to go faster)
+- L+A again to return to normal
+
+EDA5-0F6F
+powerup select, up+select to cycle
+
+ED60-642D
+yoshi select, on overworld, press select to cycle
+
+DDC1-64DD
+DDC5-6DAD
+instant level completion:
+- start+select for normal exit
+- start, then A+select for secret exit
+
+0ABB-6D9D
+CEBB-6DBD
+B4BB-6D2D
+free overworld movement (buggy)
