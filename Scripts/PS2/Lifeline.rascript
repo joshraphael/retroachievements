@@ -347,7 +347,7 @@ Locations = {
 	LOC_MEDICAL_ROOM: "Medical Room",
 	LOC_SECURITY_ROOM: "Security Room",
 	LOC_RECEIVING_PORT: "Receiving Port",
-	LOC_STAFF_ROOM: "Staff Room",
+	LOC_STAFF_ROOM: "Control Staff Quarters",
 	LOC_SERVICE_STAFF_QTRS: "Service Staff Quarters",
 	LOC_WAITING_ROOM: "Waiting Room",
 	LOC_ELEVATOR_HALL_1: "Elevator Hall",
@@ -592,12 +592,12 @@ achievement(
 	description="Kill the weird plant monster in the Service Staff Quarters and collect the ID card",
 	type="progression",
 	points=10,
-	trigger=flag_location(bit3(0x3E5168), LOC_SERVICE_STAFF_QTRS)
+	trigger=flag_location(bit6(0x3E5173), LOC_SERVICE_STAFF_QTRS)
 )
 
 achievement(
 	title="Taste the Rainbow",
-	description="Try every flavor of candy on the table in the Senior Staff Room",
+	description="Try every flavor of candy on the table in the Control Staff Quarters",
 	type="missable",
 	points=1,
 	trigger=bits_completion(CANDY, when=location() == LOC_STAFF_ROOM)
