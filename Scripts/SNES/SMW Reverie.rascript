@@ -529,7 +529,7 @@ function spell_sequence(ndx, letters)
 	return trigger_when(trigger)
 }
 
-function dream_collapse() => check_location(DREAM_1, MAP_D2_SUBTERRANE_LOWER, 0xff) && is_message(0x33, 0x01)
+function dream_collapse() => check_location(DREAM_COLLAPSED, MAP_D2_SUBTERRANE_LOWER, 0xff) && prev(world_status()) == DREAM_1
 
 // --- RICH PRESENCE -------------------------------------------------------------------
 
@@ -636,7 +636,7 @@ rich_presence_conditional_display(world_status() == DREAM_2,
 )
 
 rich_presence_conditional_display(world_status() == DREAM_3,
-	"⭐{0} | {1}",
+	"🌠{0} | {1}",
 	rp_wake(dark_star_status()),
 	rp_location
 )
@@ -740,7 +740,7 @@ achievement(
 // --- [ DREAM_2 ]
 achievement(
 	title="Somniloquism",
-	description="In one session, listen to the words of all six dreamers",
+	description="In the second dream, listen to the words of all six dreamers in one session",
 	points=5,
 	trigger=(
 		// measure the number of dreamers spoken to in the second dream
@@ -962,14 +962,14 @@ achievement(
 	title="Stay Out! No Plumbers Allowed",
 	description="Open the door to the lone treehouse in Swamp",
 	points=5,
-	trigger=check_location(DREAM_3, MAP_D3_SWAMP, 0x05) && is_set(swamp_song())
+	trigger=check_location(DREAM_3, MAP_D3_SWAMP, 0x0c) && is_set(swamp_door())
 )
 
 achievement(
 	title="Much Ado About His Darkness",
 	description="Interpret the writings of the void in Grotto to find a new path",
 	points=10,
-	trigger=check_location(DREAM_3, MAP_D3_GROTTO, 0x12) && is_set(grotto_rope())
+	trigger=check_location(DREAM_3, MAP_D3_GROTTO, 0x07) && is_set(grotto_rope())
 )
 
 achievement(
