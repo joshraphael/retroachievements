@@ -42,13 +42,6 @@ When viewing the map, the following controls apply:
 |A|Zoom Out Map|
 |L/R|Rotate Map|
 
-### Grabbing Survivors
-
-When your followed survivors are jumping towards your location, it's possible to grab their hand and pull them up to you by pressing Y. This is especially useful as a way to help your survivors make trickier or more dangerous jumps, or to help get them unstuck when the survivor AI gets stuck in a loop. Also, note that holding down the Y button won't work; you need to press it at the right time.
-
-> [!TIP]
-> For best results, don't try to time the Y button -- just mash Y. There's no need to mash rapidly. Just tap the button.
-
 ### Calling and Leading Survivors
 
 Press L or R (shoulder buttons) to call your survivors to the location you are standing at, with the position you called them to being indicated by a yellow arrow. This arrow will not follow your position, but rather acts a gathering point. While moving survivors with this method can be tedious over longer distances, it also tends to be the most reliable and precise way to lead them, so it’s often best for getting them past tricker platforms and more dangerous locations.
@@ -56,12 +49,19 @@ Press L or R (shoulder buttons) to call your survivors to the location you are s
 > [!TIP]
 > You can call survivors from a neighboring room as well, though expect to wait longer if they were farther away from the entrance.
 
-If you want survivors to follow behind you automatically as you walk, get all your survivors at a single spot and stand still, so the "survivor location" arrow turns red. Next, walk underneath the red arrow, then hold down the L or R button, and the survivors should then keep following you (as best as their AI can manage) until you let go of the L/R button.
+If you want survivors to follow behind you automatically as you walk, get all your survivors to stand still at a single spot. When the survivors reach the gathering point, the arrow will turn red. Stand on the red arrow, then hold down the L or R button, and the survivors will follow you as you walk (as best as their AI can manage) until you let go of the L/R button.
 
 Moving survivors with this method is more simple and convenient, so it often works well for moving them over longer distances, especially if it's a safer area with less dangerous or awkward jumps. That said, it's still important to keep an eye on your survivors even when using this method, since it's possible for them to get stuck on obstacles, fall behind, or die if they miss a jump. 
 
 > [!TIP]
 > Keep in mind that survivors will only follow you into the next room if the first survivor in your party is near you when you transition.
+
+### Grabbing Survivors
+
+When your followed survivors are jumping towards your location, if you are concerned that they may not safely land the jump, it is possible to grab their hand and pull them up to you by pressing Y. This is especially useful as a way to help your survivors make trickier or more dangerous jumps, or to help get them unstuck when the survivor AI gets stuck in a loop. Also, note that holding down the Y button won't work; you need to press it at the right time.
+
+> [!TIP]
+> For best results, don't try to time the Y button -- just mash Y. There's no need to mash rapidly. Just tap the button.
 
 ### Skipping Protagonist Intro Stories
 
