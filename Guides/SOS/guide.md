@@ -16,9 +16,9 @@
 
 > September 13, 1921, 11 min past 7 in the evening– luxury liner Lady Crithania, sailing off the coast of Humbleton, is wrecked in stormy weather. It sank within 6 hours, after capsizing due to enormous waves. 2,300 people including crew are all reported missing. It was the worst disaster in seafaring history.
 
-The goal of SOS is to find a way to escape the ship within the game's one hour time limit, which lasts for one real-world hour. Getting knocked out in any way (such as falling a great distance or getting hit by a falling object) will deduct five minutes from that clock.
+The goal of SOS is to find a way to escape the ship within the game's time limit of one real world hour. If your character gets knocked out in any way (such as falling a great distance or getting hit by a falling object), you will lose five minutes from the clock.
 
-Escape can be challenging since the Lady Crithania is not only a giant cruise ship, but it's also somewhat maze-like and easy to get lost in, along with being tricky to traverse due to the ship being turned upside-down due to the initial capsize and its angle frequently rotating as it gets closer to sinking. In addition, traversal can get even trickier as time ticks closer to the one hour deadline, since the ship's rotations will gradually get more intense, along with parts of the ship eventually beginning to fill with water.
+Escape can be challenging since the Lady Crithania is not only a giant, labyrinthian cruise ship, but it is also tricky to traverse due to the ship being turned upside-down due to the initial capsize and its angle frequently rotating as it gets closer to sinking. In addition, traversal can get even trickier as time ticks closer to the one hour deadline, since the ship's rotations will gradually get more intense, along with parts of the ship eventually beginning to fill with water.
 
 Of course, if you want a good ending, you don't just want to escape on your own; you also want to gather as many survivors as you can (more information on those ending requirements in the "Suggested Routes for Best Ending" section). This is something else that adds to the game's difficulty and complexity. Finding and rescuing survivors takes precious time (especially since many will take a bit of convincing first), and survivors also require heavy guidance if you wish to keep them alive, since their movement is mainly determined by how you direct them, and they permanently die if they fall a great distance.
 
@@ -44,14 +44,14 @@ When viewing the map, the following controls apply:
 
 ### Calling and Leading Survivors
 
-Press L or R (shoulder buttons) to call your survivors to the location you are standing at, with the position you called them to being indicated by a yellow arrow. This arrow will not follow your position, but rather acts a gathering point. While moving survivors with this method can be tedious over longer distances, it also tends to be the most reliable and precise way to lead them, so it’s often best for getting them past tricker platforms and more dangerous locations.
+Press L or R (shoulder buttons) to call your survivors to the location you are standing at, with the position you called them to being indicated by a yellow arrow. This arrow will not follow your position, but rather acts a gathering point. While moving survivors with this method can be tedious over longer distances, it also tends to be the most reliable and precise way to lead them, so it is often best for getting them past tricker platforms and more dangerous locations.
 
 > [!TIP]
 > You can call survivors from a neighboring room as well, though expect to wait longer if they were farther away from the entrance.
 
 If you want survivors to follow behind you automatically as you walk, get all your survivors to stand still at a single spot. When the survivors reach the gathering point, the arrow will turn red. Stand on the red arrow, then hold down the L or R button, and the survivors will follow you as you walk (as best as their AI can manage) until you let go of the L/R button.
 
-Moving survivors with this method is more simple and convenient, so it often works well for moving them over longer distances, especially if it's a safer area with less dangerous or awkward jumps. That said, it's still important to keep an eye on your survivors even when using this method, since it's possible for them to get stuck on obstacles, fall behind, or die if they miss a jump. 
+Moving survivors with this method is more simple and convenient, so it often works well for moving them over longer distances, especially if it is a safer area with less dangerous or awkward jumps. That said, it is still important to keep an eye on your survivors even when using this method, since it is possible for them to get stuck on obstacles, fall behind, or die if they miss a jump. 
 
 > [!TIP]
 > Keep in mind that survivors will only follow you into the next room if the first survivor in your party is near you when you transition.
@@ -65,7 +65,7 @@ When your followed survivors are jumping towards your location, if you are conce
 
 ### Skipping Protagonist Intro Stories
 
-While the game’s intros give interesting a relevant backstory, including useful context that can be helpful to figure out how to get the best ending, they can quickly get repetitive in the process of replaying the game for better endings. To skip this cutscene, simultaneously push start + select as the intro is playing out and the game will skip straight to the point where you have free control of your character pre-capsize.
+While the game's intros give interesting and relevant backstory, including useful context that can be helpful to figure out how to get the best ending, they can quickly get repetitive in the process of replaying the game for better endings. To skip this cutscene, simultaneously push start + select as the intro is playing out and the game will skip straight to the point where you have free control of your character pre-capsize.
 
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40667.png">
 
