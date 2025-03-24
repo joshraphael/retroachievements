@@ -49,6 +49,9 @@ Press L or R (shoulder buttons) to call your survivors to the location you are s
 > [!TIP]
 > You can call survivors from a neighboring room as well, though expect to wait longer if they were farther away from the entrance.
 
+> [!WARNING]
+> Don't leave your friends behind! Survivors will leave your party if you are two or more rooms away from where they are.
+
 If you want survivors to follow behind you automatically as you walk, get all your survivors to stand still at a single spot. When the survivors reach the gathering point, the arrow will turn red. Stand on the red arrow, then hold down the L or R button, and the survivors will follow you as you walk (as best as their AI can manage) until you let go of the L/R button.
 
 Moving survivors with this method is more simple and convenient, so it often works well for moving them over longer distances, especially if it is a safer area with less dangerous or awkward jumps. That said, it is still important to keep an eye on your survivors even when using this method, since it is possible for them to get stuck on obstacles, fall behind, or die if they miss a jump. 
@@ -65,7 +68,25 @@ When your followed survivors are jumping towards your location, if you are conce
 
 ### Skipping Protagonist Intro Stories
 
-While the game's intros give interesting and relevant backstory, including useful context that can be helpful to figure out how to get the best ending, they can quickly get repetitive in the process of replaying the game for better endings. To skip this cutscene, simultaneously push start + select as the intro is playing out and the game will skip straight to the point where you have free control of your character pre-capsize.
+While the game's intros give interesting and relevant backstory, including useful context that can be helpful to figure out how to get the best ending, they can quickly get repetitive in the process of replaying the game for better endings. To skip this cutscene, simultaneously push start+select as the intro is playing out and the game will skip straight to the point where you have free control of your character pre-capsize.
+
+## Platforming Advice
+
+While SOS has some fairly precise platforming, you're actually pretty well-equipped to traverse most of it due to the large amount of control you have over your jumps.
+
+### Jump Types
+
+| ![neutral jump](images/jump-neutral.png) | 
+|:--| 
+| *The neutral jump is a jump that goes straight upwards.* |
+
+The **neutral jump** is your default jump, which is performed by pushing the B button without pressing left/right on the d-pad. This jump provides more height, making it useful for reaching higher places. You can still control your character in midair with left and right after neutral jumping, but your horizontal movement is slow.
+
+| ![long jump](images/jump-long.png) | 
+|:--| 
+| *The long jump is a jump that covers more distance.* |
+
+The **long jump** is performed by jumping with the B button while pressing left or right, usually done while walking. It is useful whenever you need more distance, such as when jumping over gaps. You still have air control in midair when long jumping; by pressing the opposite direction of your jump, you can slow your momentum to land on a closer platform, and pressing with the direction of your jump, you can extend the distance covered.
 
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40667.png">
 
