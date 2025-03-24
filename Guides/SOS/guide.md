@@ -76,15 +76,11 @@ While SOS has some fairly precise platforming, you're actually pretty well-equip
 
 ### Jump Types
 
-| ![neutral jump](images/jump-neutral.png) | 
-|:--| 
-| *The neutral jump is a jump that goes straight upwards.* |
+![neutral jump](images/jump-neutral.png)
 
-The **neutral jump** is your default jump, which is performed by pushing the B button without pressing left/right on the d-pad. This jump provides more height, making it useful for reaching higher places. You can still control your character in midair with left and right after neutral jumping, but your horizontal movement is slow.
+The **neutral jump** is a jump that goes straight upwards, and is performed by pushing the B button without pressing left/right on the d-pad. This jump provides more height, making it useful for reaching higher places. You can still control your character in midair with left and right after neutral jumping, but your horizontal movement is slow.
 
-| ![long jump](images/jump-long.png) | 
-|:--| 
-| *The long jump is a jump that covers more distance.* |
+![long jump](images/jump-long.png)
 
 The **long jump** is performed by jumping with the B button while pressing left or right, usually done while walking. It is useful whenever you need more distance, such as when jumping over gaps. You still have air control in midair when long jumping; by pressing the opposite direction of your jump, you can slow your momentum to land on a closer platform, and pressing with the direction of your jump, you can extend the distance covered.
 
