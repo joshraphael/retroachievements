@@ -76,13 +76,76 @@ While SOS has some fairly precise platforming, you're actually pretty well-equip
 
 ### Jump Types
 
-![neutral jump](images/jump-neutral.png)
+![an image of a neutral jump, a jump that goes straight upwards](images/jump-neutral.png)
 
 The **neutral jump** is a jump that goes straight upwards, and is performed by pushing the B button without pressing left/right on the d-pad. This jump provides more height, making it useful for reaching higher places. You can still control your character in midair with left and right after neutral jumping, but your horizontal movement is slow.
 
-![long jump](images/jump-long.png)
+![an image of a long jump, a jump that covers more distance](images/jump-long.png)
 
 The **long jump** is performed by jumping with the B button while pressing left or right, usually done while walking. It is useful whenever you need more distance, such as when jumping over gaps. You still have air control in midair when long jumping; by pressing the opposite direction of your jump, you can slow your momentum to land on a closer platform, and pressing with the direction of your jump, you can extend the distance covered.
+
+### Reaching Higher Levels
+
+You don’t always need to land squarely on a platform, since your protagonist will grab onto platform edges and hang spots (such as staircase railings) and can then pull themselves up onto the platform.
+
+![an image of a man grabbing the edge of a platform](images/ledge-hang.png)
+
+Angled walls and platforms are climbable.
+
+![an image of a man climbing a tilted wall](images/wall-climb.png)
+
+Your led survivors can also grab onto ledge edges and climb angled platforms. They’re not always as consistent at it as the player is though, so they’ll sometimes need your help through carefully directing them or grabbing their hands to pull them up.
+
+### Strategies for Challenging Rooms
+
+#### Above Francoise Maxwell's Room
+
+Right by the room where Francoise Maxwell is found (room 28, coordinates ?? on the map) is an upward jump to reach a higher part of the ship. This is an essential jump on many routes. To learn more about how to make this jump consistently, click to expand the section below.
+
+<details>
+<summary><em>[Click to expand]</em></summary>
+
+At first, it may seem like it can only be made while the ship is at an angle. However, it's actually possible to make this jump even when the ship is completely level; the grab spot just happens to be extremely precise. This below image shows the grab spot.
+
+![image of a man hanging from a railing](images/maxwell-jump.png)
+
+However, if you try simply jumping at that spot, you'll likely find that your character won't grab it, due to how ridiculously precise it is. However, there are two ways to make this jump a bit more consistent. The first is to use the couch just below the jump as a marker. Just have your character stand over what’s roughly the center of the couch, then neutral jump while holding right, and you might grab onto the ledge.
+
+[[ SOS - Francoise Maxwell Horizontal Stairway Jump 2.webm ]]
+
+Alternatively, you might be able to grab the spot by simply moving left or right a bit while neutral jumping in that general area. The below video demonstrates this less precise method to grab onto then intentionally drop down from the ledge a few times, to give a better idea of how to use this alternate method.
+
+[[ SOS - Francoise Maxwell Horizontal Stairway Jump 3.webm ]]
+</details>
+
+#### The Top of Miller Strisers' Room 
+
+Inside the room where Miller Strisers is found (room 17, coordinates ?? on the map), there's a jump that may seem impossible at first glance, but it's actually pretty easy when you know how to handle it. To learn more about how to make this jump consistently, click to expand the section below.
+
+<details>
+<summary><em>[Click to expand]</em></summary>
+As shown in the following screenshot, when the ship is completely level, even at the max height of our jump we're just barely short of reaching the ledge.
+
+![image of a man jumping short of a ledge](images/strisers-jump.png)
+
+This means that in order to make this jump, you need to wait for the ship's angle to change first. However, due to this being a room with a survivor in it, there's one caveat: you'll need to wait outside in order for the ship to rotate, because the game generally tries to maintain the ship's current angle while most survivor cutscenes are playing out (and on many routes, you may not want or be able to save Miller Strisers). Step outside of the room and wait for the angle to change, then return. Either a left or right angle will work.
+
+**When the ship is angled left**, the jump is pretty simple. Just jump onto the wall to the left, then you can climb or jump up to the ledge from there, as shown here in the video below.
+
+[[ SOS - Miller Strisers Jump Left Angle 1.webm ]]
+
+**When the ship is angled right**, the jump is a bit more precise. Walk onto the upper tip on the edge of the platform near the top and jump towards the ledge from there.
+
+![image of a man standing on the corner of a platform](images/strisers-tilt-right.png)
+
+[[ SOS - Miller Strisers Jump Right Angle 2.webm ]]
+
+If you have trouble doing the jump from a standing position, you can also quickly walk left over the upper tip of the edge, then immediately take a step back to the right and make the jump, as shown below.
+
+[[ SOS - Miller Strisers Jump Right Angle 3.webm ]]
+</details>
+
+##
 
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40667.png">
 
