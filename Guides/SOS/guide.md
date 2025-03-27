@@ -90,7 +90,7 @@ You don’t always need to land squarely on a platform, since your protagonist w
 
 ![an image of a man grabbing the edge of a platform](images/ledge-hang.png)
 
-Angled walls and platforms are climbable.
+Angled walls and platforms are also climbable.
 
 ![an image of a man climbing a tilted wall](images/wall-climb.png)
 
@@ -113,7 +113,7 @@ However, if you try simply jumping at that spot, you'll likely find that your ch
 
 [[ SOS - Francoise Maxwell Horizontal Stairway Jump 2.webm ]]
 
-Alternatively, you might be able to grab the spot by simply moving left or right a bit while neutral jumping in that general area. The below video demonstrates this less precise method to grab onto then intentionally drop down from the ledge a few times, to give a better idea of how to use this alternate method.
+Alternatively, you might be able to grab the spot by simply moving left or right a bit while neutral jumping in that general area. The video below demonstrates this less precise method by grabbing onto then intentionally dropping down from the ledge a few times, to give a better idea of how to use this alternate method.
 
 [[ SOS - Francoise Maxwell Horizontal Stairway Jump 3.webm ]]
 </details>
