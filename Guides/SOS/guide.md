@@ -1,12 +1,31 @@
 ![Banner](https://cdn2.steamgriddb.com/hero_thumb/e197f2c0db6860022477e8300a8fd922.jpg)
 
+- [Synopsis](#synopsis)
+- [Game Overview](#game-overview)
+	- [Basic Controls](#basic-controls)
+		- [Calling and Leading Survivors](#calling-and-leading-survivors)
+		- [Grabbing Survivors](#grabbing-survivors)
+		- [Skipping Protagonist Intro Stories](#skipping-protagonist-intro-stories)
+	- [Platforming Advice](#platforming-advice)
+		- [Jump Types](#jump-types)
+		- [Reaching Higher Levels](#reaching-higher-levels)
+		- [Strategies for Challenging Rooms](#strategies-for-challenging-rooms)
+			- [Above Francoise Maxwell's Room](#above-francoise-maxwells-room)
+			- [The Top of Miller Strisers' Room](#the-top-of-miller-strisers-room)
+	- [Game Map](#game-map)
+- [Achievements](#achievements)
+	- [Survivors](#survivors)
+	- [Endings](#endings)
+	- [Events and Other Achievements](#events-and-other-achievements)
+
 # Synopsis
-|   |   |
+|||
 |:--|:--|
+|**Game Page**|https://retroachievements.org/game/1144|
 |**Set Difficulty**|6/10|
 |**Approximate time to master**|10 hours|
 |**Minimum numbers of playthroughs needed**|5|
-|**Number of missable achievements**||
+|**Number of missable achievements**|none|
 |**Does difficulty affect achievements?**|N/A|
 |**Hardest achievement of the set**||
 |**Set Developers**|[TheMysticalOne](https://retroachievements.org/user/TheMysticalOne)|
@@ -145,7 +164,43 @@ If you have trouble doing the jump from a standing position, you can also quickl
 [[ SOS - Miller Strisers Jump Right Angle 3.webm ]]
 </details>
 
-##
+## Game Map
+![map of the Lady Crithania capsized](images/crithania-capsized-grid.png)
+
+|Name|Joins|Location|Pts|Stamina|Additional Notes|
+|:--|:-:|:--|:-:|:--|:--|
+|Luke Heinz|After 33:00||5|176||
+|Jeffrey Howell|L||5|128||
+|Ismay Carl Townsend|L||2|144|Key survivor for Luke|
+|Amy Markarson|C||4|101|Key survivor for Capris|
+|Stella Adams|R||4|104|Key survivor for Redwin|
+|Harry Adams|R||4|112|Key survivor for Redwin|
+|Adela Howell|anyone||4|117|Key survivor for Jeffrey|
+|Kelly Nelson|J||3|160|||John Rattler|C|||2|149||
+|Jimmy Akers|anyone||2|165||
+|Kleiver Mathews|After 33:00||???|165||
+|Barbara Sinclair|After 33:00||???|117||
+|Cooper Smith|anyone||2|149|We hate him|
+|Pamela Smith|anyone||4|85||
+|Stacy Smith|anyone||4|128||
+|Mary Maxwell|anyone||8|68|Will only join if Francoise, her mother, is in your party|
+|Francoise Maxwell|anyone||4|120|Press Y after first communication to wake her up|
+|Alan Gebres|anyone||3|88|Will only join Luke if you don't answer after Alan says "Please save the passengers first.", then resume talking after Alan responds.|
+|Richard Cunningham|anyone||3|165||
+|Miller Strisers|R J||3|160||
+|Tender Johnston|R J||3|160||
+|Katherine Meibrus|anyone||6|117|Will only join Luke if you have Michael Burnings|
+|Michael Burnings|anyone||3|160|Must retrieve his violin in the top-left of the room after speaking with him|
+|Anna Tomaro|anyone||6|133||
+|Frank Morton Coney|anyone||3|96||
+|Henry Abrahams|R J||2|160|Appears with Ussarr if you have 3-6 survivors in your party|
+|Jack Hamilton|After 33:00||5|128|Key survivor for Redwin|
+|Katherine Clayton|anyone||6|128|Will only join if Angelica is in your party|
+|Angelica Snow|anyone||4|117|You may need to interact using Y to recruit her|
+
+# Achievements
+
+## Survivors
 
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40667.png">
 
@@ -153,6 +208,14 @@ If you have trouble doing the jump from a standing position, you can also quickl
 [Captain ! (10)](https://retroachievements.org/achievement/271816)
 _Rescue Ismay Carl Townsend_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Ismay Carl Townsend|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40686.png">
@@ -162,6 +225,13 @@ _Rescue Ismay Carl Townsend_
 _Rescue Amy Markarson_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Amy Markarson|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40684.png">
 
@@ -169,6 +239,13 @@ _Rescue Amy Markarson_
 [Harry Adams (10)](https://retroachievements.org/achievement/271818)
 _Rescue Harry Adams_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Harry Adams|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40685.png">
@@ -178,6 +255,13 @@ _Rescue Harry Adams_
 _Rescue Stella Adams_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Stella Adams|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40689.png">
 
@@ -185,6 +269,13 @@ _Rescue Stella Adams_
 [Jack Hamilton (10)](https://retroachievements.org/achievement/271820)
 _Rescue Jack Hamilton_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Jack Hamilton|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40683.png">
@@ -194,6 +285,13 @@ _Rescue Jack Hamilton_
 _Rescue Adela Howell_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Adela Howell|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40687.png">
 
@@ -201,6 +299,13 @@ _Rescue Adela Howell_
 [Jeffrey Howell (10)](https://retroachievements.org/achievement/271822)
 _Rescue Jeffrey Howell_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Jeffrey Howell|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40688.png">
@@ -210,6 +315,13 @@ _Rescue Jeffrey Howell_
 _Rescue Luke Heinz_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Luke Heinz|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40669.png">
 
@@ -217,6 +329,13 @@ _Rescue Luke Heinz_
 [Dieting ? (10)](https://retroachievements.org/achievement/271824)
 _Rescue John Rattler_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|John Rattler|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40673.png">
@@ -226,6 +345,13 @@ _Rescue John Rattler_
 _Rescue Kelly Nelson_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Kelly Nelson|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40668.png">
 
@@ -233,6 +359,13 @@ _Rescue Kelly Nelson_
 [Cooper Smith (10)](https://retroachievements.org/achievement/271826)
 _Rescue Cooper Smith_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Cooper Smith|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40681.png">
@@ -242,6 +375,13 @@ _Rescue Cooper Smith_
 _Rescue Pamela Smith_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Pamela Smith|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40694.png">
 
@@ -249,6 +389,13 @@ _Rescue Pamela Smith_
 [Stacy Smith (10)](https://retroachievements.org/achievement/271828)
 _Rescue Stacy Smith_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Stacy Smith|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40670.png">
@@ -258,6 +405,13 @@ _Rescue Stacy Smith_
 _Rescue Jimmy Akers_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Jimmy Akers|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40672.png">
 
@@ -265,6 +419,13 @@ _Rescue Jimmy Akers_
 [Miller Strisers (10)](https://retroachievements.org/achievement/271830)
 _Rescue Miller Strisers_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Miller Strisers|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40674.png">
@@ -274,6 +435,13 @@ _Rescue Miller Strisers_
 _Rescue Tender Johnston_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Tender Johnston|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40678.png">
 
@@ -281,6 +449,13 @@ _Rescue Tender Johnston_
 [Grefiure, come back to me. (10)](https://retroachievements.org/achievement/271832)
 _Rescue Michael Burnings_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Michael Burnings|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40679.png">
@@ -290,6 +465,13 @@ _Rescue Michael Burnings_
 _Rescue Barbara Sinclair_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Barbara Sinclair|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40695.png">
 
@@ -297,6 +479,13 @@ _Rescue Barbara Sinclair_
 [Kleiver Mathews (10)](https://retroachievements.org/achievement/271834)
 _Rescue Kleiver Mathews_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Kleiver Mathews|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40675.png">
@@ -306,6 +495,13 @@ _Rescue Kleiver Mathews_
 _Rescue Alan Gebres_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Alan Gebres|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40676.png">
 
@@ -313,6 +509,13 @@ _Rescue Alan Gebres_
 [Richard Cunningham (10)](https://retroachievements.org/achievement/271836)
 _Rescue Richard Cunningham_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Richard Cunningham|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40690.png">
@@ -322,6 +525,13 @@ _Rescue Richard Cunningham_
 _Rescue Anna Tamaro_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Anna Tamaro|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40677.png">
 
@@ -329,6 +539,13 @@ _Rescue Anna Tamaro_
 [Frank Coney (10)](https://retroachievements.org/achievement/271838)
 _Rescue Frank Coney_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Frank Coney|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40680.png">
@@ -338,6 +555,13 @@ _Rescue Frank Coney_
 _Rescue Angelica Snow_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Angelica Snow|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40693.png">
 
@@ -345,6 +569,13 @@ _Rescue Angelica Snow_
 [Katherine Clayton (10)](https://retroachievements.org/achievement/271840)
 _Rescue Katherine Clayton_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Katherine Clayton|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40691.png">
@@ -354,6 +585,13 @@ _Rescue Katherine Clayton_
 _Rescue Katherine Meibrus_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Katherine Meibrus|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40682.png">
 
@@ -361,6 +599,13 @@ _Rescue Katherine Meibrus_
 [Francoise Maxwell (10)](https://retroachievements.org/achievement/271842)
 _Rescue Francoise Maxwell_
 </pre></big>
+
+|||
+|:--|:--|
+|Name|Francoise Maxwell|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40692.png">
@@ -370,6 +615,13 @@ _Rescue Francoise Maxwell_
 _Rescue Mary Maxwell_
 </pre></big>
 
+|||
+|:--|:--|
+|Name|Mary Maxwell|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40671.png">
 
@@ -378,15 +630,15 @@ _Rescue Mary Maxwell_
 _Rescue Henry Abrahams_
 </pre></big>
 
-    
-<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40722.png">
+|||
+|:--|:--|
+|Name|Henry Abrahams|
+|Where to find them|[A1](#game-map)|
+|Who can rescue them|Anyone|
+|Survivor points|?|
 
-<big><pre>
-[A Nightmare Starts (1)](https://retroachievements.org/achievement/271845)
-_This shaking... Oh, no !_
-</pre></big>
+## Endings
 
-    
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40725.png">
 
 <big><pre>
@@ -395,35 +647,19 @@ _Explore the ship long enough to suffer a tragic fate._
 </pre></big>
 
     
-<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40723.png">
+<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/300920.png">
 
 <big><pre>
-[HURRY !!! (25)](https://retroachievements.org/achievement/271847)
-_Escape the ship before the end of the 4th minute!_
+[The Night Sky Awaits (25)](https://retroachievements.org/achievement/271858)
+_Escaped through the Boiler Room_
 </pre></big>
 
     
-<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40724.png">
+<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40732.png">
 
 <big><pre>
-[Don't Believe His Lies (10)](https://retroachievements.org/achievement/271848)
-_Give me my survivors back !!!_
-</pre></big>
-
-    
-<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40726.png">
-
-<big><pre>
-[Useless Map (5)](https://retroachievements.org/achievement/271849)
-_Find the map of the ship (not with Luke)_
-</pre></big>
-
-    
-<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40727.png">
-
-<big><pre>
-[Sink Or Swim ! (25)](https://retroachievements.org/achievement/271850)
-_Reach the boiler room in the nick of time (after the second and final capsize cutscene)_
+[Creeper Ending (25)](https://retroachievements.org/achievement/271856)
+_Poor Luke..._
 </pre></big>
 
     
@@ -459,6 +695,57 @@ _Get the best ending as Jeffrey_
 </pre></big>
 
     
+<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40723.png">
+
+<big><pre>
+[HURRY !!! (25)](https://retroachievements.org/achievement/271847)
+_Escape the ship before the end of the 4th minute!_
+</pre></big>
+
+## Events and Other Achievements
+    
+<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40722.png">
+
+<big><pre>
+[A Nightmare Starts (1)](https://retroachievements.org/achievement/271845)
+_This shaking... Oh, no !_
+</pre></big>
+
+This achievement is earned automatically after a small amount of time passes. The Lady Crithania capsizes and the boat flips upside down, beginning the one hour in-game clock for you to escape with or without rescuing other passengers.
+
+    
+<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40724.png">
+
+<big><pre>
+[Don't Believe His Lies (10)](https://retroachievements.org/achievement/271848)
+_Give me my survivors back !!!_
+</pre></big>
+
+Cheif Engineer Ussarr will block your path to the boiler room if you have between three and six survivors in your party. You will still be at liberty to leave, but he will take control of your group of passengers if you don't navigate this conversation correctly. The conversation goes differently for each of the four protagonists:
+
+- As **Capris**,
+- As **Luke**,
+- As **Jeffrey**,
+- As **Redwin**,
+
+Once you've earned this achievement, you can avoid this interaction when doing attempts at getting the best endings by making sure you have 7 survivors in your party, the maximum party size.
+    
+<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40726.png">
+
+<big><pre>
+[Useless Map (5)](https://retroachievements.org/achievement/271849)
+_Find the map of the ship (not with Luke)_
+</pre></big>
+
+    
+<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40727.png">
+
+<big><pre>
+[Sink Or Swim ! (25)](https://retroachievements.org/achievement/271850)
+_Reach the boiler room in the nick of time (after the second and final capsize cutscene)_
+</pre></big>
+
+    
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40731.png">
 
 <big><pre>
@@ -467,27 +754,11 @@ _Grab my hand !_
 </pre></big>
 
     
-<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40732.png">
-
-<big><pre>
-[Creeper Ending (25)](https://retroachievements.org/achievement/271856)
-_Poor Luke..._
-</pre></big>
-
-    
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40733.png">
 
 <big><pre>
 [Paganini's Power! (10)](https://retroachievements.org/achievement/271857)
 _Listen to Michael play his violin to help a widow continue on._
-</pre></big>
-
-    
-<img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/300920.png">
-
-<big><pre>
-[The Night Sky Awaits (25)](https://retroachievements.org/achievement/271858)
-_Escaped through the Boiler Room_
 </pre></big>
 
     
