@@ -700,7 +700,7 @@ _Rescue Henry Abrahams_
 |Survivor points|2|
 |Stamina|high (160)|
 
-Appears with Chief Engineer Ussarr when you have between three and six survivors in your party. For more information on how to deal with Ussarr and potentially recruit Henry, look at the achievement ["Give me my survivors back !!!"](#ach-ussarr)
+Appears with Chief Engineer Ussarr when you have between three and six survivors in your party. For more information on how to deal with Ussarr and potentially recruit Henry, look at the achievement ["Don't Believe His Lies"](#ach-ussarr)
 
 ## Endings
 
