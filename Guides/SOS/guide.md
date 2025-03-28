@@ -177,7 +177,7 @@ If you have trouble doing the jump from a standing position, you can also quickl
 |Harry Adams|R||4|
 |Adela Howell|any||4|
 |Kelly Nelson|J||3|
-|John Rattler|C|||2|
+|John Rattler|C||2|
 |Jimmy Akers|any||2|
 |Kleiver Mathews|any 🕞||???|
 |Barbara Sinclair|any 🕞||???|
@@ -198,6 +198,8 @@ If you have trouble doing the jump from a standing position, you can also quickl
 |Jack Hamilton|any 🕞||5|
 |Katherine Clayton|any||6|
 |Angelica Snow|any||4|
+
+🕞 = only available to recruit after 33:00
 
 # Achievements
 
@@ -682,7 +684,7 @@ _Rescue Mary Maxwell_
 |Survivor points|8|
 |Stamina|very low (68)|
 
-Will only join if her mother, Franoise, is in your party.
+Will only join if her mother, Francoise, is in your party and nearby.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40671.png">
