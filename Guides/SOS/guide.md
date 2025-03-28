@@ -167,40 +167,50 @@ If you have trouble doing the jump from a standing position, you can also quickl
 ## Game Map
 ![map of the Lady Crithania capsized](images/crithania-capsized-grid.png)
 
-|Name|Joins|Location|Pts|Stamina|Additional Notes|
-|:--|:-:|:--|:-:|:--|:--|
-|Luke Heinz|After 33:00||5|176||
-|Jeffrey Howell|L||5|128||
-|Ismay Carl Townsend|L||2|144|Key survivor for Luke|
-|Amy Markarson|C||4|101|Key survivor for Capris|
-|Stella Adams|R||4|104|Key survivor for Redwin|
-|Harry Adams|R||4|112|Key survivor for Redwin|
-|Adela Howell|anyone||4|117|Key survivor for Jeffrey|
-|Kelly Nelson|J||3|160|||John Rattler|C|||2|149||
-|Jimmy Akers|anyone||2|165||
-|Kleiver Mathews|After 33:00||???|165||
-|Barbara Sinclair|After 33:00||???|117||
-|Cooper Smith|anyone||2|149|We hate him|
-|Pamela Smith|anyone||4|85||
-|Stacy Smith|anyone||4|128||
-|Mary Maxwell|anyone||8|68|Will only join if Francoise, her mother, is in your party|
-|Francoise Maxwell|anyone||4|120|Press Y after first communication to wake her up|
-|Alan Gebres|anyone||3|88|Will only join Luke if you don't answer after Alan says "Please save the passengers first.", then resume talking after Alan responds.|
-|Richard Cunningham|anyone||3|165||
-|Miller Strisers|R J||3|160||
-|Tender Johnston|R J||3|160||
-|Katherine Meibrus|anyone||6|117|Will only join Luke if you have Michael Burnings|
-|Michael Burnings|anyone||3|160|Must retrieve his violin in the top-left of the room after speaking with him|
-|Anna Tomaro|anyone||6|133||
-|Frank Morton Coney|anyone||3|96||
-|Henry Abrahams|R J||2|160|Appears with Ussarr if you have 3-6 survivors in your party|
-|Jack Hamilton|After 33:00||5|128|Key survivor for Redwin|
-|Katherine Clayton|anyone||6|128|Will only join if Angelica is in your party|
-|Angelica Snow|anyone||4|117|You may need to interact using Y to recruit her|
+|Name|Joins|Location|Pts|
+|:--|:--|:--|:-:|
+|Luke Heinz|any 🕞||5|
+|Jeffrey Howell|L||5|
+|Ismay Carl Townsend|L||2|
+|Amy Markarson|C||4|
+|Stella Adams|R||4|
+|Harry Adams|R||4|
+|Adela Howell|any||4|
+|Kelly Nelson|J||3|
+|John Rattler|C|||2|
+|Jimmy Akers|any||2|
+|Kleiver Mathews|any 🕞||???|
+|Barbara Sinclair|any 🕞||???|
+|Cooper Smith|any||2|
+|Pamela Smith|any||4|
+|Stacy Smith|any||4|
+|Mary Maxwell|any||8|
+|Francoise Maxwell|any||4|
+|Alan Gebres|any||3|
+|Richard Cunningham|any||3|
+|Miller Strisers|R J||3|
+|Tender Johnston|R J||3|
+|Katherine Meibrus|any||6|
+|Michael Burnings|any||3|
+|Anna Tomaro|any||6|
+|Frank Morton Coney|any||3|
+|Henry Abrahams|R J||2|
+|Jack Hamilton|any 🕞||5|
+|Katherine Clayton|any||6|
+|Angelica Snow|any||4|
 
 # Achievements
 
 ## Survivors
+
+Survivor achievements include the following information
+
+- where to find them on the map
+- who can rescue them (note that some survivors can only be rescued after the event at 33:00)
+- the number of points they contribute toward the best ending calculation
+- their stamina values, which determines how long they can be active before complaining about needing to rest
+
+Some passengers require doing certain tasks or speaking in certain ways to recruit them, and this information is included as well.
 
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40667.png">
 
@@ -213,9 +223,11 @@ _Rescue Ismay Carl Townsend_
 |:--|:--|
 |Name|Ismay Carl Townsend|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Luke only|
+|Survivor points|2 🔑|
+|Stamina|mid-high (144)|
 
+Ismay is the key survivor for Luke. Read more about key survivors in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40686.png">
@@ -229,8 +241,11 @@ _Rescue Amy Markarson_
 |:--|:--|
 |Name|Amy Markarson|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Capris only|
+|Survivor points|4 🔑|
+|Stamina|mid-low (101)|
+
+Amy is the key survivor for Capris. Read more about key survivors in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40684.png">
@@ -244,8 +259,11 @@ _Rescue Harry Adams_
 |:--|:--|
 |Name|Harry Adams|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Redwin only|
+|Survivor points|4 🔑|
+|Stamina|mid (112)|
+
+Harry is one of three key survivors for Redwin. Read more about key survivors in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40685.png">
@@ -259,8 +277,11 @@ _Rescue Stella Adams_
 |:--|:--|
 |Name|Stella Adams|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Redwin only|
+|Survivor points|4 🔑|
+|Stamina|mid-low (104)|
+
+Stella is one of three key survivors for Redwin. Read more about key survivors in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40689.png">
@@ -274,8 +295,11 @@ _Rescue Jack Hamilton_
 |:--|:--|
 |Name|Jack Hamilton|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Anyone (after 33:00)|
+|Survivor points|5 🔑|
+|Stamina|mid (128)|
+
+Jack is one of three key survivors for Redwin. Read more about key survivors in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40683.png">
@@ -290,7 +314,10 @@ _Rescue Adela Howell_
 |Name|Adela Howell|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|4 🔑|
+|Stamina|mid (117)|
+
+Adela is the key survivor for Jeffrey. Read more about key survivors in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40687.png">
@@ -304,8 +331,9 @@ _Rescue Jeffrey Howell_
 |:--|:--|
 |Name|Jeffrey Howell|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Luke only|
+|Survivor points|5|
+|Stamina|mid (128)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40688.png">
@@ -319,8 +347,9 @@ _Rescue Luke Heinz_
 |:--|:--|
 |Name|Luke Heinz|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Anyone after 33:00|
+|Survivor points|5|
+|Stamina|very high (176)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40669.png">
@@ -334,8 +363,9 @@ _Rescue John Rattler_
 |:--|:--|
 |Name|John Rattler|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Capris only|
+|Survivor points|2|
+|Stamina|mid-high (149)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40673.png">
@@ -349,8 +379,9 @@ _Rescue Kelly Nelson_
 |:--|:--|
 |Name|Kelly Nelson|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Jeffrey only|
+|Survivor points|3|
+|Stamina|high (160)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40668.png">
@@ -365,7 +396,8 @@ _Rescue Cooper Smith_
 |Name|Cooper Smith|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|2|
+|Stamina|mid-high (149)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40681.png">
@@ -380,7 +412,8 @@ _Rescue Pamela Smith_
 |Name|Pamela Smith|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|4|
+|Stamina|low (85)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40694.png">
@@ -395,7 +428,8 @@ _Rescue Stacy Smith_
 |Name|Stacy Smith|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|4|
+|Stamina|mid (128)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40670.png">
@@ -410,7 +444,8 @@ _Rescue Jimmy Akers_
 |Name|Jimmy Akers|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|2|
+|Stamina|high (165)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40672.png">
@@ -424,8 +459,9 @@ _Rescue Miller Strisers_
 |:--|:--|
 |Name|Miller Strisers|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Redwin or Jeffrey only|
+|Survivor points|3|
+|Stamina|high (160)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40674.png">
@@ -439,8 +475,9 @@ _Rescue Tender Johnston_
 |:--|:--|
 |Name|Tender Johnston|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Redwin or Jeffrey only|
+|Survivor points|3|
+|Stamina|high (160)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40678.png">
@@ -455,8 +492,10 @@ _Rescue Michael Burnings_
 |Name|Michael Burnings|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|3|
+|Stamina|high (160)|
 
+After speaking with Michael, he will ask you to retrieve his violin, which is in the top left of the room he is in, before he will join your group. Jump to it and press Y to grab it.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40679.png">
 
@@ -469,8 +508,9 @@ _Rescue Barbara Sinclair_
 |:--|:--|
 |Name|Barbara Sinclair|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Anyone after 33:00|
+|Survivor points|???|
+|Stamina|mid (117)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40695.png">
@@ -484,8 +524,9 @@ _Rescue Kleiver Mathews_
 |:--|:--|
 |Name|Kleiver Mathews|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Anyone after 33:00|
+|Survivor points|???|
+|Stamina|high (165)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40675.png">
@@ -500,9 +541,12 @@ _Rescue Alan Gebres_
 |Name|Alan Gebres|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|3|
+|Stamina|low (88)|
 
-    
+Will only join Luke if you don't answer after Alan says "Please save the passengers first", then resume talking after Alan responds.
+
+
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40676.png">
 
 <big><pre>
@@ -515,7 +559,8 @@ _Rescue Richard Cunningham_
 |Name|Richard Cunningham|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|3|
+|Stamina|high (165)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40690.png">
@@ -530,7 +575,8 @@ _Rescue Anna Tamaro_
 |Name|Anna Tamaro|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|6|
+|Stamina|mid (133)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40677.png">
@@ -542,10 +588,11 @@ _Rescue Frank Coney_
 
 |||
 |:--|:--|
-|Name|Frank Coney|
+|Name|Frank Morton Coney|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|3|
+|Stamina|mid-low (96)|
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40680.png">
@@ -560,7 +607,10 @@ _Rescue Angelica Snow_
 |Name|Angelica Snow|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|4|
+|Stamina|mid (117)|
+
+On some routes, recruiting her might involve using Y to interact during the conversation.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40693.png">
@@ -575,7 +625,10 @@ _Rescue Katherine Clayton_
 |Name|Katherine Clayton|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|6|
+|Stamina|mid (128)|
+
+Katherine will only join your group if Angelica has already joined.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40691.png">
@@ -590,7 +643,10 @@ _Rescue Katherine Meibrus_
 |Name|Katherine Meibrus|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|6|
+|Stamina|mid (117)|
+
+If you are playing as Luke, Katherine will only join your group if you bring Michael Burnings
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40682.png">
@@ -605,7 +661,10 @@ _Rescue Francoise Maxwell_
 |Name|Francoise Maxwell|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|4|
+|Stamina|mid (120)|
+
+After initiating communication in the medical room, press Y to wake her up.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40692.png">
@@ -620,7 +679,10 @@ _Rescue Mary Maxwell_
 |Name|Mary Maxwell|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone|
-|Survivor points|?|
+|Survivor points|8|
+|Stamina|very low (68)|
+
+Will only join if her mother, Franoise, is in your party.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40671.png">
@@ -634,8 +696,11 @@ _Rescue Henry Abrahams_
 |:--|:--|
 |Name|Henry Abrahams|
 |Where to find them|[A1](#game-map)|
-|Who can rescue them|Anyone|
-|Survivor points|?|
+|Who can rescue them|Redwin or Jeffrey only|
+|Survivor points|2|
+|Stamina|high (160)|
+
+Appears with Chief Engineer Ussarr when you have between three and six survivors in your party. For more information on how to deal with Ussarr and potentially recruit Henry, look at the achievement ["Give me my survivors back !!!"](#ach-ussarr)
 
 ## Endings
 
@@ -714,6 +779,7 @@ _This shaking... Oh, no !_
 This achievement is earned automatically after a small amount of time passes. The Lady Crithania capsizes and the boat flips upside down, beginning the one hour in-game clock for you to escape with or without rescuing other passengers.
 
     
+<a name="ach-ussarr"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40724.png">
 
 <big><pre>
@@ -721,7 +787,7 @@ This achievement is earned automatically after a small amount of time passes. Th
 _Give me my survivors back !!!_
 </pre></big>
 
-Cheif Engineer Ussarr will block your path to the boiler room if you have between three and six survivors in your party. You will still be at liberty to leave, but he will take control of your group of passengers if you don't navigate this conversation correctly. The conversation goes differently for each of the four protagonists:
+Chief Engineer Ussarr will block your path to the boiler room if you have between three and six survivors in your party. You will still be at liberty to leave, but he will take control of your group of passengers if you don't navigate this conversation correctly. The conversation goes differently for each of the four protagonists:
 
 - As **Capris**,
 - As **Luke**,
