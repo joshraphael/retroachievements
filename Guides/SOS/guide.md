@@ -179,8 +179,8 @@ If you have trouble doing the jump from a standing position, you can also quickl
 |Kelly Nelson|J||3|
 |John Rattler|C||2|
 |Jimmy Akers|any||2|
-|Kleiver Mathews|any 🕞||???|
-|Barbara Sinclair|any 🕞||???|
+|Kleiver Mathews|any 🕞||3|
+|Barbara Sinclair|any 🕞||5|
 |Cooper Smith|any||2|
 |Pamela Smith|any||4|
 |Stacy Smith|any||4|
@@ -511,7 +511,7 @@ _Rescue Barbara Sinclair_
 |Name|Barbara Sinclair|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone after 33:00|
-|Survivor points|???|
+|Survivor points|5|
 |Stamina|mid (117)|
 
     
@@ -527,7 +527,7 @@ _Rescue Kleiver Mathews_
 |Name|Kleiver Mathews|
 |Where to find them|[A1](#game-map)|
 |Who can rescue them|Anyone after 33:00|
-|Survivor points|???|
+|Survivor points|3|
 |Stamina|high (165)|
 
     
@@ -702,7 +702,7 @@ _Rescue Henry Abrahams_
 |Survivor points|2|
 |Stamina|high (160)|
 
-Appears with Chief Engineer Ussarr when you have between three and six survivors in your party. For more information on how to deal with Ussarr and potentially recruit Henry, look at the achievement ["Don't Believe His Lies"](#ach-ussarr)
+Appears with Chief Engineer Ussar when you have between three and six survivors in your party. For more information on how to deal with Ussar and potentially recruit Henry, look at the achievement ["Don't Believe His Lies"](#ach-ussar)
 
 ## Endings
 
@@ -781,7 +781,7 @@ _This shaking... Oh, no !_
 This achievement is earned automatically after a small amount of time passes. The Lady Crithania capsizes and the boat flips upside down, beginning the one hour in-game clock for you to escape with or without rescuing other passengers.
 
     
-<a name="ach-ussarr"></a>
+<a name="ach-ussar"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40724.png">
 
 <big><pre>
@@ -789,12 +789,12 @@ This achievement is earned automatically after a small amount of time passes. Th
 _Give me my survivors back !!!_
 </pre></big>
 
-Chief Engineer Ussarr will block your path to the boiler room if you have between three and six survivors in your party. You will still be at liberty to leave, but he will take control of your group of passengers if you don't navigate this conversation correctly. The conversation goes differently for each of the four protagonists:
+Chief Engineer Ussar will block your path to the boiler room if you have between three and six survivors in your party. You will still be at liberty to leave, but he will take control of your group of passengers if you don't navigate this conversation correctly. The conversation goes differently for each of the four protagonists:
 
-- As **Capris**,
-- As **Luke**,
-- As **Jeffrey**,
-- As **Redwin**,
+- As **Capris**, keep talking to Ussar until he tells Capris that he should check the boiler room alone, then ignore the "Answer?" prompt and don't respond. After a few seconds, Ussar will ask why Capris isn't saying anything, at which point you should answer. Ussar and Henry should then leave on their own shortly after.
+- As **Luke**, keep talking until the part where Luke insults Ussar, starting with "I never liked you from the start," and Ussar responds by telling Luke he should to go to the boiler room by himself, and begins to leave with Henry. At this point, ignore the "Answer?" prompt until Ussar leaves. Henry will stay behind and talk a bit; it doesn't matter if you respond to Henry's "Answer?" prompt at this point, since either way, Henry will leave while your survivors will remain.
+- As **Jeffrey**, keep talking to Ussar, and he'll eventually leave without Henry. Then speak to Henry and he'll join your group of survivors.
+- As **Redwin**, keep talking to Ussar without missing any prompts until Redwin says it's a waste of time, then keep talking to Henry. Henry will end up joining your group of survivors and Ussar will leave on his own.
 
 Once you've earned this achievement, you can avoid this interaction when doing attempts at getting the best endings by making sure you have 7 survivors in your party, the maximum party size.
     
