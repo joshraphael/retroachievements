@@ -231,6 +231,8 @@ _Rescue Ismay Carl Townsend_
 
 Ismay is the key survivor for Luke. Read more about key survivors in the Best Endings section.
 
+After initiating conversation with him, press Y to get Ismay to respond.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40686.png">
 
@@ -337,6 +339,8 @@ _Rescue Jeffrey Howell_
 |Survivor points|5|
 |Stamina|mid (128)|
 
+Jeffrey will appear and join alongside Adela when Luke tries to rescue her.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40688.png">
 
@@ -385,6 +389,8 @@ _Rescue Kelly Nelson_
 |Survivor points|3|
 |Stamina|high (160)|
 
+Doesn't always show up (the specifics are unclear, but it seems to often happen when the ship is tilted). If he doesn't appear, wait for the ship to be level, then walk roughly one screen width to the right of his location then back, and try again.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40668.png">
 
@@ -400,6 +406,12 @@ _Rescue Cooper Smith_
 |Who can rescue them|Anyone|
 |Survivor points|2|
 |Stamina|mid-high (149)|
+
+This guy's a real jerk who will impede your attempts to save him, along with Pamela Smith (his wife) and Stacy Smith (his daughter). The way to convince Cooper to allow you to rescue his family is as follows:
+
+- As **Capris** and **Redwin**, keep talking without missing any prompts and they'll join.
+- As **Luke**, keep talking without missing any "Answer?" prompts, then as soon as there's a break in the conversation and you get a "Communication?" prompt instead, talk with Pamela (the woman on the right), then keep talking until the Smiths agree to join.
+- As **Jeffrey**, keep talking with Cooper specifically until Jeffrey mentions he wants Cooper's trust in exchange for treating Pamela. Next, talk to Pamela (the woman on the right) twice, so Jeffrey introduces himself as a doctor, then push Y to treat Pamela's injury. Finally, talk with Pamela and the Smiths should all join you. *(Note: This needs to be followed exactly. Doing any of the steps in the wrong order may cause Cooper to get mad, preventing his entire family from joining.)*
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40681.png">
@@ -417,6 +429,8 @@ _Rescue Pamela Smith_
 |Survivor points|4|
 |Stamina|low (85)|
 
+Joins alongside Cooper and Stacy Smith. See Cooper Smith for how to save the entire Smith family.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40694.png">
 
@@ -433,7 +447,9 @@ _Rescue Stacy Smith_
 |Survivor points|4|
 |Stamina|mid (128)|
 
-    
+Joins alongside Cooper and Pamela Smith. See Cooper Smith for how to save the entire Smith family.
+
+
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40670.png">
 
 <big><pre>
@@ -514,6 +530,8 @@ _Rescue Barbara Sinclair_
 |Survivor points|5|
 |Stamina|mid (117)|
 
+Barbara Sinclair and Kleiver Mathews always join together.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40695.png">
 
@@ -529,6 +547,8 @@ _Rescue Kleiver Mathews_
 |Who can rescue them|Anyone after 33:00|
 |Survivor points|3|
 |Stamina|high (165)|
+
+Barbara Sinclair and Kleiver Mathews always join together.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40675.png">
@@ -580,6 +600,10 @@ _Rescue Anna Tamaro_
 |Survivor points|6|
 |Stamina|mid (133)|
 
+In order to convince her you'll need to talk to Dr. Hendrix (who's lying on the ground by her) once talking with her no longer advances the conversation (When playing as Jeffrey, you’ll need to do this at two separate points in the conversation.)
+
+After convincing Anna, Frank Coney will automatically join alongside her unless you’re playing as Redwin, who will have Anna join alone. In this case, you will need to talk to Frank separately if you wish to rescue him.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40677.png">
 
@@ -595,6 +619,10 @@ _Rescue Frank Coney_
 |Who can rescue them|Anyone|
 |Survivor points|3|
 |Stamina|mid-low (96)|
+
+While he's linked with Anna Tamaro and typically joins with her, he'll join on his own if you talk to him before getting Anna to join you, and will still wish to join even if you fail to convince her (not that you'd typically want to take him without Anna, given his lower point value). 
+
+Redwin is also the sole exception when it comes to Frank joining with Anna; Redwin always needs to talk to Frank if you want to save him.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40680.png">
@@ -614,6 +642,8 @@ _Rescue Angelica Snow_
 
 On some routes, recruiting her might involve using Y to interact during the conversation.
 
+She'll usually only join with Katherine Clayton after you've successfully convinced the latter to join, but Capris has the alternate option of convincing Angelica to join alone if you ignore Katherine and keep talking to Angelica.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40693.png">
 
@@ -631,6 +661,24 @@ _Rescue Katherine Clayton_
 |Stamina|mid (128)|
 
 Katherine will only join your group if Angelica has already joined.
+
+No matter who you're playing as, Kathrine has one of the most involved recruitment methods out of any survivor, so refer to the below information if you want the specifics:
+
+For **Capris**, **Redwin**, and **Jeffrey**:
+1. Talk to Angelica Snow until she or your protagonist suggests checking on Katherine Clayton.
+2. Talk with Katherine Clayton until you get no new dialogue.
+3. Talk with Angelica until she hands you lipstick.
+4. Push Y in front of Katherine to write messages until you get an "Answer?" prompt. Redwin will break the lipstick mid-way and need to talk to Angelica again before continuing this step.
+5. Respond to the "Answer?" prompt, then keep advancing the conversation until Katherine and Angelica join.
+
+For **Luke**:
+1. Talk to Angelica Snow until Luke agrees to check on Katherine Clayton.
+2. Talk with Katherine Clayton until you get no new dialogue.
+3. Talk with Angelica until Luke suggests writing out a message.
+4. Talk to Katherine once so Luke realizes he forgot his pen.
+5. Talk to Angelica until she hands you lipstick.
+6. Push Y in front of Katherine twice, so Luke writes a message.
+7. Talk to Angelica, then keep responding to the prompts until she and Katherine join you.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40691.png">
@@ -713,6 +761,7 @@ Appears with Chief Engineer Ussar when you have between three and six survivors 
 _Explore the ship long enough to suffer a tragic fate._
 </pre></big>
 
+This achievement is from getting a game over, which only happens when the game's 60 minute timer runs out and the aftermath fully plays out, as the game over screen only appears once your protagonist drowns. If you need to go out of your way to get this, it's easy to get by just using your emulator's fast forward button until time runs out.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/300920.png">
 
@@ -721,6 +770,7 @@ _Explore the ship long enough to suffer a tragic fate._
 _Escaped through the Boiler Room_
 </pre></big>
 
+This is the set's generic "get any ending" achievement, so you'll automatically get this one in your pursuit of the set's required endings.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40732.png">
 
@@ -729,6 +779,7 @@ _Escaped through the Boiler Room_
 _Poor Luke..._
 </pre></big>
 
+This achievement requires getting one of Luke's worse endings. The requirement for that ending is to escape with Ismay Townsend and less than 25 points worth of survivors, so this is easily done by just waiting in Luke's starting room until the ship capsizes, at which point you can rescue Ismay Townsend and rush to the end while keeping Ismay alive.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40696.png">
 
@@ -769,6 +820,10 @@ _Get the best ending as Jeffrey_
 _Escape the ship before the end of the 4th minute!_
 </pre></big>
 
+This achievement is essentially a speedrun where you want to rush straight to the exit without saving any other survivors. While this can be done with any protagonist, it's slightly easier with Luke since his starting location is closest to the exit, so you can just wait where he starts until the ship capsizes, then rush to the boiler room.
+
+Also, note that upon entering the boiler room the game's internal clock will pause, so the only way the achievement can invalidate from this point on is if you get knocked out via a fall or by being hit by fire. As such, it's best to take your time and prioritize safety when climbing through the boiler room to the exit.
+
 ## Events and Other Achievements
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40722.png">
@@ -789,7 +844,14 @@ This achievement is earned automatically after a small amount of time passes. Th
 _Give me my survivors back !!!_
 </pre></big>
 
-Chief Engineer Ussar will block your path to the boiler room if you have between three and six survivors in your party. You will still be at liberty to leave, but he will take control of your group of passengers if you don't navigate this conversation correctly. The conversation goes differently for each of the four protagonists:
+Chief Engineer Ussar will block your path to the boiler room if you have between three and six survivors in your party. You will still be at liberty to leave, but he will take control of your group of passengers if you don't navigate this conversation correctly. This achievement asks you to lose your passengers to Ussar. This is generally easy to fail:
+
+- As **Capris**, don't respond to any of his prompts. He will leave on his own with your survivors.
+- As **Luke**, respond to every prompt and Ussar will take your passengers.
+- As **Jeffrey**, respond to the first "Answer?" prompt and ignore the rest.
+- As **Redwin**, respond to every prompt until he explains the danger of the boiler room and asks "Are you satisfied now?", then don't respond further.
+
+If you wish to keep your survivors, instead:
 
 - As **Capris**, keep talking to Ussar until he tells Capris that he should check the boiler room alone, then ignore the "Answer?" prompt and don't respond. After a few seconds, Ussar will ask why Capris isn't saying anything, at which point you should answer. Ussar and Henry should then leave on their own shortly after.
 - As **Luke**, keep talking until the part where Luke insults Ussar, starting with "I never liked you from the start," and Ussar responds by telling Luke he should to go to the boiler room by himself, and begins to leave with Henry. At this point, ignore the "Answer?" prompt until Ussar leaves. Henry will stay behind and talk a bit; it doesn't matter if you respond to Henry's "Answer?" prompt at this point, since either way, Henry will leave while your survivors will remain.
@@ -805,6 +867,7 @@ Once you've earned this achievement, you can avoid this interaction when doing a
 _Find the map of the ship (not with Luke)_
 </pre></big>
 
+The map is found by interacting with a lady in room #18 (coordinates ##) on the map. This room is next to Capris' starting location, so you can grab this achievement within seconds with him. You can search her body after the capsize with any character to get a map if you haven't gotten it before.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40727.png">
 
@@ -813,6 +876,9 @@ _Find the map of the ship (not with Luke)_
 _Reach the boiler room in the nick of time (after the second and final capsize cutscene)_
 </pre></big>
 
+This requires entering the boiler room after the game's internal clock has reached 60 minutes. This is indicated by a second image of the ship capsizing, followed by the music changing and the ship more rapidly filling up with water.
+
+You won't have a lot of time to reach the boiler room once the clock hits 60 minutes, so the easiest way to get this achievement is to more quickly reach the room just outside the boiler room, then to stand by the door to the boiler room and use your emulator's fast forward button to speed things the rest of the way. Then as soon as the clock hits 60 minutes and you see the 2nd ship capsize image, you can then rush into the boiler room.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40731.png">
 
@@ -821,6 +887,7 @@ _Reach the boiler room in the nick of time (after the second and final capsize c
 _Grab my hand !_
 </pre></big>
 
+You should get this achievement upon grabbing any survivor's hand with the Y button. Since this is an essential part of managing survivors, you should get this one automatically while playing the game.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40733.png">
 
@@ -829,4 +896,4 @@ _Grab my hand !_
 _Listen to Michael play his violin to help a widow continue on._
 </pre></big>
 
-    
+This requires bringing Michael Burnings to Katherine Meibrus for a unique interaction between them both. Michael is found in the ship's chapel (#63/64/65 on the map), which is right where Jeffrey starts, so this is quickest to do with him. Just recruit Michael, then bring him to Katherine.
