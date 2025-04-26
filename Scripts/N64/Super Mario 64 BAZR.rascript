@@ -448,6 +448,9 @@ function painting_reroll_cost() => word(0x27061A)
 // $27062F: {1.0.3} [8-bit] Free Rerolls Cheat Active {freeRerollsCheat}
 function cheat_free_rerolls() => byte(0x27062F) == 1
 
+// $2706B6: {1.0.3} [8-bit] Green Demon Unnerf Active {unnerfGD}
+function cheat_green_demon_unnerf() => byte(0x2706B6) == 1
+
 // $270DA8: {1.0.3} [32-bit] {gGlobalTimer}
 function global_timer() => dword(0x270DA8)
 
@@ -463,7 +466,7 @@ function cheat_unlock_all_decks() => byte(0x272F77)
 function pizza_time_active() => byte(0x2734D3)
 
 // $2734D5: {1.0.3} [8-bit] Run Active {gRunActive}
-function active_run() => byte(0x2734D5)
+function is_active_run() => byte(0x2734D5) == 1
 
 // $2734D6: {1.0.3} [16-bit] Total Coins Spent {gTotalSpentCoins}
 function total_coins_spent() => word(0x2734D6)
@@ -474,16 +477,22 @@ function total_coins() => word(0x2734DA)
 // $2734DF: {1.0.3} [8-bit] {maxPermaPassives}
 function max_laminated() => byte(0x2734DF)
 
-
 // $2734E3: {1.0.3} [8-bit] Laminated Card - 1 {gPermaPassives}
 // $2734E2: {1.0.3} [8-bit] Laminated Card - 2 {gPermaPassives}
 // $2734E1: {1.0.3} [8-bit] Laminated Card - 3 {gPermaPassives}
-function laminated1() => byte(0x2734E3)
-function laminated2() => byte(0x2734E2)
-function laminated3() => byte(0x2734E1)
+function laminated_id(i) => byte(0x2734E3 - i)
 
 // $2734E7: {1.0.3} [8-bit] Current Passive {gCurrPassive}
 function current_passive() => byte(0x2734E7)
+
+// $273600: {1.0.3} [32-bit] {gCourseCompleteCoins}
+function _gCourseCompleteCoins() => dword(0x273600)
+
+// $273604: {1.0.3} [32-bit] {gCourseDoneMenuTimer}
+function _gCourseDoneMenuTimer() => dword(0x273604)
+
+// $27360B: {1.0.3} [8-bit] {gCourseCompleteCoinsEqual}
+function _gCourseCompleteCoinsEqual() => byte(0x27360B)
 
 // $27378A: {1.0.3} [8-bit] Menu Filter Setting
 //          0x01 | All
@@ -551,7 +560,7 @@ function mission_timer_running() => byte(0x27B62D)
 function pizza_timer() => word(0x27B62E)
 
 // $27B630: {1.0.3} [8-bit] {gCardUsedThisFrame}
-function cards_used_this_frame() => byte(0x27B630)
+function card_used_this_frame() => byte(0x27B630)
 
 // $27B631: {1.0.3} [8-bit] {gAirMoveUsed}
 function air_move_used() => byte(0x27B631)
@@ -904,6 +913,39 @@ DECK_NAME = {
 	0x11: "*Dev",
 }
 
+STAGE_BOB =  1
+STAGE_WF  =  2
+STAGE_JRB =  3
+STAGE_CCM =  4
+STAGE_BBH =  5
+STAGE_HMC =  6
+STAGE_LLL =  7
+STAGE_SSL =  8
+STAGE_DDD =  9 // :(
+STAGE_SL  = 10
+STAGE_WDW = 11
+STAGE_TTM = 12
+STAGE_THI = 13
+STAGE_TTC = 14
+STAGE_RR  = 15
+
+MAIN_STAGES = {
+	STAGE_BOB: { "map": 0x09, "stars": 0x04CDA7, "vault": 0x04CDA6, },
+	STAGE_WF : { "map": 0x18, "stars": 0x04CDA6, "vault": 0x04CDA5, },
+	STAGE_JRB: { "map": 0x28, "stars": 0x04CDA5, "vault": 0x04CDA4, },
+	STAGE_CCM: { "map": 0x05, "stars": 0x04CDA4, "vault": 0x04CDAB, },
+	STAGE_BBH: { "map": 0x04, "stars": 0x04CDAB, "vault": 0x04CDAA, },
+	STAGE_HMC: { "map": 0x07, "stars": 0x04CDAA, "vault": 0x04CDA9, },
+	STAGE_LLL: { "map": 0x16, "stars": 0x04CDA9, "vault": 0x04CDA8, },
+	STAGE_SSL: { "map": 0x08, "stars": 0x04CDA8, "vault": 0x04CDAF, },
+	STAGE_SL:  { "map": 0x0a, "stars": 0x04CDAE, "vault": 0x04CDAD, },
+	STAGE_WDW: { "map": 0x29, "stars": 0x04CDAD, "vault": 0x04CDAC, },
+	STAGE_TTM: { "map": 0x24, "stars": 0x04CDAC, "vault": 0x04CDB3, },
+	STAGE_THI: { "map": 0x0d, "stars": 0x04CDB3, "vault": 0x04CDB2, },
+	STAGE_TTC: { "map": 0x0e, "stars": 0x04CDB2, "vault": 0x04CDB1, },
+	STAGE_RR:  { "map": 0x0f, "stars": 0x04CDB1, "vault": 0x04CDB0, },
+}
+
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
 
 //          +0x00 | [8-bit] Max Uses
@@ -923,11 +965,68 @@ function is_card(addr) => card_type(addr)/card_type(addr)
 
 function deck_size() => sum_of(range(0, MAX_DECK_SIZE-1), i => is_card(full_deck(i)))
 function draw_size() => sum_of(range(0, MAX_DECK_SIZE-1), i => is_card(shuffled_deck(i)))
+function num_laminated() => sum_of(range(0, 2), i => laminated_id(i)/laminated_id(i))
 
 function actual_painting() => max_of(
 	measured(current_hub_painting(), when=stars_obtained() < 16),
 	measured(0xff, when=stars_obtained() >= 16)
 )
+
+// the transition from 0->1 happens when loading a file, but the total run time is already loaded
+function start_new_run() => prev(!is_active_run()) && is_active_run() && total_time_f() == 0
+
+function reroll_painting() => (
+	// in the casino
+	current_map() == 0x27 && 
+	// painting changed
+	prev(current_hub_painting()) != current_hub_painting() && 
+	// and coins went down
+	total_coins() < prev(total_coins()) && 
+	// while a run is active
+	prev(is_active_run())
+)
+
+function is_stage_complete() => prev(_gCourseCompleteCoinsEqual()) == 0 && _gCourseCompleteCoinsEqual() == 1
+function is_run_complete() => stars_obtained() == 17 && current_map() == 0x27 && is_stage_complete()
+
+function vault_card_collected(stage) => bit7(MAIN_STAGES[stage]["vault"])
+function star_collected(stage, i) => bit(i, MAIN_STAGES[stage]["stars"])
+
+function star_collected_trigger(stage, i) => (
+	current_map() == MAIN_STAGES[stage]["map"] && 
+	prev(star_collected(stage, i)) == 0 && 
+	star_collected(stage, i) == 1
+)
+
+function star_count(stage) => sum_of(range(0,5), i => star_collected(stage, i))
+function collected_all_stars(stage) => (
+	is_active_run() && prev(star_count(stage)) == 5 &&
+	measured(star_count(stage) == 6, when=current_map() == MAIN_STAGES[stage]["map"])
+)
+
+function all_permutations(a, n)
+// implementation of Heap's algorithm to generate all permutations of n objects
+// from B.R. Heap's _Permutations by Interchanges_ from *The Computer Journal*, Vol 6, Issue 3, Nov 1963
+// doi.org/10.1093/comjnl/6.3.293
+{
+	if (n == 1) return [a,]
+
+	p = []
+	for i in range(0, n-1)
+	{
+		// add all of the subarray permutations to the list
+		for e in all_permutations(a, n-1) array_push(p, e)
+
+		// if the size is odd, swap with first element, otherwise with ith element
+		x = if_else(n % 2 == 1, 0, i)
+
+		// basic swap
+		t = a[x]
+		a[x] = a[n-1]
+		a[n-1] = t
+	}
+	return p
+}
 
 // --- RICH PRESENCE -------------------------------------------------------------------
 
@@ -944,25 +1043,37 @@ rp_level_coins = rich_presence_value("_Number", level_coins(), "VALUE")
 
 function rp_card_name(x) => rich_presence_lookup("Card", card_id(x), CARD_NAME, fallback="???")
 function rp_card_uses(x) => rich_presence_value("_Number", card_uses_left(x), "VALUE")
+rp_num_laminated = rich_presence_value("_Number", num_laminated(), "VALUE")
 
 rp_lives = rich_presence_value("_Number", lives_remaining(), "VALUE")
 rp_life_word = rich_presence_lookup("_LifeWord", lives_remaining(), {1: "life"}, fallback="lives")
 
-rp_run_time = rich_presence_value("_Time", global_timer(), "FRAMES")
+rp_run_time = rich_presence_value("_Time", total_time_f() * 2, "FRAMES")
+rp_mission_time = rich_presence_value("_Time", mission_timer() * 2, "FRAMES")
 
 rp_wins = rich_presence_value("_Number", total_wins(), "VALUE")
 rp_loss = rich_presence_value("_Number", total_losses(), "VALUE")
 
 rich_presence_conditional_display(current_map() < 4,
-	"🃏 BAZR - Title Screen ({0} win{1}, {2} loss{3})",
+	"Title Screen ({0} win{1}, {2} loss{3})",
 	rp_wins, plural(total_wins()),
 	rp_loss, plurale(total_losses())
 )
 
-rich_presence_conditional_display(active_run() == 0,
-	"🃏 BAZR - Starting a new run ({0} win{1}, {2} loss{3})",
+rich_presence_conditional_display(!is_active_run(),
+	"Starting a new run ({0} win{1}, {2} loss{3})",
 	rp_wins, plural(total_wins()),
 	rp_loss, plurale(total_losses())
+)
+
+rich_presence_conditional_display(stars_obtained() == 17 && current_map() == 0x27,
+	"🏆 Run Complete! • 🃏 {0} Deck • ⭐ 16/16 stars + 🗝️ • 🚶 {6} {7} • 💰 {8} coin{9} • ⏰ {10}",
+	rp_deck, rp_deck_size, plural(deck_size()),
+	rp_painting,
+	rp_stars, plural(stars_obtained()),
+	rp_lives, rp_life_word,
+	rp_total_coins, plural(total_coins()),
+	rp_run_time
 )
 
 rich_presence_conditional_display(current_map() == 0x27,
@@ -977,18 +1088,299 @@ rich_presence_conditional_display(current_map() == 0x27,
 
 rich_presence_display(
 	"🗺️ {0} • 🃏 {1} Deck • [B] {2} x{3} • [A] {4} x{5} • [Z] {6} x{7} • [R] {8} x{9} • " + 
-		"(passive) {10} • {11} card{12} remaining • ⭐ {13} • 🚶 {14} • 🪙 {15} • ⏰ {16}",
+		"(P) {10} [+{11}L] • {12} card{13} remaining • ⭐ {14} • 🚶 {15} • 🪙 {16} • ⏰ {17}",
 	rp_stage,
 	rp_deck,
 	rp_card_name(player_hand(BTN_B)), rp_card_uses(player_hand(BTN_B)),
 	rp_card_name(player_hand(BTN_A)), rp_card_uses(player_hand(BTN_A)),
 	rp_card_name(player_hand(BTN_Z)), rp_card_uses(player_hand(BTN_Z)),
 	rp_card_name(player_hand(BTN_R)), rp_card_uses(player_hand(BTN_R)),
-	rp_card_name(player_hand(PASSIVE_SLOT)),
+	rp_card_name(player_hand(PASSIVE_SLOT)), rp_num_laminated,
 	rp_draw_size, plural(draw_size()),
-	rp_stars, rp_lives, rp_level_coins, rp_run_time
+	rp_stars, rp_lives, rp_level_coins, rp_mission_time
 )
 
 // --- ACHIEVEMENTS -------------------------------------------------------------------
+
+// Collect your first Star
+achievement(
+	title="My BAZR Deck Has No Pathetic Cards",
+	description="Collect your first star",
+	type="progression",
+	points=2,
+	trigger=is_active_run() && prev(stars_obtained()) == 0 && stars_obtained() == 1
+)
+
+// Complete a run with the Mario Deck
+achievement(
+	title="It's-a-Me, Mario!",
+	description="Complete a run with the Mario Deck",
+	type="progression",
+	points=5,
+	trigger=is_run_complete() && current_deck() == 0x00
+)
+
+// Complete a run with the Toad Deck
+achievement(
+	title="Thank You! But Our Princess Is in Another Deck!",
+	description="Complete a run with the Toad Deck",
+	type="progression",
+	points=10,
+	trigger=is_run_complete() && current_deck() == 0x02
+)
+
+// Complete a run with the Baby Deck
+achievement(
+	title="Baby's First Word Was BAZR",
+	description="Complete a run with the Baby Deck",
+	type="progression",
+	points=5,
+	trigger=is_run_complete() && current_deck() == 0x04
+)
+
+// Complete a run with the Pizza Deck
+achievement(
+	title="Pepperman Strikes!",
+	description="Complete a run with the Pizza Deck",
+	type="progression",
+	points=10,
+	trigger=is_run_complete() && current_deck() == 0x06
+)
+
+// Complete a run with the Skeleton Deck
+achievement(
+	title="__SkeletonDeck",
+	description="Complete a run with the Skeleton Deck",
+	type="progression",
+	points=10,
+	trigger=is_run_complete() && current_deck() == 0x08
+)
+
+// Complete a run with the Demon Deck
+achievement(
+	title="The Fungus Hungers",
+	description="Complete a run with the Green Demon Deck",
+	type="progression",
+	points=25,
+	trigger=is_run_complete() && current_deck() == 0x0a
+)
+
+// Complete a run with the Walkies Deck
+achievement(
+	title="No Running In the Halls",
+	description="Complete a run with the Walkies Deck",
+	type="progression",
+	points=10,
+	trigger=is_run_complete() && current_deck() == 0x0c
+)
+
+// Complete a run with the Bowser Deck
+achievement(
+	title="King of Spades, King of the Koopas",
+	description="Complete a run with the Bowser Deck",
+	type="progression",
+	points=10,
+	trigger=is_run_complete() && current_deck() == 0x0e
+)
+
+// Complete a run with the Chaos Deck
+achievement(
+	title="My Other Deck is Commander!",
+	description="Complete a run with the Chaos Deck",
+	type="progression",
+	points=25,
+	trigger=is_run_complete() && current_deck() == 0x10
+)
+
+// Collect every star in Bob-omb Battlefield in a single run
+achievement(
+	title="An Explosive Endeavor",
+	description="Collect every star in Bob-omb Battlefield in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_BOB)
+)
+
+// Collect every star in Whomp's Fortress in a single run
+achievement(
+	title="A Fortress Under Siege",
+	description="Collect every star in Whomp's Fortress in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_WF)
+)
+
+// Collect every star in Jolly Roger Bay in a single run
+achievement(
+	title="Bounty on the Bay",
+	description="Collect every star in Jolly Roger Bay in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_JRB)
+)
+
+// Collect every star in Cool Cool Mountain in a single run
+achievement(
+	title="Slip Slidin' for Six Golden Stars",
+	description="Collect every star in Cool Cool Mountain in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_CCM)
+)
+
+// Collect every star in Big Boo's Haunt in a single run
+achievement(
+	title="Full House in the Ghost House",
+	description="Collect every star in Big Boo's Haunt in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_BBH)
+)
+
+// Collect every star in Hazy Maze Cave in a single run
+achievement(
+	title="Stellar Spelunker",
+	description="Collect every star in Hazy Maze Cave in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_HMC)
+)
+
+// Collect every star in Lethal Lava Land in a single run
+achievement(
+	title="Volcanic Valuables",
+	description="Collect every star in Lethal Lava Land in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_LLL)
+)
+
+// Collect every star in Shifting Sand Land in a single run
+achievement(
+	title="Shining Prizes around the Pyramid",
+	description="Collect every star in Shifting Sand Land in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_SSL)
+)
+
+// Collect every star in Snowman's Land in a single run
+achievement(
+	title="__StarsSL",
+	description="Collect every star in Snowman's Land in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_SL)
+)
+
+// Collect every star in Wet-Dry World in a single run
+achievement(
+	title="__StarsWDW",
+	description="Collect every star in Wet-Dry World in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_WDW)
+)
+
+// Collect every star in Tall, Tall Mountain in a single run
+achievement(
+	title="__StarsTTM",
+	description="Collect every star in Tall, Tall Mountain in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_TTM)
+)
+
+// Collect every star in Tiny-Huge Island in a single run
+achievement(
+	title="__StarsTHI",
+	description="Collect every star in Tiny-Huge Island in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_THI)
+)
+
+// Collect every star in Tick Tock Clock in a single run
+achievement(
+	title="__StarsTTC",
+	description="Collect every star in Tick Tock Clock in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_TTC)
+)
+
+// Collect every star in Rainbow Ride in a single run
+achievement(
+	title="__StarsRR",
+	description="Collect every star in Rainbow Ride in a single run",
+	points=5,
+	trigger=collected_all_stars(STAGE_RR)
+)
+
+// Assemble all 5 pieces of Exodia the Forbidden One and use its power
+achievement(
+	title="My BAZR Deck Has No Pathetic Cards",
+	description="Assemble all 5 pieces of Exodia the Forbidden One and witness its terrible power",
+	points=10,
+	trigger=(
+		// check if a card was used
+		prev(card_used_this_frame()) == 0 && card_used_this_frame() == 1 &&
+
+		// exodia is the current passive card
+		card_id(player_hand(PASSIVE_SLOT)) == 0x0222 && 
+
+		// and each of the 4 limbs of exodia are currently in the button slots (order doesn't matter)
+		any_of(all_permutations([0x012a, 0x012b, 0x012c, 0x012d], 4), ids => (
+			card_id(player_hand(BTN_B)) == ids[0] && card_id(player_hand(BTN_A)) == ids[1] &&
+			card_id(player_hand(BTN_Z)) == ids[2] && card_id(player_hand(BTN_R)) == ids[3]
+		))
+	)
+)
+
+// In one session, start and complete a run with any deck without ever re-rolling the painting
+achievement(
+	title="__NoReroll",
+	description="In one session, start and complete a run with any deck without ever re-rolling the painting",
+	points=3,
+	trigger=once(start_new_run()) && never(!is_active_run()) && never(reroll_painting()) && trigger_when(is_run_complete())
+)
+
+// Collect any star with the Green Demon Deck with the Green Demon Un-nerf cheat active
+achievement(
+	title="__GreenDemonUnnerf",
+	description="Collect any star with the Green Demon Deck with the Green Demon Un-nerf cheat active",
+	points=5,
+	trigger=cheat_green_demon_unnerf() && animation_id() == 0x02
+)
+
+// Complete the second stage of the Bowser Gauntlet without using any cards
+achievement(
+	title="__Bowser2Cardless",
+	description="Complete the second stage of the Bowser Gauntlet, In the Fire Sea, without using any cards",
+	points=5,
+	trigger=(
+		// start challenge when transitioning from Bowser 1 to Bowser 2
+		once(prev(current_map()) == 0x11 && current_map() == 0x13) &&
+		// reset if a card is used at any point
+		never(card_used_this_frame() == 1) &&
+		// reset if we are back in Luigi's Casino
+		never(current_map() == 0x27) &&
+		// success when transitioning from Bowser 2 to Bowser 3
+		trigger_when(prev(current_map()) == 0x13 && current_map() == 0x15)
+	)
+)
+
+// Complete a run with the Pizza Deck without burning the Pizza Time card
+achievement(
+	title="__PizzaTime",
+	description="Complete a run with the Pizza Deck without burning the Pizza Time card",
+	points=10,
+	trigger=(
+		// complete pizza deck
+		is_run_complete() && current_deck() == 0x06 && 
+		// with the pizza time card in the deck somewhere
+		any_of(range(0, MAX_DECK_SIZE-1), i => card_id(full_deck(i)) == 0x030c)
+	)
+)
+
+// Complete a run with the Green Demon Deck with 10 or more lives remaining
+achievement(
+	title="__GreenDemon10Lives",
+	description="Complete a run with the Green Demon Deck with 10 or more lives remaining",
+	points=25,
+	trigger=(
+		// complete green demon deck
+		is_run_complete() && current_deck() == 0x0a && 
+		// with 10 or more lives remaining
+		lives_remaining() >= 10
+	)
+)
 
 // --- LEADERBOARDS -------------------------------------------------------------------
