@@ -12,7 +12,11 @@
 		- [Strategies for Challenging Rooms](#strategies-for-challenging-rooms)
 			- [Above Francoise Maxwell's Room](#above-francoise-maxwells-room)
 			- [The Top of Miller Strisers' Room](#the-top-of-miller-strisers-room)
+	- [Advanced Techniques](#advanced-techniques)
+		- [Teleporting Survivors](#teleporting-survivors)
+		- [The Boiler Room Skip](#the-boiler-room-skip)
 	- [Game Map](#game-map)
+		- [Doomed Passengers](#doomed-passengers)
 - [Achievements](#achievements)
 	- [Survivors](#survivors)
 	- [Endings](#endings)
@@ -164,6 +168,52 @@ If you have trouble doing the jump from a standing position, you can also quickl
 [[ SOS - Miller Strisers Jump Right Angle 3.webm ]]
 </details>
 
+## Advanced Techniques
+
+The techniques below can be helpful for completing the more challenging aspects of this game.
+
+### Teleporting Survivors
+
+When you don't want to navigate survivors through an area, another option is to "teleport" them past it. To do this, head to the next screen on your own and then call your survivors over to your new screen with the L or R button, and they'll hopefully appear after some time has passed. You'll know they've all successfully teleported over if the survivor arrow turns red.
+
+"Teleporting" survivors like this can be unreliable, especially if not done carefully, since there are multiple variables that affect how long survivors will appear when called to a new screen, and whether they even appear at all. Here's some advice for making survivor teleporting more reliable:
+
+- Even after you reach the next screen, the game still keeps track of survivor locations on the previous screen in some capacity, since survivors who are further away from the doorway to your current screen will often take more time to show up, and can occasionally get stuck in transit.
+
+> [!TIP]
+> It is often better not to try and teleport survivors over very long distances. On bigger maps, try to bring them part of the way first.
+
+- Survivors seem more likely to get stuck on the previous screen if they were in the middle of moving to a new location during the screen transition. For best results, have your survivors all settled at a single location before you change rooms to teleport them.
+
+> [!TIP]
+> If survivors are refusing to teleport even after some time has passed, you may need to briefly return to the previous screen to get them unstuck.
+
+> [!WARNING]
+> If the previous room is safe, you may want to look for them and make sure they're not caught on an obstacle (and then either pull them up or use the L/R call commands to try and redirect their movement if they are). However, if the previous room is dangerous, due to obstacles or the risk of falling, returning to the previous screen could result in a survivor dropping to their death. In cases like these, briefly enter the previous room and then return to your current room as quickly as possible, that way you can hopefully get the survivors unstuck before any have the chance to fall and die.
+
+Unfortunately, survivor teleporting is something that is near-impossible to get 100% reliable, so while it can be extremely useful when used correctly, it's not a replacement for the other [basic movement methods](#calling-and-leading-survivors).
+
+### The Boiler Room Skip
+
+The Boiler Room can be a fairly dangerous final gauntlet. Survivors will attempt to make jumps that, without constant supervision by the player, are all but certain death. There is, however, a trick that lets you safely get your survivors to the top without the risk of a rogue survivor suddenly jumping to their doom.
+
+First, leave your survivors near the entrance. The exact position doesn't matter.
+
+![survivors standing together at the start of the boiler room](images/boiler-start.png)
+
+Quickly climb to the top of the boiler room on your own. If you are quick enough, you can reach the top before the first explosion, which happens after a set amount of time has passed. When this happens, fireballs will start raining down. Purposely get hit by a fireball to get knocked out.
+
+> [!WARNING]
+> Time doesn't pass normally in the boiler room, but getting knocked out does advance the clock by five minutes. Don't attempt this skip unless you have at least six minutes left on the clock.
+
+![Capris jumping into a falling fireball](images/boiler-fire.png)
+
+Once you regain consciousness, your survivors will be standing nearby, allowing them to rejoin you at the top without dealing with the dangerous climb. **Don't forget to talk to them to have them rejoin your party.**
+
+![Capris standing next to a survivor near the top of the boiler room](images/boiler-wakeup.png)
+
+One benefit to this skip is that even if you climb too slowly and the fireballs fall before you reach the top, you can still get hit by them to have the survivors teleport part of the way up (they'll generally be near wherever you got knocked out), at which point you can resume the climb the normal way from that point forward.
+
 ## Game Map
 ![map of the Lady Crithania capsized](images/crithania-capsized-grid.png)
 
@@ -200,6 +250,22 @@ If you have trouble doing the jump from a standing position, you can also quickl
 |Angelica Snow|any||4|
 
 🕞 = only available to recruit after 33:00
+
+### Doomed Passengers
+
+The following passengers are not part of the achievement set, nor can they be rescued, so interacting with them will only slow you down.
+
+![two passengers trapped in an elevator](images/doomed-elevator.png)
+
+There are **two unnamed crewmen trapped in an elevator** who will tell you to talk to someone in the control room for help. Unfortunately, that person is in no state to help them, making rescuing these two impossible.
+
+![woman collapsed on the floor of the ballroom](images/doomed-woman-ballroom.png)
+
+There is a **woman collapsed on the floor of the ballroom** who is too injured to save. While her identity isn't specified, she's presumably Jack Hamilton's mother since she always mentions his name.
+
+![Paddock, in the control room](images/doomed-paddock.png)
+
+There is **Paddock**, who can be found in the control room. He'll call out for help, but he's doomed to die from his injuries. He is the man the crewmen in the elevator wanted help from. Luke will recognize Paddock and have slightly more to say to him, but will still be powerless to help.
 
 # Achievements
 
