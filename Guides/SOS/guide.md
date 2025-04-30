@@ -17,6 +17,11 @@
 		- [The Boiler Room Skip](#the-boiler-room-skip)
 	- [Game Map](#game-map)
 		- [Doomed Passengers](#doomed-passengers)
+- [Best Endings](#best-endings)
+	- [Capris Wisher](#capris-wisher)
+	- [Redwin Gardner](#redwin-gardner)
+	- [Luke Heinz](#luke-heinz)
+	- [Jeffrey Howell](#jeffrey-howell)
 - [Achievements](#achievements)
 	- [Survivors](#survivors)
 	- [Endings](#endings)
@@ -266,6 +271,43 @@ There is a **woman collapsed on the floor of the ballroom** who is too injured t
 ![Paddock, in the control room](images/doomed-paddock.png)
 
 There is **Paddock**, who can be found in the control room. He'll call out for help, but he's doomed to die from his injuries. He is the man the crewmen in the elevator wanted help from. Luke will recognize Paddock and have slightly more to say to him, but will still be powerless to help.
+
+
+
+# Best Endings
+
+> [!WARNING]
+> Several of the suggested survivors lists earn you more than the necessary 25 points. First, this is to give you a bit of flexibility with mistakes. While it might seem optimal to skip some survivors and only do what is necessary, but the primary rationale for having a full party of seven survivors is to skip the encounter with [the chief engineer, Ussar](#ach-ussar). **Navigate this encounter at your own risk!**
+
+## Capris Wisher
+
+Capris Wisher starts at a location that lets him quickly reach his key survivor, Amy Markarson, along with other high-value survivors, so his route is relatively straightforward. 
+
+**Suggested Survivor Checklist** (*28 points total*):
+- [ ] [Anna Tamaro](#survivor-anna) (6) + [Frank Coney](#survivor-frank) (3)
+- [ ] 🔑 [Amy Markarson](#survivor-amy) (4)
+- [ ] [Stacy Smith](#survivor-stacy) (4) + [Pamela Smith](#survivor-pamela) (4) + [Cooper Smith](#survivor-cooper) (2)
+- [ ] [Jack Hamilton](#survivor-jack) (5)
+
+![a map of the ship with a highlighted route for Capris' best ending](images/route-map-capris.png)
+
+**Step-by-Step Guide:**
+
+1. During Capris' intro, immediately walk to room 23 on the map (the above map shows the ship post-capsize, so you will need to navigate the map upside-down) so you can rescue [Anna Tamaro](#survivor-anna) and [Frank Coney](#survivor-frank) as soon as the ship capsizes.
+
+2. Head upwards to [Amy Markarson](#survivor-amy)'s room (2 on the map) to rescue her.
+
+3. Make your way to the room where the [Smith family](#survivor-cooper) is taking refuge (14 on the map) to rescue them. If you reach this room after 33 minutes have passed, they will have left.
+
+4. Wait for the brief cutscene to play at 33 minutes (fast forward to get to this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways). Rescue him.
+
+5. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
+
+## Redwin Gardner
+
+## Luke Heinz
+
+## Jeffrey Howell
 
 # Achievements
 
@@ -848,8 +890,7 @@ _Poor Luke..._
 </pre></big>
 
 This achievement requires getting one of Luke's worse endings. The requirement for that ending is to escape with Ismay Townsend and less than 25 points worth of survivors, so this is easily done by just waiting in Luke's starting room until the ship capsizes, at which point you can rescue Ismay Townsend and rush to the end while keeping Ismay alive.
-    
-<a name="best-capris"></a>
+
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40696.png">
 
 <big><pre>
@@ -857,38 +898,17 @@ This achievement requires getting one of Luke's worse endings. The requirement f
 _Get the best ending as Capris_
 </pre></big>
 
-**Capris Wisher** starts at a location that lets him quickly reach his key survivor, Amy Markarson, along with other high-value survivors, so his route is relatively straightforward. 
+Read about how to reach [Capris Wisher's best ending](#capris-wisher) in the Best Endings section.
 
-**Suggested Survivor Checklist** (*28 points total*):
-- [ ] [Anna Tamaro](#survivor-anna) (6) + [Frank Coney](#survivor-frank) (3)
-- [ ] 🔑 [Amy Markarson](#survivor-amy) (4)
-- [ ] [Stacy Smith](#survivor-stacy) (4) + [Pamela Smith](#survivor-pamela) (4) + [Cooper Smith](#survivor-cooper) (2)
-- [ ] [Jack Hamilton](#survivor-jack) (5)
 
-> [!WARNING]
-> This list of suggested survivors earns you more than the necessary 25 points. First, this gives you a bit of flexibility with mistakes. While it might seem optimal to skip some survivors and only do what is necessary, but the primary rationale for having a full party of seven survivors is to skip the encounter with [the chief engineer, Ussar](#ach-ussar). **Navigate this encounter at your own risk!**
-
-![a map of the ship with a highlighted route for Capris' best ending](images/route-map-capris.png)
-
-**Step-by-Step Guide:**
-
-1. During Capris' intro, immediately walk to room 23 on the map (the above map shows the ship post-capsize, so you will need to navigate the map upside-down) so you can rescue [Anna Tamaro](#survivor-anna) and [Frank Coney](#survivor-frank) as soon as the ship capsizes.
-
-2. Head upwards to [Amy Markarson](#survivor-amy)'s room (2 on the map) to rescue her.
-
-3. Make your way to the room where the [Smith family](#survivor-cooper) is taking refuge (14 on the map) to rescue them. If you reach this room after 33 minutes have passed, they will have left.
-
-4. Wait for the brief cutscene to play at 33 minutes (fast forward to get to this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways). Rescue him.
-
-5. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
-
-<a name="best-redwin"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40728.png">
 
 <big><pre>
 [Redwin Best Ending (50)](https://retroachievements.org/achievement/271852)
 _Get the best ending as Redwin_
 </pre></big>
+
+Read about how to reach [Redwin Gardner's best ending](#redwin-gardner) in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40729.png">
@@ -898,6 +918,8 @@ _Get the best ending as Redwin_
 _Get the best ending as Luke_
 </pre></big>
 
+Read about how to reach [Luke Heinz's best ending](#luke-heinz) in the Best Endings section.
+
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40730.png">
 
@@ -905,6 +927,8 @@ _Get the best ending as Luke_
 [Jeffrey Best Ending (25)](https://retroachievements.org/achievement/271854)
 _Get the best ending as Jeffrey_
 </pre></big>
+
+Read about how to reach [Jeffrey Howell's best ending](#jeffrey-howell) in the Best Endings section.
 
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40723.png">
