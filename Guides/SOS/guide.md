@@ -249,7 +249,7 @@ One benefit to this skip is that even if you climb too slowly and the fireballs 
 |Katherine Clayton|any||6|
 |Angelica Snow|any||4|
 
-🕞 = only available to recruit after 33:00
+🕞 = only available to rescue after 33:00
 
 ### Doomed Passengers
 
@@ -278,8 +278,9 @@ Survivor achievements include the following information
 - the number of points they contribute toward the best ending calculation
 - their stamina values, which determines how long they can be active before complaining about needing to rest
 
-Some passengers require doing certain tasks or speaking in certain ways to recruit them, and this information is included as well.
+Some passengers require doing certain tasks or speaking in certain ways to rescue them, and this information is included as well.
 
+<a name="survivor-ismay"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40667.png">
 
 <big><pre>
@@ -299,7 +300,7 @@ Ismay is the key survivor for Luke. Read more about key survivors in the Best En
 
 After initiating conversation with him, press Y to get Ismay to respond.
 
-    
+<a name="survivor-amy"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40686.png">
 
 <big><pre>
@@ -317,7 +318,7 @@ _Rescue Amy Markarson_
 
 Amy is the key survivor for Capris. Read more about key survivors in the Best Endings section.
 
-    
+<a name="survivor-harry"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40684.png">
 
 <big><pre>
@@ -335,7 +336,7 @@ _Rescue Harry Adams_
 
 Harry is one of three key survivors for Redwin. Read more about key survivors in the Best Endings section.
 
-    
+<a name="survivor-stella"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40685.png">
 
 <big><pre>
@@ -353,7 +354,7 @@ _Rescue Stella Adams_
 
 Stella is one of three key survivors for Redwin. Read more about key survivors in the Best Endings section.
 
-    
+<a name="survivor-jack"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40689.png">
 
 <big><pre>
@@ -371,7 +372,7 @@ _Rescue Jack Hamilton_
 
 Jack is one of three key survivors for Redwin. Read more about key survivors in the Best Endings section.
 
-    
+<a name="survivor-adela"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40683.png">
 
 <big><pre>
@@ -389,7 +390,7 @@ _Rescue Adela Howell_
 
 Adela is the key survivor for Jeffrey. Read more about key survivors in the Best Endings section.
 
-    
+<a name="survivor-jeffrey"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40687.png">
 
 <big><pre>
@@ -407,7 +408,7 @@ _Rescue Jeffrey Howell_
 
 Jeffrey will appear and join alongside Adela when Luke tries to rescue her.
 
-    
+<a name="survivor-luke"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40688.png">
 
 <big><pre>
@@ -423,7 +424,7 @@ _Rescue Luke Heinz_
 |Survivor points|5|
 |Stamina|very high (176)|
 
-    
+<a name="survivor-john-rattler"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40669.png">
 
 <big><pre>
@@ -439,7 +440,7 @@ _Rescue John Rattler_
 |Survivor points|2|
 |Stamina|mid-high (149)|
 
-    
+<a name="survivor-kelly"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40673.png">
 
 <big><pre>
@@ -457,7 +458,7 @@ _Rescue Kelly Nelson_
 
 Doesn't always show up (the specifics are unclear, but it seems to often happen when the ship is tilted). If he doesn't appear, wait for the ship to be level, then walk roughly one screen width to the right of his location then back, and try again.
 
-    
+<a name="survivor-cooper"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40668.png">
 
 <big><pre>
@@ -479,7 +480,7 @@ This guy's a real jerk who will impede your attempts to save him, along with Pam
 - As **Luke**, keep talking without missing any "Answer?" prompts, then as soon as there's a break in the conversation and you get a "Communication?" prompt instead, talk with Pamela (the woman on the right), then keep talking until the Smiths agree to join.
 - As **Jeffrey**, keep talking with Cooper specifically until Jeffrey mentions he wants Cooper's trust in exchange for treating Pamela. Next, talk to Pamela (the woman on the right) twice, so Jeffrey introduces himself as a doctor, then push Y to treat Pamela's injury. Finally, talk with Pamela and the Smiths should all join you. *(Note: This needs to be followed exactly. Doing any of the steps in the wrong order may cause Cooper to get mad, preventing his entire family from joining.)*
 
-    
+<a name="survivor-pamela"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40681.png">
 
 <big><pre>
@@ -497,7 +498,7 @@ _Rescue Pamela Smith_
 
 Joins alongside Cooper and Stacy Smith. See Cooper Smith for how to save the entire Smith family.
 
-    
+<a name="survivor-stacy"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40694.png">
 
 <big><pre>
@@ -515,7 +516,7 @@ _Rescue Stacy Smith_
 
 Joins alongside Cooper and Pamela Smith. See Cooper Smith for how to save the entire Smith family.
 
-
+<a name="survivor-jimmy"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40670.png">
 
 <big><pre>
@@ -531,7 +532,7 @@ _Rescue Jimmy Akers_
 |Survivor points|2|
 |Stamina|high (165)|
 
-    
+<a name="survivor-miller"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40672.png">
 
 <big><pre>
@@ -547,7 +548,7 @@ _Rescue Miller Strisers_
 |Survivor points|3|
 |Stamina|high (160)|
 
-    
+<a name="survivor-tender"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40674.png">
 
 <big><pre>
@@ -563,7 +564,7 @@ _Rescue Tender Johnston_
 |Survivor points|3|
 |Stamina|high (160)|
 
-    
+<a name="survivor-michael"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40678.png">
 
 <big><pre>
@@ -581,6 +582,7 @@ _Rescue Michael Burnings_
 
 After speaking with Michael, he will ask you to retrieve his violin, which is in the top left of the room he is in, before he will join your group. Jump to it and press Y to grab it.
     
+<a name="survivor-barbara"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40679.png">
 
 <big><pre>
@@ -598,7 +600,7 @@ _Rescue Barbara Sinclair_
 
 Barbara Sinclair and Kleiver Mathews always join together.
 
-    
+<a name="survivor-kleiver"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40695.png">
 
 <big><pre>
@@ -616,7 +618,7 @@ _Rescue Kleiver Mathews_
 
 Barbara Sinclair and Kleiver Mathews always join together.
 
-    
+<a name="survivor-alan"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40675.png">
 
 <big><pre>
@@ -634,7 +636,7 @@ _Rescue Alan Gebres_
 
 Will only join Luke if you don't answer after Alan says "Please save the passengers first", then resume talking after Alan responds.
 
-
+<a name="survivor-richard"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40676.png">
 
 <big><pre>
@@ -650,7 +652,7 @@ _Rescue Richard Cunningham_
 |Survivor points|3|
 |Stamina|high (165)|
 
-    
+<a name="survivor-anna"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40690.png">
 
 <big><pre>
@@ -670,7 +672,7 @@ In order to convince her you'll need to talk to Dr. Hendrix (who's lying on the 
 
 After convincing Anna, Frank Coney will automatically join alongside her unless you’re playing as Redwin, who will have Anna join alone. In this case, you will need to talk to Frank separately if you wish to rescue him.
 
-    
+<a name="survivor-frank"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40677.png">
 
 <big><pre>
@@ -690,7 +692,7 @@ While he's linked with Anna Tamaro and typically joins with her, he'll join on h
 
 Redwin is also the sole exception when it comes to Frank joining with Anna; Redwin always needs to talk to Frank if you want to save him.
 
-    
+<a name="survivor-angelica"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40680.png">
 
 <big><pre>
@@ -706,11 +708,11 @@ _Rescue Angelica Snow_
 |Survivor points|4|
 |Stamina|mid (117)|
 
-On some routes, recruiting her might involve using Y to interact during the conversation.
+On some routes, rescueing her might involve using Y to interact during the conversation.
 
 She'll usually only join with Katherine Clayton after you've successfully convinced the latter to join, but Capris has the alternate option of convincing Angelica to join alone if you ignore Katherine and keep talking to Angelica.
 
-    
+<a name="survivor-clayton"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40693.png">
 
 <big><pre>
@@ -728,7 +730,7 @@ _Rescue Katherine Clayton_
 
 Katherine will only join your group if Angelica has already joined.
 
-No matter who you're playing as, Kathrine has one of the most involved recruitment methods out of any survivor, so refer to the below information if you want the specifics:
+No matter who you're playing as, Kathrine has one of the most involved conversations out of any survivor, so refer to the below information if you want the specifics:
 
 For **Capris**, **Redwin**, and **Jeffrey**:
 1. Talk to Angelica Snow until she or your protagonist suggests checking on Katherine Clayton.
@@ -746,7 +748,7 @@ For **Luke**:
 6. Push Y in front of Katherine twice, so Luke writes a message.
 7. Talk to Angelica, then keep responding to the prompts until she and Katherine join you.
 
-    
+<a name="survivor-meibrus"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40691.png">
 
 <big><pre>
@@ -764,7 +766,7 @@ _Rescue Katherine Meibrus_
 
 If you are playing as Luke, Katherine will only join your group if you bring Michael Burnings
 
-    
+<a name="survivor-francoise"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40682.png">
 
 <big><pre>
@@ -782,7 +784,7 @@ _Rescue Francoise Maxwell_
 
 After initiating communication in the medical room, press Y to wake her up.
 
-    
+<a name="survivor-mary"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40692.png">
 
 <big><pre>
@@ -800,7 +802,7 @@ _Rescue Mary Maxwell_
 
 Will only join if her mother, Francoise, is in your party and nearby.
 
-    
+<a name="survivor-henry"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40671.png">
 
 <big><pre>
@@ -816,7 +818,7 @@ _Rescue Henry Abrahams_
 |Survivor points|2|
 |Stamina|high (160)|
 
-Appears with Chief Engineer Ussar when you have between three and six survivors in your party. For more information on how to deal with Ussar and potentially recruit Henry, look at the achievement ["Don't Believe His Lies"](#ach-ussar)
+Appears with Chief Engineer Ussar when you have between three and six survivors in your party. For more information on how to deal with Ussar and potentially rescue Henry, look at the achievement ["Don't Believe His Lies"](#ach-ussar)
 
 ## Endings
 
@@ -847,6 +849,7 @@ _Poor Luke..._
 
 This achievement requires getting one of Luke's worse endings. The requirement for that ending is to escape with Ismay Townsend and less than 25 points worth of survivors, so this is easily done by just waiting in Luke's starting room until the ship capsizes, at which point you can rescue Ismay Townsend and rush to the end while keeping Ismay alive.
     
+<a name="best-capris"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40696.png">
 
 <big><pre>
@@ -854,7 +857,32 @@ This achievement requires getting one of Luke's worse endings. The requirement f
 _Get the best ending as Capris_
 </pre></big>
 
-    
+**Capris Wisher** starts at a location that lets him quickly reach his key survivor, Amy Markarson, along with other high-value survivors, so his route is relatively straightforward. 
+
+**Suggested Survivor Checklist** (*28 points total*):
+- [ ] [Anna Tamaro](#survior-anna) (6) + [Frank Coney](#survior-frank) (3)
+- [ ] 🔑 [Amy Markarson](#survior-amy) (4)
+- [ ] [Stacy Smith](#survior-stacy) (4) + [Pamela Smith](#survior-pamela) (4) + [Cooper Smith](#survior-cooper) (2)
+- [ ] [Jack Hamilton](#survior-jack) (5)
+
+> [!WARNING]
+> This list of suggested survivors earns you more than the necessary 25 points. First, this gives you a bit of flexibility with mistakes. While it might seem optimal to skip some survivors and only do what is necessary, but the primary rationale for having a full party of seven survivors is to skip the encounter with [the chief engineer, Ussar](#ach-ussar). **Navigate this encounter at your own risk!**
+
+![a map of the ship with a highlighted route for Capris' best ending](images/route-map-capris.png)
+
+**Step-by-Step Guide:**
+
+1. During Capris' intro, immediately walk to room 23 on the map (the above map shows the ship post-capsize, so you will need to navigate the map upside-down) so you can rescue [Anna Tamaro](#survior-anna) and [Frank Coney](#survior-frank) as soon as the ship capsizes.
+
+2. Head upwards to [Amy Markarson](#survior-amy)'s room (2 on the map) to rescue her.
+
+3. Make your way to the room where the [Smith family](#survior-cooper) is taking refuge (14 on the map) to rescue them. If you reach this room after 33 minutes have passed, they will have left.
+
+4. Wait for the brief cutscene to play at 33 minutes (fast forward to get to this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survior-jack) (who won't appear before 33 minutes anyways). Rescue him.
+
+5. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
+
+<a name="best-redwin"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40728.png">
 
 <big><pre>
@@ -962,4 +990,4 @@ You should get this achievement upon grabbing any survivor's hand with the Y but
 _Listen to Michael play his violin to help a widow continue on._
 </pre></big>
 
-This requires bringing Michael Burnings to Katherine Meibrus for a unique interaction between them both. Michael is found in the ship's chapel (#63/64/65 on the map), which is right where Jeffrey starts, so this is quickest to do with him. Just recruit Michael, then bring him to Katherine.
+This requires bringing Michael Burnings to Katherine Meibrus for a unique interaction between them both. Michael is found in the ship's chapel (#63/64/65 on the map), which is right where Jeffrey starts, so this is quickest to do with him. Just rescue Michael, then bring him to Katherine.
