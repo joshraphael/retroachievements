@@ -860,10 +860,10 @@ _Get the best ending as Capris_
 **Capris Wisher** starts at a location that lets him quickly reach his key survivor, Amy Markarson, along with other high-value survivors, so his route is relatively straightforward. 
 
 **Suggested Survivor Checklist** (*28 points total*):
-- [ ] [Anna Tamaro](#survior-anna) (6) + [Frank Coney](#survior-frank) (3)
-- [ ] 🔑 [Amy Markarson](#survior-amy) (4)
-- [ ] [Stacy Smith](#survior-stacy) (4) + [Pamela Smith](#survior-pamela) (4) + [Cooper Smith](#survior-cooper) (2)
-- [ ] [Jack Hamilton](#survior-jack) (5)
+- [ ] [Anna Tamaro](#survivor-anna) (6) + [Frank Coney](#survivor-frank) (3)
+- [ ] 🔑 [Amy Markarson](#survivor-amy) (4)
+- [ ] [Stacy Smith](#survivor-stacy) (4) + [Pamela Smith](#survivor-pamela) (4) + [Cooper Smith](#survivor-cooper) (2)
+- [ ] [Jack Hamilton](#survivor-jack) (5)
 
 > [!WARNING]
 > This list of suggested survivors earns you more than the necessary 25 points. First, this gives you a bit of flexibility with mistakes. While it might seem optimal to skip some survivors and only do what is necessary, but the primary rationale for having a full party of seven survivors is to skip the encounter with [the chief engineer, Ussar](#ach-ussar). **Navigate this encounter at your own risk!**
@@ -872,13 +872,13 @@ _Get the best ending as Capris_
 
 **Step-by-Step Guide:**
 
-1. During Capris' intro, immediately walk to room 23 on the map (the above map shows the ship post-capsize, so you will need to navigate the map upside-down) so you can rescue [Anna Tamaro](#survior-anna) and [Frank Coney](#survior-frank) as soon as the ship capsizes.
+1. During Capris' intro, immediately walk to room 23 on the map (the above map shows the ship post-capsize, so you will need to navigate the map upside-down) so you can rescue [Anna Tamaro](#survivor-anna) and [Frank Coney](#survivor-frank) as soon as the ship capsizes.
 
-2. Head upwards to [Amy Markarson](#survior-amy)'s room (2 on the map) to rescue her.
+2. Head upwards to [Amy Markarson](#survivor-amy)'s room (2 on the map) to rescue her.
 
-3. Make your way to the room where the [Smith family](#survior-cooper) is taking refuge (14 on the map) to rescue them. If you reach this room after 33 minutes have passed, they will have left.
+3. Make your way to the room where the [Smith family](#survivor-cooper) is taking refuge (14 on the map) to rescue them. If you reach this room after 33 minutes have passed, they will have left.
 
-4. Wait for the brief cutscene to play at 33 minutes (fast forward to get to this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survior-jack) (who won't appear before 33 minutes anyways). Rescue him.
+4. Wait for the brief cutscene to play at 33 minutes (fast forward to get to this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways). Rescue him.
 
 5. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
 
