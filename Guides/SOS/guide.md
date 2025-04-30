@@ -277,7 +277,7 @@ There is **Paddock**, who can be found in the control room. He'll call out for h
 # Best Endings
 
 > [!WARNING]
-> Several of the suggested survivors lists earn you more than the necessary 25 points. First, this is to give you a bit of flexibility with mistakes. While it might seem optimal to skip some survivors and only do what is necessary, but the primary rationale for having a full party of seven survivors is to skip the encounter with [the chief engineer, Ussar](#ach-ussar). **Navigate this encounter at your own risk!**
+> Several of the suggested survivor lists earn you more than the necessary 25 points. While it might seem optimal to skip some passengers and only do what is necessary, there are two reasons to rescue more survivors. First, more points can give you a bit of flexibility with mistakes. The second and primary rationale for having a full party of seven survivors is to skip the encounter with [the chief engineer, Ussar](#ach-ussar). **This encounter is especially dangerous for Capris and Luke, so navigate this encounter with them at your own risk!**
 
 ## Capris Wisher
 
