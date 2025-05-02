@@ -26,6 +26,7 @@
 	- [Survivors](#survivors)
 	- [Endings](#endings)
 	- [Events and Other Achievements](#events-and-other-achievements)
+- [Credits](#credits)
 
 # Synopsis
 |||
@@ -297,17 +298,114 @@ Capris Wisher starts at a location that lets him quickly reach his key survivor,
 
 2. Head upwards to [Amy Markarson](#survivor-amy)'s room (2 on the map) to rescue her.
 
-3. Make your way to the room where the [Smith family](#survivor-cooper) is taking refuge (14 on the map) to rescue them. If you reach this room after 33 minutes have passed, they will have left.
+3. Make your way to the room where [the Smith family](#survivor-cooper) is taking refuge (14 on the map) to rescue them. If you reach this room after 33 minutes have passed, they will have left.
 
-4. Wait for the brief cutscene to play at 33 minutes (fast forward to get to this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways). Rescue him.
+4. Wait for the brief cutscene to play at 33 minutes (fast forward to reach this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways). Rescue him.
 
 5. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
 
 ## Redwin Gardner
 
+Redwin has possibly the easiest route, since all the survivors he needs are directly along the path toward one of the ship's easier to reach exits.
+
+**Suggested Survivor Checklist** (*25 points total*):
+- [ ] 🔑 [Stella Adams](#survivor-stella) (4) + 🔑 [Harry Adams](#survivor-harry) (4)
+- [ ] [Stacy Smith](#survivor-stacy) (4) + [Pamela Smith](#survivor-pamela) (4) + [Cooper Smith](#survivor-cooper) (2)
+- [ ] 🔑 [Jack Hamilton](#survivor-jack) (5)
+- [ ] [Henry Abrahams](#survivor-henry) (2)
+
+![a map of the ship with a highlighted route for Redwin's best ending](images/route-map-redwin.png)
+
+**Step-by-Step Guide:**
+
+1. Wait near your starting position until the ship capsizes, then immediately rescue [Stella](#survivor-stella) and [Harry Adams](#survivor-harry), the first of Redwin's key survivors.
+
+2. Head straight to room 14 at the upper right part of the ship before 33 minutes have passed, then rescue [the Smith family](#survivor-cooper).
+
+3. Wait for the brief cutscene to play at 33 minutes (fast forward to reach this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards Redwin's last key survivor, [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways).
+
+4. Make your way toward the boiler room, and you'll be stopped by the chief engineer, Ussar. Redwin has an easy time of successfully persuading him, which will also let you rescue [Henry Abrahams](#survivor-henry).
+
+> [!CAUTION]
+> Refer to [the section on Chief Engineer Ussar](#ach-ussar) if you need help navigating that encounter.
+
 ## Luke Heinz
 
+Luke's key survivor starts where he does, so his routing is really flexible. Due to his starting position being near one of the primary paths to the boiler room, his routes tend to be more straightforward, and if you prefer, could be substituted with any other character’s route.
+
+**Suggested Survivor Checklist** (*27 points total*):
+- [ ] 🔑 [Ismay Townsend](#survivor-ismay) (2)
+- [ ] [Michael Burnings](#survivor-michael) (3)
+- [ ] [Anna Tamaro](#survivor-anna) (6) + [Frank Coney](#survivor-frank) (3)
+- [ ] [Jimmy Akers](#survivor-jimmy) (2)
+- [ ] [Katherine Meibrus](#survivor-meibrus) (6)
+- [ ] [Jack Hamilton](#survivor-jack) (5)
+
+![a map of the ship with a highlighted route for Luke's best ending](images/route-map-luke.png)
+
+**Step-by-Step Guide:**
+
+1. Wait in the room Luke starts in until the ship capsizes, then immediately rescue [Ismay Townsend](#survivor-ismay), Luke's key survivor.
+
+2. Exit through door 33 to the main ship, then head east to the chapel (doors 63/64/65), to rescue [Michael Burnings](#survivor-michael).
+
+3. Go up one level to reach room 23 on the map, where you'll rescue [Anna Tamaro](#survivor-anna) and [Frank Coney](#survivor-frank). 
+ 
+> [!TIP]
+> If you're unsure how to make the jump above rooms 27 and 28, refer to the section on [the jump above Francoise Maxwell's room](#above-francoise-maxwells-room)
+
+4. Retrace your steps back to the lower level then go all the way to the east to rescue [Jimmy Akers](#survivor-jimmy).
+
+5. Head to room 25 on the map to rescue [Katherine Meibrus](#survivor-meibrus), who is also the last survivor you need to rescue before the 33 minute cutscene. 
+
+> [!NOTE]
+> Luke requires Michael Burning's assistance to rescue Katherine Meibrus, so make sure he's in your group and nearby when speaking to her.
+
+6. Go to room 35 on the map, then begin the long climb upwards through the backrooms of the ship to reach the room where [Jack Hamilton](#survivor-jack) is found. If the ship hasn't yet reached the 33 minute cutscene upon entering Jack Hamilton's room, wait for that cutscene to happen before entering the room.
+
+7. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
+
 ## Jeffrey Howell
+
+Jeffrey has a slightly trickier route, since he begins at a location that is somewhat out of the way and with various obstacles separating him from his key survivor.
+
+**Suggested Survivor Checklist** (*29 points total*):
+- [ ] [Francoise Maxwell](#survivor-francoise) (4)
+- [ ] 🔑 [Adela Howell](#survivor-adela) (4)
+- [ ] [Mary Maxwell](#survivor-mary) (8)
+- [ ] [Katherine Meibrus](#survivor-meibrus) (6)
+- [ ] [Jack Hamilton](#survivor-jack) (5)
+- [ ] [Henry Abrahams](#survivor-henry) (2)
+
+![a map of the ship with a highlighted route for Jeffrey's best ending](images/route-map-jeffrey.png)
+
+**Step-by-Step Guide:**
+
+1. During Jeffrey's intro, immediately head to room 28 on the map (the above map shows the ship post-capsize, so you will need to navigate the map upside-down), so you can rescue [Francoise Maxwell](#survivor-francoise) as soon as the ship capsizes.
+
+2. Climb upwards to door 17 on the map.
+ 
+> [!TIP]
+> If you're unsure how to make the jump above rooms 27 and 28, refer to the section on [the jump above Francoise Maxwell's room](#above-francoise-maxwells-room)
+
+3. Wait for the ship to be at a left or right angle, then enter door 17 and make your way through to door 18, where you'll return to the main part of the ship. (While this path is more roundabout than the jump above Kelly Nelson, it's far more consistent since it can be traversed at various ship angles.)
+(If you need help with the first jump upon entering Door 17, refer to [section link].)
+ 
+> [!TIP]
+> If you're unsure how to make the jump inside door 17, refer to the section on [the top of Miller Strisers' room](#the-top-of-miller-strisers-room)
+
+4. Make your way towards room 22 on the map to rescue [Adela Howell](#survivor-adela), Jeffrey's key survivor.
+
+5. Circle around to where [Mary Maxwell](#survivor-mary) is located and rescue her.
+
+> [!NOTE]
+> Francoise needs to be standing nearby for Mary to cooperate.
+
+6. Head to room 25 on the map, then rescue [Katherine Meibrus](#survivor-meibrus), who is also the last survivor you need to rescue before the 33 minute cutscene.
+
+7. Go to room 35 on the map, then begin the long climb upwards through the backrooms of the ship to reach the room where [Jack Hamilton](#survivor-jack) is found. If the ship hasn't yet reached the 33 minute cutscene upon entering Jack Hamilton's room, wait for that cutscene to happen before entering the room.
+
+8. Proceed toward the boiler room. You'll be stopped by the [chief engineer, Ussar](#ach-ussar), but Jeffrey will succeed at persuading him if you simply answer every prompt. Upon doing so, you'll also be able to rescue [Henry Abrahams](#survivor-henry).
 
 # Achievements
 
@@ -413,6 +511,9 @@ _Rescue Jack Hamilton_
 |Stamina|mid (128)|
 
 Jack is one of three key survivors for Redwin. Read more about key survivors in the Best Endings section.
+
+> [!NOTE]
+> The conversation in which you rescue Jack is different for every character (but cannot be failed). Be sure to take your time to see how each character interacts differently with Jack.
 
 <a name="survivor-adela"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40683.png">
@@ -1015,3 +1116,11 @@ _Listen to Michael play his violin to help a widow continue on._
 </pre></big>
 
 This requires bringing Michael Burnings to Katherine Meibrus for a unique interaction between them both. Michael is found in the ship's chapel (#63/64/65 on the map), which is right where Jeffrey starts, so this is quickest to do with him. Just rescue Michael, then bring him to Katherine.
+
+# Credits
+
+- [Tropicon on VGMaps](https://www.vgmaps.com/Atlas/SuperNES/#SOS): For the initial marked and unmarked ship maps which we used as a base for our own maps
+
+- [SoreThumb and their guide on GameFAQs](https://gamefaqs.gamespot.com/snes/578932-sos/faqs/18159): For the vast majority of the survivor point values
+
+- [Steve Beeland](https://gamefaqs.gamespot.com/snes/578932-sos/faqs/43213): For the Boiler Room skip, which was provided to both guides on GameFAQs, where we found it
