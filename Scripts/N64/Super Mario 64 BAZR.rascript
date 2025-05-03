@@ -466,7 +466,8 @@ function cheat_unlock_all_decks() => byte(0x272F77)
 function pizza_time_active() => byte(0x2734D3)
 
 // $2734D5: {1.0.3} [8-bit] Run Active {gRunActive}
-function is_active_run() => byte(0x2734D5) == 1
+function run_active() => byte(0x2734D5)
+function is_active_run() => run_active() == 1
 
 // $2734D6: {1.0.3} [16-bit] Total Coins Spent {gTotalSpentCoins}
 function total_coins_spent() => word(0x2734D6)
@@ -603,7 +604,7 @@ function text_box_state() => byte(0x286C6C)
 function current_dialog_id() => byte(0x286C84)
 
 // $287E94: {1.0.3} [16-bit] Current Sub-Map ID
-function current_submap_id() => word(0x287E94)
+function current_submap() => word(0x287E94)
 
 // $2884B4: {1.0.3} [48 Bytes, 8 Bytes per card} Luigi Shop Contents
 //          +0x00 | [8-bit] Max Uses
@@ -972,8 +973,19 @@ function actual_painting() => max_of(
 	measured(0xff, when=stars_obtained() >= 16)
 )
 
-// the transition from 0->1 happens when loading a file, but the total run time is already loaded
-function start_new_run() => prev(!is_active_run()) && is_active_run() && total_time_f() == 0
+function in_game() => (
+	// in-game, in a run, not on the title screen
+	current_map() >= 4 && is_active_run() &&
+	// some cheats blocked
+	!cheat_free_rerolls()
+)
+
+function start_new_run() => (
+	// the transition from 0->1 happens when loading a file, but the total run time is already loaded
+	run_active() > prev(run_active()) && total_time_f() == 0 &&
+	// for completeness, check that we are in the casino
+	current_map() == 0x27 && current_submap() == 0x01
+)
 
 function reroll_painting() => (
 	// in the casino
@@ -986,8 +998,8 @@ function reroll_painting() => (
 	prev(is_active_run())
 )
 
-function is_stage_complete() => prev(_gCourseCompleteCoinsEqual()) == 0 && _gCourseCompleteCoinsEqual() == 1
-function is_run_complete() => stars_obtained() == 17 && current_map() == 0x27 && is_stage_complete()
+function is_mission_complete() => in_game() && prev(_gCourseCompleteCoinsEqual()) == 0 && _gCourseCompleteCoinsEqual() == 1
+function is_run_complete() => stars_obtained() == 17 && current_map() == 0x27 && is_mission_complete()
 
 function vault_card_collected(stage) => bit7(MAIN_STAGES[stage]["vault"])
 function star_collected(stage, i) => bit(i, MAIN_STAGES[stage]["stars"])
@@ -1000,8 +1012,8 @@ function star_collected_trigger(stage, i) => (
 
 function star_count(stage) => sum_of(range(0,5), i => star_collected(stage, i))
 function collected_all_stars(stage) => (
-	is_active_run() && prev(star_count(stage)) == 5 &&
-	measured(star_count(stage) == 6, when=current_map() == MAIN_STAGES[stage]["map"])
+	prev(star_count(stage)) == 5 &&
+	measured(star_count(stage) == 6, when=in_game() && current_map() == MAIN_STAGES[stage]["map"])
 )
 
 function all_permutations(a, n)
@@ -1027,6 +1039,8 @@ function all_permutations(a, n)
 	}
 	return p
 }
+
+function decreased(x) => x < prev(x)
 
 // --- RICH PRESENCE -------------------------------------------------------------------
 
@@ -1104,7 +1118,7 @@ rich_presence_display(
 
 // Collect your first Star
 achievement(
-	title="My BAZR Deck Has No Pathetic Cards",
+	title="Ace of Diamonds",
 	description="Collect your first star",
 	type="progression",
 	points=2,
@@ -1115,7 +1129,7 @@ achievement(
 achievement(
 	title="It's-a-Me, Mario!",
 	description="Complete a run with the Mario Deck",
-	type="progression",
+	type="win_condition",
 	points=5,
 	trigger=is_run_complete() && current_deck() == 0x00
 )
@@ -1124,7 +1138,7 @@ achievement(
 achievement(
 	title="Thank You! But Our Princess Is in Another Deck!",
 	description="Complete a run with the Toad Deck",
-	type="progression",
+	type="win_condition",
 	points=10,
 	trigger=is_run_complete() && current_deck() == 0x02
 )
@@ -1133,34 +1147,34 @@ achievement(
 achievement(
 	title="Baby's First Word Was BAZR",
 	description="Complete a run with the Baby Deck",
-	type="progression",
+	type="win_condition",
 	points=5,
 	trigger=is_run_complete() && current_deck() == 0x04
 )
 
 // Complete a run with the Pizza Deck
 achievement(
-	title="Pepperman Strikes!",
+	title="The Death That I Deservioli",
 	description="Complete a run with the Pizza Deck",
-	type="progression",
+	type="win_condition",
 	points=10,
 	trigger=is_run_complete() && current_deck() == 0x06
 )
 
 // Complete a run with the Skeleton Deck
 achievement(
-	title="__SkeletonDeck",
+	title="Sorry, I'm Dead",
 	description="Complete a run with the Skeleton Deck",
-	type="progression",
+	type="win_condition",
 	points=10,
 	trigger=is_run_complete() && current_deck() == 0x08
 )
 
 // Complete a run with the Demon Deck
 achievement(
-	title="The Fungus Hungers",
+	title="Don't Trust the Fungus",
 	description="Complete a run with the Green Demon Deck",
-	type="progression",
+	type="win_condition",
 	points=25,
 	trigger=is_run_complete() && current_deck() == 0x0a
 )
@@ -1169,7 +1183,7 @@ achievement(
 achievement(
 	title="No Running In the Halls",
 	description="Complete a run with the Walkies Deck",
-	type="progression",
+	type="win_condition",
 	points=10,
 	trigger=is_run_complete() && current_deck() == 0x0c
 )
@@ -1178,7 +1192,7 @@ achievement(
 achievement(
 	title="King of Spades, King of the Koopas",
 	description="Complete a run with the Bowser Deck",
-	type="progression",
+	type="win_condition",
 	points=10,
 	trigger=is_run_complete() && current_deck() == 0x0e
 )
@@ -1187,14 +1201,14 @@ achievement(
 achievement(
 	title="My Other Deck is Commander!",
 	description="Complete a run with the Chaos Deck",
-	type="progression",
+	type="win_condition",
 	points=25,
 	trigger=is_run_complete() && current_deck() == 0x10
 )
 
 // Collect every star in Bob-omb Battlefield in a single run
 achievement(
-	title="An Explosive Endeavor",
+	title="Star Wars",
 	description="Collect every star in Bob-omb Battlefield in a single run",
 	points=5,
 	trigger=collected_all_stars(STAGE_BOB)
@@ -1258,7 +1272,7 @@ achievement(
 
 // Collect every star in Snowman's Land in a single run
 achievement(
-	title="__StarsSL",
+	title="Chill Out for Six Frozen Stars",
 	description="Collect every star in Snowman's Land in a single run",
 	points=5,
 	trigger=collected_all_stars(STAGE_SL)
@@ -1266,7 +1280,7 @@ achievement(
 
 // Collect every star in Wet-Dry World in a single run
 achievement(
-	title="__StarsWDW",
+	title="Cleaning Up All Around Town",
 	description="Collect every star in Wet-Dry World in a single run",
 	points=5,
 	trigger=collected_all_stars(STAGE_WDW)
@@ -1274,7 +1288,7 @@ achievement(
 
 // Collect every star in Tall, Tall Mountain in a single run
 achievement(
-	title="__StarsTTM",
+	title="Free Climbing to the Stars",
 	description="Collect every star in Tall, Tall Mountain in a single run",
 	points=5,
 	trigger=collected_all_stars(STAGE_TTM)
@@ -1282,7 +1296,7 @@ achievement(
 
 // Collect every star in Tiny-Huge Island in a single run
 achievement(
-	title="__StarsTHI",
+	title="Stars of Every Size",
 	description="Collect every star in Tiny-Huge Island in a single run",
 	points=5,
 	trigger=collected_all_stars(STAGE_THI)
@@ -1290,7 +1304,7 @@ achievement(
 
 // Collect every star in Tick Tock Clock in a single run
 achievement(
-	title="__StarsTTC",
+	title="Hurry Up to Collect Six Quick Stars",
 	description="Collect every star in Tick Tock Clock in a single run",
 	points=5,
 	trigger=collected_all_stars(STAGE_TTC)
@@ -1298,7 +1312,7 @@ achievement(
 
 // Collect every star in Rainbow Ride in a single run
 achievement(
-	title="__StarsRR",
+	title="Stars Throughout the Sky",
 	description="Collect every star in Rainbow Ride in a single run",
 	points=5,
 	trigger=collected_all_stars(STAGE_RR)
@@ -1310,23 +1324,27 @@ achievement(
 	description="Assemble all 5 pieces of Exodia the Forbidden One and witness its terrible power",
 	points=10,
 	trigger=(
+		// general in-game check
+		in_game() &&
+
 		// check if a card was used
 		prev(card_used_this_frame()) == 0 && card_used_this_frame() == 1 &&
 
 		// exodia is the current passive card
 		card_id(player_hand(PASSIVE_SLOT)) == 0x0222 && 
 
-		// and each of the 4 limbs of exodia are currently in the button slots (order doesn't matter)
+		// and each of the 4 limbs of exodia were in the button slots (order doesn't matter)
+		// (on the frame they're used, they immediately switch to the type of the next card, 0x00 if empty)
 		any_of(all_permutations([0x012a, 0x012b, 0x012c, 0x012d], 4), ids => (
-			card_id(player_hand(BTN_B)) == ids[0] && card_id(player_hand(BTN_A)) == ids[1] &&
-			card_id(player_hand(BTN_Z)) == ids[2] && card_id(player_hand(BTN_R)) == ids[3]
+			prev(card_id(player_hand(BTN_B))) == ids[0] && prev(card_id(player_hand(BTN_A))) == ids[1] &&
+			prev(card_id(player_hand(BTN_Z))) == ids[2] && prev(card_id(player_hand(BTN_R))) == ids[3]
 		))
 	)
 )
 
 // In one session, start and complete a run with any deck without ever re-rolling the painting
 achievement(
-	title="__NoReroll",
+	title="Play It as It Lies",
 	description="In one session, start and complete a run with any deck without ever re-rolling the painting",
 	points=3,
 	trigger=once(start_new_run()) && never(!is_active_run()) && never(reroll_painting()) && trigger_when(is_run_complete())
@@ -1334,22 +1352,27 @@ achievement(
 
 // Collect any star with the Green Demon Deck with the Green Demon Un-nerf cheat active
 achievement(
-	title="__GreenDemonUnnerf",
+	title="Removing the Training Wheels",
 	description="Collect any star with the Green Demon Deck with the Green Demon Un-nerf cheat active",
 	points=5,
-	trigger=cheat_green_demon_unnerf() && animation_id() == 0x02
+	trigger=in_game() && cheat_green_demon_unnerf() && stars_obtained() > prev(stars_obtained())
 )
 
 // Complete the second stage of the Bowser Gauntlet without using any cards
 achievement(
-	title="__Bowser2Cardless",
+	title="Some Like It Hot",
 	description="Complete the second stage of the Bowser Gauntlet, In the Fire Sea, without using any cards",
 	points=5,
 	trigger=(
+		// general in-game checks
+		in_game() &&
 		// start challenge when transitioning from Bowser 1 to Bowser 2
 		once(prev(current_map()) == 0x11 && current_map() == 0x13) &&
 		// reset if a card is used at any point
-		never(card_used_this_frame() == 1) &&
+		never(decreased(card_uses_left(player_hand(BTN_B)))) &&
+		never(decreased(card_uses_left(player_hand(BTN_A)))) &&
+		never(decreased(card_uses_left(player_hand(BTN_Z)))) &&
+		never(decreased(card_uses_left(player_hand(BTN_R)))) &&
 		// reset if we are back in Luigi's Casino
 		never(current_map() == 0x27) &&
 		// success when transitioning from Bowser 2 to Bowser 3
@@ -1359,7 +1382,7 @@ achievement(
 
 // Complete a run with the Pizza Deck without burning the Pizza Time card
 achievement(
-	title="__PizzaTime",
+	title="It's Pizza Time!",
 	description="Complete a run with the Pizza Deck without burning the Pizza Time card",
 	points=10,
 	trigger=(
@@ -1372,7 +1395,7 @@ achievement(
 
 // Complete a run with the Green Demon Deck with 10 or more lives remaining
 achievement(
-	title="__GreenDemon10Lives",
+	title="Never Doubted for a Moment",
 	description="Complete a run with the Green Demon Deck with 10 or more lives remaining",
 	points=25,
 	trigger=(
