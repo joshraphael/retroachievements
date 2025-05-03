@@ -46,6 +46,10 @@ function commas(x)
 	}
 }
 
+function decreased(x) => x < prev(x)
+function increased(x) => x > prev(x)
+function changed(x) => x != prev(x)
+
 // --- MEMORY -------------------------------------------------------------------
 
 // === Card IDs ===
@@ -446,10 +450,10 @@ function witch_dialog() => word(0x270616)
 function painting_reroll_cost() => word(0x27061A)
 
 // $27062F: {1.0.3} [8-bit] Free Rerolls Cheat Active {freeRerollsCheat}
-function cheat_free_rerolls() => byte(0x27062F) == 1
+function cheat_free_rerolls() => byte(0x27062F) != 0
 
 // $2706B6: {1.0.3} [8-bit] Green Demon Unnerf Active {unnerfGD}
-function cheat_green_demon_unnerf() => byte(0x2706B6) == 1
+function cheat_green_demon_unnerf() => byte(0x2706B6) != 0
 
 // $270DA8: {1.0.3} [32-bit] {gGlobalTimer}
 function global_timer() => dword(0x270DA8)
@@ -1012,8 +1016,8 @@ function star_collected_trigger(stage, i) => (
 
 function star_count(stage) => sum_of(range(0,5), i => star_collected(stage, i))
 function collected_all_stars(stage) => (
-	prev(star_count(stage)) == 5 &&
-	measured(star_count(stage) == 6, when=in_game() && current_map() == MAIN_STAGES[stage]["map"])
+	in_game() && prev(star_count(stage)) == 5 &&
+	measured(star_count(stage) == 6, when=current_map() == MAIN_STAGES[stage]["map"])
 )
 
 function all_permutations(a, n)
@@ -1039,8 +1043,6 @@ function all_permutations(a, n)
 	}
 	return p
 }
-
-function decreased(x) => x < prev(x)
 
 // --- RICH PRESENCE -------------------------------------------------------------------
 
