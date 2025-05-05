@@ -140,11 +140,11 @@ At first, it may seem like it can only be made while the ship is at an angle. Ho
 
 However, if you try simply jumping at that spot, you'll likely find that your character won't grab it, due to how ridiculously precise it is. However, there are two ways to make this jump a bit more consistent. The first is to use the couch just below the jump as a marker. Just have your character stand over what’s roughly the center of the couch, then neutral jump while holding right, and you might grab onto the ledge.
 
-[[ SOS - Francoise Maxwell Horizontal Stairway Jump 2.webm ]]
+![video of a strategy for achieving a difficult jump](videos/maxwell-jump-2.webm)
 
 Alternatively, you might be able to grab the spot by simply moving left or right a bit while neutral jumping in that general area. The video below demonstrates this less precise method by grabbing onto then intentionally dropping down from the ledge a few times, to give a better idea of how to use this alternate method.
 
-[[ SOS - Francoise Maxwell Horizontal Stairway Jump 3.webm ]]
+![video of a strategy for achieving a difficult jump](videos/maxwell-jump-3.webm)
 </details>
 
 #### The Top of Miller Strisers' Room 
@@ -161,11 +161,11 @@ This means that in order to make this jump, you need to wait for the ship's angl
 
 **When the ship is angled left**, the jump is pretty simple. Just jump onto the wall to the left, then you can climb or jump up to the ledge from there, as shown here in the video below.
 
-[[ SOS - Miller Strisers Jump Left Angle 1.webm ]]
+![video of a strategy for achieving a difficult jump](videos/strisers-jump-lt.webm)
 
 **When the ship is angled right**, the jump is a bit more precise. Walk onto the upper tip on the edge of the platform near the top and jump towards the ledge from there.
 
-![image of a man standing on the corner of a platform](images/strisers-tilt-right.png)
+![video of a strategy for achieving a difficult jump](videos/strisers-jump-rt.webm)
 
 [[ SOS - Miller Strisers Jump Right Angle 2.webm ]]
 
@@ -389,7 +389,6 @@ Jeffrey has a slightly trickier route, since he begins at a location that is som
 > If you're unsure how to make the jump above rooms 27 and 28, refer to the section on [the jump above Francoise Maxwell's room](#above-francoise-maxwells-room)
 
 3. Wait for the ship to be at a left or right angle, then enter door 17 and make your way through to door 18, where you'll return to the main part of the ship. (While this path is more roundabout than the jump above Kelly Nelson, it's far more consistent since it can be traversed at various ship angles.)
-(If you need help with the first jump upon entering Door 17, refer to [section link].)
  
 > [!TIP]
 > If you're unsure how to make the jump inside door 17, refer to the section on [the top of Miller Strisers' room](#the-top-of-miller-strisers-room)
