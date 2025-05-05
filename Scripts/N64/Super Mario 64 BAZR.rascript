@@ -1044,6 +1044,27 @@ function all_permutations(a, n)
 	return p
 }
 
+function trigger_exodia() => (
+	// check if a card was used
+	prev(card_used_this_frame()) == 0 && card_used_this_frame() == 1 &&
+
+	// exodia is the current passive card
+	card_id(player_hand(PASSIVE_SLOT)) == 0x0222 && 
+
+	// and each of the 4 limbs of exodia were in the button slots (order doesn't matter)
+	// (on the frame they're used, they immediately switch to the type of the next card, 0x00 if empty)
+	any_of(all_permutations([0x012a, 0x012b, 0x012c, 0x012d], 4), ids => (
+		prev(card_id(player_hand(BTN_B))) == ids[0] && prev(card_id(player_hand(BTN_A))) == ids[1] &&
+		prev(card_id(player_hand(BTN_Z))) == ids[2] && prev(card_id(player_hand(BTN_R))) == ids[3]
+	))
+)
+
+function exodia_heuristic() => (
+	prev(card_type(player_hand(BTN_A))) == 1 && card_type(player_hand(BTN_A)) == 0 &&
+	prev(card_type(player_hand(BTN_Z))) == 1 && card_type(player_hand(BTN_Z)) == 0 &&
+	prev(card_type(player_hand(BTN_R))) == 1 && card_type(player_hand(BTN_R)) == 0
+)
+
 // --- RICH PRESENCE -------------------------------------------------------------------
 
 rp_deck = rich_presence_lookup("Deck", current_deck(), DECK_NAME, fallback=DECK_NAME[0x00])
@@ -1124,7 +1145,7 @@ achievement(
 	description="Collect your first star",
 	type="progression",
 	points=2,
-	trigger=is_active_run() && prev(stars_obtained()) == 0 && stars_obtained() == 1
+	trigger=in_game() && prev(stars_obtained()) == 0 && stars_obtained() == 1
 )
 
 // Complete a run with the Mario Deck
@@ -1325,23 +1346,7 @@ achievement(
 	title="My BAZR Deck Has No Pathetic Cards",
 	description="Assemble all 5 pieces of Exodia the Forbidden One and witness its terrible power",
 	points=10,
-	trigger=(
-		// general in-game check
-		in_game() &&
-
-		// check if a card was used
-		prev(card_used_this_frame()) == 0 && card_used_this_frame() == 1 &&
-
-		// exodia is the current passive card
-		card_id(player_hand(PASSIVE_SLOT)) == 0x0222 && 
-
-		// and each of the 4 limbs of exodia were in the button slots (order doesn't matter)
-		// (on the frame they're used, they immediately switch to the type of the next card, 0x00 if empty)
-		any_of(all_permutations([0x012a, 0x012b, 0x012c, 0x012d], 4), ids => (
-			prev(card_id(player_hand(BTN_B))) == ids[0] && prev(card_id(player_hand(BTN_A))) == ids[1] &&
-			prev(card_id(player_hand(BTN_Z))) == ids[2] && prev(card_id(player_hand(BTN_R))) == ids[3]
-		))
-	)
+	trigger=in_game() && trigger_exodia()
 )
 
 // In one session, start and complete a run with any deck without ever re-rolling the painting
@@ -1409,3 +1414,169 @@ achievement(
 )
 
 // --- LEADERBOARDS -------------------------------------------------------------------
+
+function star_leaderboards(stage, stars)
+{
+	for i in range(0,5)
+	{
+		star = stars[i]
+		stagename = STAGE_NAME[MAIN_STAGES[stage]["map"]]
+		leaderboard(
+			title=format("{1} - {0} - Fastest Time", stagename, star),
+			description=format("Collect the star \"{1}\" in {0} in the fastest time (no Exodia)", stagename, star),
+
+			start=(
+				in_game() && star_collected_trigger(stage, i) &&
+				disable_when(exodia_heuristic(), until=current_map() != MAIN_STAGES[stage]["map"])
+			),
+			cancel=always_false(),
+			submit=always_true(),
+
+			value=mission_timer() * 2,
+			format="FRAMES",
+			lower_is_better=true
+		)
+	}
+}
+
+star_leaderboards(STAGE_BOB, [
+	"Big Bob-Omb on the Summit",
+	"Footrace with Koopa the Quick",
+	"Leap to the Island in the Sky",
+	"Find the 8 Red Coins",
+	"Mario Wings to the Sky",
+	"Behind Chain Chomp's Gate",
+])
+
+star_leaderboards(STAGE_WF, [
+	"Chip Off Whomp's Block",
+	"To the Top of the Fortress",
+	"Climb into the Wild Blue",
+	"Red Coins on the Floating Isle",
+	"Fall onto the Caged Island",
+	"Break Away the Wall",
+])
+
+star_leaderboards(STAGE_JRB, [
+	"Treasure of the Hidden Cave",
+	"Ocean Salvage for Red Coins",
+	"Lighthouse Shining Bright",
+	"Hop the Tilting Boardwalk",
+	"Plunder in the Pirate Ship",
+	"Lump in the Sand",
+])
+
+star_leaderboards(STAGE_CCM, [
+	"Slip Slidin' Away",
+	"Li'l Penguin Lost",
+	"Big Penguin Race",
+	"Frosty Slide for 8 Red Coins",
+	"Snowman's Lost His Head",
+	"Wall Kicks Will Work",
+])
+
+star_leaderboards(STAGE_BBH, [
+	"Go on a Ghost Hunt",
+	"Ride Big Boo's Merry-Go-Round",
+	"Secret of the Haunted Books",
+	"Seek the 8 Red Coins",
+	"Big Boo's Balcony",
+	"Eye to Eye in the Secret Room",
+])
+
+star_leaderboards(STAGE_HMC, [
+	"Swimming Beast in the Cavern",
+	"Elevate for 8 Red Coins",
+	"Metal-Head Mario Can Move!",
+	"Navigating the Toxic Maze",
+	"A-Maze-ing Emergency Exit",
+	"Watch for Rolling Rocks",
+])
+
+star_leaderboards(STAGE_LLL, [
+	"Boil the Big Bully",
+	"Bully the Bullies",
+	"8-Coin Puzzle with 15 Pieces",
+	"Red-Hot Log Rolling",
+	"Hot-Foot-It into the Volcano",
+	"Elevator Tour in the Volcano",
+])
+
+star_leaderboards(STAGE_SSL, [
+	"In the Talons of the Big Bird",
+	"Shining Atop the Pyramid",
+	"Inside the Ancient Pyramid",
+	"Stand Tall on the Four Pillars",
+	"Free Flying for 8 Red Coins",
+	"Pyramid Puzzle",
+])
+
+star_leaderboards(STAGE_SL, [
+	"Snowman's Big Head",
+	"Chill with the Bully",
+	"In the Deep Freeze",
+	"Whirl from the Freezing Pond",
+	"Shell Shreddin' for Red Coins",
+	"Into the Igloo",
+])
+
+star_leaderboards(STAGE_WDW, [
+	"Top o' the World",
+	"Quick Slide to the Cage!",
+	"Star's Behind Bars",
+	"Way Above the Rooftops",
+	"Shocking Arrow Lifts!",
+	"Go to Town for Red Coins",
+])
+
+star_leaderboards(STAGE_TTM, [
+	"Scale the Mountain",
+	"Mystery of the Monkey Cage",
+	"Scary 'Shrooms, Red Coins",
+	"Mysterious Moustainside",
+	"Breathtaking View from Bridge",
+	"Blast to the Lonely Mushroom",
+])
+
+star_leaderboards(STAGE_THI, [
+	"Pluck the Piranha Flower",
+	"The Tip Top of the Huge Island",
+	"Rematch with Koopa the Quick",
+	"Five Itty Bitty Secrets",
+	"Wiggler's Red Coins",
+	"Make Wiggler Squirm",
+])
+
+star_leaderboards(STAGE_TTC, [
+	"Roll Into the Cage",
+	"The Pit and the Pendulums",
+	"Get a Hand",
+	"Stomp on the Thwomp",
+	"Timed Jumps on Moving Bars",
+	"Stop Time for Red Coins",
+])
+
+star_leaderboards(STAGE_RR, [
+	"Cruiser Crossing the Rainbow",
+	"The Big House in the Sky",
+	"Coins Amassed in a Maze",
+	"Swingin' in the Breeze",
+	"Tricky Triangles",
+	"Somewhere Over the Rainbow",
+])
+
+for d in range(0x00, 0x10)
+{
+	leaderboard(
+		title=format("{0} Deck - Fastest Time", DECK_NAME[d]),
+		description=format("Complete a run with the {0} Deck in the fastest time", DECK_NAME[d]),
+	
+		start=is_run_complete() && current_deck() == d,
+		cancel=always_false(),
+		submit=always_true(),
+	
+		value=total_time_f() * 2,
+		format="FRAMES",
+		lower_is_better=true
+	)
+}
