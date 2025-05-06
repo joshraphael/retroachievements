@@ -302,6 +302,9 @@ Capris Wisher starts at a location that lets him quickly reach his key survivor,
 
 4. Wait for the brief cutscene to play at 33 minutes (fast forward to reach this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways). Rescue him.
 
+> [!NOTE]
+> If the 33 minute cutscene happens while you're inside the room where Jack appears, you may need to exit then re-enter the room to get Jack to show up.
+
 5. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
 
 ## Redwin Gardner
@@ -324,14 +327,19 @@ Redwin has possibly the easiest route, since all the survivors he needs are dire
 
 3. Wait for the brief cutscene to play at 33 minutes (fast forward to reach this point if needed). Once the ship starts tilting further, you will be able to climb the elevator shaft towards Redwin's last key survivor, [Jack Hamilton](#survivor-jack) (who won't appear before 33 minutes anyways).
 
+> [!NOTE]
+> If the 33 minute cutscene happens while you're inside the room where Jack appears, you may need to exit then re-enter the room to get Jack to show up.
+
 4. Make your way toward the boiler room, and you'll be stopped by the chief engineer, Ussar. Redwin has an easy time of successfully persuading him, which will also let you rescue [Henry Abrahams](#survivor-henry).
 
 > [!CAUTION]
 > Refer to [the section on Chief Engineer Ussar](#ach-ussar) if you need help navigating that encounter.
 
+5. You can then escape through the boiler room with your survivors.
+
 ## Luke Heinz
 
-Luke's key survivor starts where he does, so his routing is really flexible. Due to his starting position being near one of the primary paths to the boiler room, his routes tend to be more straightforward, and if you prefer, could be substituted with any other character’s route.
+Since Luke's key survivor starts where he does, his routing's more flexible. While we provided a Luke-specific route below which we feel is fairly efficient, if you find it easier, you can instead adapt any of the suggested routes for the other protagonists and apply it to Luke, provided you also route in survivors to reach 25+ points (since Ismay is worth only 2).
 
 **Suggested Survivor Checklist** (*27 points total*):
 - [ ] 🔑 [Ismay Townsend](#survivor-ismay) (2)
@@ -362,6 +370,9 @@ Luke's key survivor starts where he does, so his routing is really flexible. Due
 > Luke requires Michael Burning's assistance to rescue Katherine Meibrus, so make sure he's in your group and nearby when speaking to her.
 
 6. Go to room 35 on the map, then begin the long climb upwards through the backrooms of the ship to reach the room where [Jack Hamilton](#survivor-jack) is found. If the ship hasn't yet reached the 33 minute cutscene upon entering Jack Hamilton's room, wait for that cutscene to happen before entering the room.
+
+> [!NOTE]
+> If the 33 minute cutscene happens while you're inside the room where Jack appears, you may need to exit then re-enter the room to get Jack to show up.
 
 7. Finally, head toward the boiler room while keeping everyone alive, then escape. If you still have a full party of seven, you won't have to worry about dealing with the chief engineer, Ussar.
 
@@ -404,7 +415,12 @@ Jeffrey has a slightly trickier route, since he begins at a location that is som
 
 7. Go to room 35 on the map, then begin the long climb upwards through the backrooms of the ship to reach the room where [Jack Hamilton](#survivor-jack) is found. If the ship hasn't yet reached the 33 minute cutscene upon entering Jack Hamilton's room, wait for that cutscene to happen before entering the room.
 
+> [!NOTE]
+> If the 33 minute cutscene happens while you're inside the room where Jack appears, you may need to exit then re-enter the room to get Jack to show up.
+
 8. Proceed toward the boiler room. You'll be stopped by the [chief engineer, Ussar](#ach-ussar), but Jeffrey will succeed at persuading him if you simply answer every prompt. Upon doing so, you'll also be able to rescue [Henry Abrahams](#survivor-henry).
+
+9. You can then escape through the boiler room with your survivors.
 
 # Achievements
 
