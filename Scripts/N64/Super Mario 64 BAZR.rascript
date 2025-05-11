@@ -1362,7 +1362,7 @@ achievement(
 	title="Removing the Training Wheels",
 	description="Collect any star with the Green Demon Deck with the Green Demon Un-nerf cheat active",
 	points=5,
-	trigger=in_game() && cheat_green_demon_unnerf() && stars_obtained() > prev(stars_obtained())
+	trigger=in_game() && cheat_green_demon_unnerf() && current_deck() == 0x0a && stars_obtained() > prev(stars_obtained())
 )
 
 // Complete the second stage of the Bowser Gauntlet without using any cards
