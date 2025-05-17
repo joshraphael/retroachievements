@@ -134,11 +134,11 @@ Right by the room where Francoise Maxwell is found (room 28, coordinates ?? on t
 <details>
 <summary><em>[Click to expand]</em></summary>
 
-At first, it may seem like it can only be made while the ship is at an angle. However, it's actually possible to make this jump even when the ship is completely level; the grab spot just happens to be extremely precise. This below image shows the grab spot.
+At first, it may seem like this ledge can only be reached while the ship is at an angle. However, it's actually possible to make this jump even when the ship is completely level; the grab spot just happens to be extremely precise. This below image shows the grab spot.
 
 ![image of a man hanging from a railing](images/maxwell-jump.png)
 
-However, if you try simply jumping at that spot, you'll likely find that your character won't grab it, due to how ridiculously precise it is. However, there are two ways to make this jump a bit more consistent. The first is to use the couch just below the jump as a marker. Just have your character stand over what’s roughly the center of the couch, then neutral jump while holding right, and you might grab onto the ledge.
+If you try simply jumping at that spot, you'll likely find that your character won't grab it due to how ridiculously precise it is. However, there are two ways to make this jump a bit more consistent. The first is to use the couch just below the jump as a marker. Just have your character stand over what’s roughly the center of the couch, then neutral jump while holding right, and you might grab onto the ledge.
 
 ![video of a strategy for achieving a difficult jump](videos/maxwell-jump-2.webm)
 
@@ -157,7 +157,7 @@ As shown in the following screenshot, when the ship is completely level, even at
 
 ![image of a man jumping short of a ledge](images/strisers-jump.png)
 
-This means that in order to make this jump, you need to wait for the ship's angle to change first. However, due to this being a room with a survivor in it, there's one caveat: you'll need to wait outside in order for the ship to rotate, because the game generally tries to maintain the ship's current angle while most survivor cutscenes are playing out (and on many routes, you may not want or be able to save Miller Strisers). Step outside of the room and wait for the angle to change, then return. Either a left or right angle will work.
+This means that in order to make this jump, you need to wait for the ship's angle to change first. However, due to this being a room with a survivor in it, there's one caveat: you'll need to wait outside in order for the ship to rotate, because the game tries to maintain the ship's current angle while most survivor cutscenes are playing out (and on many routes, you may not want or be able to save Miller Strisers). Step outside of the room and wait for the angle to change, then return. Either a left or right angle will work.
 
 **When the ship is angled left**, the jump is pretty simple. Just jump onto the wall to the left, then you can climb or jump up to the ledge from there, as shown here in the video below.
 
@@ -360,7 +360,7 @@ Since Luke's key survivor starts where he does, his routing's more flexible. Whi
 3. Go up one level to reach room 23 on the map, where you'll rescue [Anna Tamaro](#survivor-anna) and [Frank Coney](#survivor-frank). 
  
 > [!TIP]
-> If you're unsure how to make the jump above rooms 27 and 28, refer to the section on [the jump above Francoise Maxwell's room](#above-francoise-maxwells-room)
+> If you're unsure how to make the jump above rooms 27 and 28, refer to the section on [the jump above Francoise Maxwell's room](#above-francoise-maxwells-room).
 
 4. Retrace your steps back to the lower level then go all the way to the east to rescue [Jimmy Akers](#survivor-jimmy).
 
@@ -397,12 +397,12 @@ Jeffrey has a slightly trickier route, since he begins at a location that is som
 2. Climb upwards to door 17 on the map.
  
 > [!TIP]
-> If you're unsure how to make the jump above rooms 27 and 28, refer to the section on [the jump above Francoise Maxwell's room](#above-francoise-maxwells-room)
+> If you're unsure how to make the jump above rooms 27 and 28, refer to the section on [the jump above Francoise Maxwell's room](#above-francoise-maxwells-room).
 
 3. Wait for the ship to be at a left or right angle, then enter door 17 and make your way through to door 18, where you'll return to the main part of the ship. (While this path is more roundabout than the jump above Kelly Nelson, it's far more consistent since it can be traversed at various ship angles.)
  
 > [!TIP]
-> If you're unsure how to make the jump inside door 17, refer to the section on [the top of Miller Strisers' room](#the-top-of-miller-strisers-room)
+> If you're unsure how to make the jump inside door 17, refer to the section on [the top of Miller Strisers' room](#the-top-of-miller-strisers-room).
 
 4. Make your way towards room 22 on the map to rescue [Adela Howell](#survivor-adela), Jeffrey's key survivor.
 
@@ -426,7 +426,7 @@ Jeffrey has a slightly trickier route, since he begins at a location that is som
 
 ## Survivors
 
-Survivor achievements include the following information
+Survivor achievements include the following information:
 
 - where to find them on the map
 - who can rescue them (note that some survivors can only be rescued after the event at 33:00)
@@ -866,7 +866,7 @@ _Rescue Angelica Snow_
 |Survivor points|4|
 |Stamina|mid (117)|
 
-On some routes, rescueing her might involve using Y to interact during the conversation.
+On some routes, rescuing her might involve using Y to interact during the conversation.
 
 She'll usually only join with Katherine Clayton after you've successfully convinced the latter to join, but Capris has the alternate option of convincing Angelica to join alone if you ignore Katherine and keep talking to Angelica.
 
@@ -922,7 +922,7 @@ _Rescue Katherine Meibrus_
 |Survivor points|6|
 |Stamina|mid (117)|
 
-If you are playing as Luke, Katherine will only join your group if you bring Michael Burnings
+If you are playing as Luke, Katherine will only join your group if you bring Michael Burnings.
 
 <a name="survivor-francoise"></a>
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40682.png">
@@ -976,7 +976,7 @@ _Rescue Henry Abrahams_
 |Survivor points|2|
 |Stamina|high (160)|
 
-Appears with Chief Engineer Ussar when you have between three and six survivors in your party. For more information on how to deal with Ussar and potentially rescue Henry, look at the achievement ["Don't Believe His Lies"](#ach-ussar)
+Appears with Chief Engineer Ussar when you have between three and six survivors in your party. For more information on how to deal with Ussar and potentially rescue Henry, look at the achievement ["Don't Believe His Lies"](#ach-ussar).
 
 ## Endings
 
@@ -1102,6 +1102,9 @@ _Find the map of the ship (not with Luke)_
 </pre></big>
 
 The map is found by interacting with a lady in room #18 (coordinates ##) on the map. This room is next to Capris' starting location, so you can grab this achievement within seconds with him. You can search her body after the capsize with any character to get a map if you haven't gotten it before.
+
+> [!NOTE]
+> The reason you can't get this achievement with Luke is because he starts with a map.
     
 <img align="left" width="72" height="72" src="https://media.retroachievements.org/Badge/40727.png">
 
