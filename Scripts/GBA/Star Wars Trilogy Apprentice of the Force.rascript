@@ -625,7 +625,7 @@ mission_achievement(
 
 // Episode V: The Empire Strikes Back
 health_upgrade_achievement(
-	title="\"There Isn't Enough Life on This Ice Cube to Fill a Space Cruiser\"",
+	title="\"Isn't Enough Life on This Ice Cube to Fill a Space Cruiser\"",
 	mission=0x08, room=0x01
 )
 
@@ -665,7 +665,7 @@ mission_achievement(
 )
 
 mission_achievement(
-	title="\"They're My Friends. I've Got to Help Them.\"",
+	title="\"They're My Friends. I've Got to Help Them\"",
 	points=5,
 	mission=0x0e
 )
@@ -715,13 +715,13 @@ achievement(
 )
 
 mission_achievement(
-	title="\"There Will Be No Bargain, Young Jedi. I Shall Enjoy Watching You Die\"",
+	title="\"There Will Be No Bargain, Young Jedi\"",
 	points=5,
 	mission=0x11
 )
 
 health_upgrade_achievement(
-	title="\"You Should Have Bargained, Jabba. That's the Last Mistake You'll Ever Make\"",
+	title="\"You Should Have Bargained, Jabba\"",
 	mission=0x12, room=0x02
 )
 
@@ -755,7 +755,7 @@ health_upgrade_achievement(
 )
 
 mission_achievement(
-	title="\"As Long as I Stay, I'm Endangering the Group and Our Mission Here\"",
+	title="\"As Long as I Stay, I'm Endangering the Group\"",
 	points=5,
 	mission=0x14
 )
