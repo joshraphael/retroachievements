@@ -272,7 +272,7 @@ BLASTER_COLORS = {
 
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
 
-function in_game() => return_state() != 0x00
+function in_game() => return_state() != 0x00 && max_health() > 0
 
 function has_r2d2_npc() => (
 	any_of([0x02, 0x0e], x => mission_id() == x) ||
@@ -617,10 +617,12 @@ achievement(
 	)
 )
 
-mission_achievement(
+achievement(
 	title="\"Just Like Beggar's Canyon Back Home\"",
+	description=mission_desc(0x07, 0x01),
+	type="progression",
 	points=10,
-	mission=0x07, room=0x01
+	trigger=current_health() > 0 && prev(mission_id()) == 0x07 && prev(room_id()) == 0x01 && any_of([0x08, 0x64], x => mission_id() == x)
 )
 
 // Episode V: The Empire Strikes Back
