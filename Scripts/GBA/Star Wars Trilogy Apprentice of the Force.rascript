@@ -68,6 +68,13 @@ function rancor_fight() => bit0(0x007741)
 //        0x80 = Replay Mode
 function return_state() => byte(0x007742)
 
+// $7790: File Loaded [8 bit]
+//        0 = out of game
+//        1 = in game
+//        
+//        doesn't transition back to 0 if you win a mission on replay mode
+function file_loaded() => byte(0x007790)
+
 // $7791: Save File Name [ASCII Text] (3 bytes)
 SAVE_NAME = 0x007791
 
@@ -272,7 +279,7 @@ BLASTER_COLORS = {
 
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
 
-function in_game() => return_state() != 0x00 && max_health() > 0
+function in_game() => file_loaded() == 1 && max_health() > 0
 
 function has_r2d2_npc() => (
 	any_of([0x02, 0x0e], x => mission_id() == x) ||
@@ -730,6 +737,7 @@ health_upgrade_achievement(
 achievement(
 	title="\"This Bounty Hunter is My Kind of Scum. Fearless and Inventive\"",
 	description=mission_desc(0x12) + " without chasing off Boba Fett",
+	type="missable",
 	points=5,
 	trigger=(
 		// 0x1203 is the end of the stage
@@ -745,10 +753,12 @@ mission_achievement(
 	mission=0x12
 )
 
-mission_achievement(
+achievement(
 	title="\"This Whole Party'll Be For Nothing If They See Us\"",
+	description=mission_desc(0x13),
+	type="progression",
 	points=5,
-	mission=0x13
+	trigger=current_health() > 0 && prev(mission_id()) == 0x13 && any_of([0x14, 0x64], x => mission_id() == x)
 )
 
 health_upgrade_achievement(
