@@ -715,7 +715,7 @@ achievement(
 				never(mission_id() != 0x11) && 
 				never(rancor_fight() == 0) &&
 				never(current_health() == 0) &&
-				never(boss_health() == 0)
+				never(prev(boss_health()) == 0)
 			)
 		)) && 
 		in_game() && mission_id() == 0x11 && current_health() > 0 &&
