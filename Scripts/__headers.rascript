@@ -7,7 +7,12 @@ ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 function bitx(i, addr) => bit(i % 8, addr + i / 8)
 function plural(x) => rich_presence_lookup("_Plural", x, {1: ""}, fallback="s")
 function ptr(x) => dword(x)
+
 function rich_presence_number(x) => rich_presence_value("_Number", x, "VALUE")
+function rp_hex(x) => rich_presence_lookup("Hex", x, {
+	00: "0", 01: "1", 02: "2", 03: "3", 04: "4", 05: "5", 06: "6", 07: "7",
+	08: "8", 09: "9", 10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F",
+}, fallback="0")
 
 function zfill(num, c)
 {
