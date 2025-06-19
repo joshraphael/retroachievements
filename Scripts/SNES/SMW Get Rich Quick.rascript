@@ -415,7 +415,7 @@ for s in range(0, 7) // stages
 achievement(
 	title="Challenger Approaching",
 	description="Collect 32 gold medals in Normal Mode and unlock a surprise",
-	points=50,
+	points=25,
 	trigger=(
 		// all times are logged
 		current_mode() == MODE_NORMAL && all_levels_complete() &&
