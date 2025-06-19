@@ -5,10 +5,11 @@ function if_else(p, t, f) { if (p) { return t } else return f }
 id = (x) => x
 ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 function bitx(i, addr) => bit(i % 8, addr + i / 8)
+function is_set(acc) => acc > prev(acc)
 function plural(x) => rich_presence_lookup("_Plural", x, {1: ""}, fallback="s")
+function rich_presence_number(x) => rich_presence_value("_Number", x, "VALUE")
 function ptr(x) => dword(x)
 
-function rich_presence_number(x) => rich_presence_value("_Number", x, "VALUE")
 function rp_hex(x) => rich_presence_lookup("Hex", x, {
 	00: "0", 01: "1", 02: "2", 03: "3", 04: "4", 05: "5", 06: "6", 07: "7",
 	08: "8", 09: "9", 10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F",
@@ -19,15 +20,16 @@ function rp_zpad(x) => rich_presence_lookup("Zero", x, {
 	5: "0", 6: "0", 7: "0", 8: "0", 9: "0",
 }, fallback="")
 
+function millis_to_timestamp(x) => format("{0}'{1}\"{2}", 
+	x / (60 * 1000),
+	substring(format("0{0}", (x / 1000) % 60), -2, 2),
+	substring(format("00{0}", x), -3, 3)
+)
+
 function zfill(num, c)
 {
-	result = format("{0}", num)
-	for i in range(0, 10)
-	{
-		if (length(result) >= c) return result
-		result = format("0{0}", result)
-	}
-	return result
+	if (length(format("{0}", num)) >= c) return format("{0}", num)
+	return substring(format("0000000000000000000{0}", num), -c, c)
 }
 
 function commas(x)
