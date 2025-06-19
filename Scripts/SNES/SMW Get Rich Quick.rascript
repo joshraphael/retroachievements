@@ -6,6 +6,7 @@
 id = (x) => x
 function if_else(p, t, f) { if (p) { return t } else return f }
 function rich_presence_number(x) => rich_presence_value("_N", x, "VALUE")
+function is_set(acc) => acc > prev(acc)
 
 // --- MEMORY -------------------------------------------------------------------
 
@@ -50,8 +51,13 @@ function current_world() => word(0x00103B)
 //        0-indexed
 function current_stage() => word(0x00103D)
 
-// $1041: Level ID [16 bit]
-//        uniquely identifies the actual stage
+// $001041: Level ID [16 bit]
+//          uniquely identifies the actual stage
+//          
+//          0x0020 = 2-1 secret room (p-wing mode)
+//          0x0021 = 3-3 secret room (dash mode)
+//          0x0022 = 4-2 secret room (small only mode)
+//          0x0023 = 4-4 secret room (greedy mode)
 function level_id() => word(0x001041)
 
 // $2600: Best Times [64 bytes]
@@ -60,6 +66,24 @@ function best_time(w, s) => word(0x002600 + (w * 8 + s) * 2)
 
 // $2700: Total Coins Collected [32 bit]
 function total_coins() => dword(0x002700)
+
+// $002708: Current Mode [16 bit]
+//          1 = Normal Mode
+//          2 = P-Wing Mode
+//          3 = Dash Mode
+//          4 = Small Mode
+//          5 = Greedy Mode
+function current_mode() => word(0x002708)
+
+// $020008: Modes Unlocked [8 bit]
+//          bit2 = P-Wing Mode
+//          bit3 = Dash Mode
+//          bit4 = Small Mode
+//          bit5 = Greedy Mode
+function mode_pwing_unlocked() => bit2(0x020008)
+function mode_dash_unlocked() => bit3(0x020008)
+function mode_small_unlocked() => bit4(0x020008)
+function mode_greedy_unlocked() => bit5(0x020008)
 
 // $02000A: Character Select Option Available [8 bit]
 //          0 = No
@@ -79,6 +103,19 @@ STATE_CREDITS = 0x13
 
 CHAR_MARIO = 0x00
 CHAR_LUIGI = 0x01
+
+MODE_NORMAL = 1
+MODE_PWING = 2
+MODE_DASH = 3
+MODE_SMALL = 4
+MODE_GREEDY = 5
+
+MODES = {
+	MODE_PWING: " (P-Wing Mode)",
+	MODE_DASH: " (Dash Mode)",
+	MODE_SMALL: " (Small Only Mode)",
+	MODE_GREEDY: " (Greedy Mode)",
+}
 
 function maketime(m, s, x=0) => x + 60 * (s + 60 * m)
 
@@ -286,27 +323,32 @@ function platinum_count() => (
 
 function coin_target(x) => prev(current_coins()) == x-1 && current_coins() == x
 
+function in_level(w, s) => current_world() == w-1 && current_stage() == s-1
+
 // --- RICH PRESENCE -------------------------------------------------------------------
 
 rich_presence_conditional_display(game_state() == STATE_LEVEL_SELECT && all_levels_complete(),
-	"Level Select | ⏱️ Sum of Best Times: {0} | 🏅 {1} P | 🪙 {2}",
+	"Level Select{0} | ⏱️ Sum of Best Times: {1} | 🏅 {2} P | 🪙 {3}",
+	rich_presence_lookup("Mode", current_mode(), MODES, fallback=""),
 	rich_presence_value("_T", sum_of_best(), "FRAMES"),
 	rich_presence_number(platinum_count()),
 	rich_presence_value("_S", total_coins(), "SCORE")
 )
 
 rich_presence_conditional_display(game_state() == STATE_LEVEL_SELECT,
-	"Level Select | 📈 Progress: {0} / 32 | 🏅 {1} P | 🪙 {2}",
+	"Level Select{0} | 📈 Progress: {1} / 32 | 🏅 {2} P | 🪙 {3}",
+	rich_presence_lookup("Mode", current_mode(), MODES, fallback=""),
 	rich_presence_number(completed_stage_count()),
 	rich_presence_number(platinum_count()),
 	rich_presence_value("_S", total_coins(), "SCORE")
 )
 
 rich_presence_conditional_display(any_of([STATE_LOADING, STATE_PLAYING], x => game_state() == x) && best_time_current() != 0,
-	"{0} is in {1}-{2} | 🪙 {3} / {4} | ⏱️ {5} (PB: {6})",
+	"{0} is in {1}-{2}{3} | 🪙 {4} / {5} | ⏱️ {6} (PB: {7})",
 	rich_presence_lookup("Character", character(), {1: "Luigi"}, fallback="Mario"),
 	rich_presence_number(current_world() + 1),
 	rich_presence_lookup("Tag", current_stage(), STAGE_TAG, fallback="1"),
+	rich_presence_lookup("Mode", current_mode(), MODES, fallback=""),
 	rich_presence_number(current_coins()),
 	rich_presence_number(target_coins()),
 	rich_presence_value("_T", stage_timer(), "FRAMES"),
@@ -314,19 +356,21 @@ rich_presence_conditional_display(any_of([STATE_LOADING, STATE_PLAYING], x => ga
 )
 
 rich_presence_conditional_display(game_state() == STATE_LOADING || game_state() == STATE_PLAYING,
-	"{0} is in {1}-{2} | 🪙 {3} / {4} | ⏱️ {5}",
+	"{0} is in {1}-{2}{3} | 🪙 {4} / {5} | ⏱️ {6}",
 	rich_presence_lookup("Character", character(), {1: "Luigi"}, fallback="Mario"),
 	rich_presence_number(current_world() + 1),
 	rich_presence_lookup("Tag", current_stage(), STAGE_TAG, fallback="1"),
+	rich_presence_lookup("Mode", current_mode(), MODES, fallback=""),
 	rich_presence_number(current_coins()),
 	rich_presence_number(target_coins()),
 	rich_presence_value("_T", stage_timer(), "FRAMES")
 )
 
 rich_presence_conditional_display(game_state() == STATE_COMPLETE,
-	"Completed {0}-{1} | ⏱️ {2} (PB: {3})",
+	"Completed {0}-{1}{2} | ⏱️ {3} (PB: {4})",
 	rich_presence_number(current_world() + 1),
 	rich_presence_lookup("Tag", current_stage(), STAGE_TAG, fallback="1"),
+	rich_presence_lookup("Mode", current_mode(), MODES, fallback=""),
 	rich_presence_value("_T", stage_timer(), "FRAMES"),
 	rich_presence_value("_T", best_time_current(), "FRAMES")
 )
@@ -339,10 +383,10 @@ for w in range(0, 3) // worlds
 {
 	achievement(
 		title=WORLD_NAME[w],
-		description=format("Complete the world goal for World {0} to unlock {0}-S and {0}-GP", w+1),
+		description=format("Complete the world goal for World {0} in Normal Mode to unlock {0}-S and {0}-GP", w+1),
 		type="progression",
 		points=10,
-		trigger=game_state() > STATE_LOADING && world_completed(w) && !world_completed(w, prev)
+		trigger=current_mode() == MODE_NORMAL && game_state() > STATE_LOADING && world_completed(w) && !world_completed(w, prev)
 	)
 }
 
@@ -354,33 +398,27 @@ for s in range(0, 7) // stages
 
 	achievement(
 		title=format("{0} - Any Medal", stage_name),
-		description=format("Earn any medal on {0}", level_name(w, s)),
+		description=format("Earn any medal on {0} in Normal Mode", level_name(w, s)),
 		type="progression",
 		points=if_else(s == 7, 5, 2),
-		trigger=(
-			current_world() == w && current_stage() == s && 
-			complete_stage() && stage_timer() <= BRONZE_TARGETS[w * 8 + s]
-		)
+		trigger=current_mode() == MODE_NORMAL && in_level(w+1, s+1) && complete_stage() && stage_timer() <= BRONZE_TARGETS[w * 8 + s]
 	)
 
 	achievement(
 		title=format("{0} - Platinum Medal", stage_name),
-		description=format("Earn a platinum medal on {0}", level_name(w, s)),
+		description=format("Earn a platinum medal on {0} in Normal Mode", level_name(w, s)),
 		points=if_else(s == 7, 10, 5),
-		trigger=(
-			current_world() == w && current_stage() == s && 
-			complete_stage() && stage_timer() <= PLATINUM_TARGETS[w * 8 + s]
-		)
+		trigger=current_mode() == MODE_NORMAL && in_level(w+1, s+1) && complete_stage() && stage_timer() <= PLATINUM_TARGETS[w * 8 + s]
 	)
 }
 
 achievement(
 	title="Challenger Approaching",
-	description="Collect 32 platinum medals and unlock a surprise",
+	description="Collect 32 gold medals in Normal Mode and unlock a surprise",
 	points=50,
 	trigger=(
-		// all times are platinum
-		all_of(range(0, 3), w => all_of(range(0, 7), s => best_time(w, s) <= PLATINUM_TARGETS[w * 8 + s])) &&
+		// all times are logged
+		current_mode() == MODE_NORMAL && all_levels_complete() &&
 
 		// the bit for the player select flips first
 		player_select_available() == 1 &&
@@ -392,63 +430,79 @@ achievement(
 
 achievement(
 	title="Climbing the Kooporate Ladder",
-	description="Collect all 40 coins in 3-S",
+	description="Collect all 40 coins in 3-S in Normal Mode",
 	points=3,
-	trigger=(
-		// correct stage (backup confirmation with level id)
-		current_world() == 2 && current_stage() == 6 && level_id() == 0x16 && 
-
-		// check that the player has the correct number of coins
-		trigger_when(coin_target(40))
-	)
+	trigger=current_mode() == MODE_NORMAL && in_level(3, 7) && level_id() == 0x16 && trigger_when(coin_target(40))
 )
 
 achievement(
 	title="Fishy Funds",
-	description="Collect 100 coins in 4-S. Watch for falling fish!",
+	description="Collect 100 coins in 4-S in Normal Mode. Watch for falling fish!",
 	points=10,
-	trigger=(
-		// correct stage (backup confirmation with level id)
-		current_world() == 3 && current_stage() == 6 && level_id() == 0x1e && 
+	trigger=current_mode() == MODE_NORMAL && in_level(4, 7) && level_id() == 0x1e && trigger_when(coin_target(100))
+)
 
-		// check that the player has the correct number of coins
-		trigger_when(coin_target(100))
-	)
+achievement(
+	title="Mario Wings to the Sky",
+	description="Unlock P-Wing Mode by finding a secret room in World 2",
+	points=2,
+	trigger=in_level(2, 1) && level_id() == 0x0020 && is_set(mode_pwing_unlocked())
+)
+
+achievement(
+	title="Use the Boost to Get Through!",
+	description="Unlock Dash Mode by finding a secret room in World 3",
+	points=2,
+	trigger=in_level(3, 3) && level_id() == 0x0021 && is_set(mode_dash_unlocked())
+)
+
+achievement(
+	title="I'll Never Grow Up",
+	description="Unlock Small Only Mode by finding a secret room in World 4",
+	points=3,
+	trigger=in_level(4, 2) && level_id() == 0x0022 && is_set(mode_small_unlocked())
+)
+
+achievement(
+	title="Getting and Spending, We Lay Waste Our Powers",
+	description="Unlock Greedy Mode by finding a secret room in World 4",
+	points=10,
+	trigger=in_level(4, 4) && level_id() == 0x0023 && is_set(mode_greedy_unlocked())
 )
 
 COIN_TARGET = 500
 achievement(
 	title="Do You Wanna Make More Money?",
-	description=format("Collect {0} total coins on one profile", COIN_TARGET),
+	description=format("Collect {0} total coins on one profile in Normal Mode", COIN_TARGET),
 	points=3,
-	trigger=game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
+	trigger=current_mode() == MODE_NORMAL && game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
 )
 
 COIN_TARGET = 1000
 achievement(
 	title="A Small Investment",
-	description=format("Collect {0} total coins on one profile", COIN_TARGET),
+	description=format("Collect {0} total coins on one profile in Normal Mode", COIN_TARGET),
 	points=5,
-	trigger=game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
+	trigger=current_mode() == MODE_NORMAL && game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
 )
 
 COIN_TARGET = 2500
 achievement(
 	title="Generational Wealth",
-	description=format("Collect {0} total coins on one profile", COIN_TARGET),
+	description=format("Collect {0} total coins on one profile in Normal Mode", COIN_TARGET),
 	points=10,
-	trigger=game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
+	trigger=current_mode() == MODE_NORMAL && game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
 )
 
 // --- LEADERBOARDS -------------------------------------------------------------------
 
 leaderboard(
 	title="4-S Survival",
-	description="Earn as many coins as possible on 4-S without dying. Coins max out at 999",
+	description="Earn as many coins as possible on 4-S in Normal Mode without dying. Coins max out at 999",
 
 	start=(
 		// correct stage
-		current_world() == 3 && current_stage() == 6 && level_id() == 0x1e && 
+		current_mode() == MODE_NORMAL && in_level(4, 7) && level_id() == 0x1e && 
 
 		// either the player has 999 coins or they have died
 		(coin_target(999) || (prev(anim()) == 0 && anim() == 0x09))
@@ -466,9 +520,9 @@ for s in range(0, 7) // stages
 {
 	leaderboard(
 		title=format("{0}: Fastest Time", level_name(w, s)),
-		description=format("Complete {0} in the fastest possible time", level_name(w, s)),
+		description=format("Complete {0} in the fastest possible time in Normal Mode", level_name(w, s)),
 	
-		start=is_personal_best(w, s),
+		start=current_mode() == MODE_NORMAL && is_personal_best(w, s),
 		cancel=always_false(),
 		submit=always_true(),
 	
@@ -480,9 +534,9 @@ for s in range(0, 7) // stages
 
 leaderboard(
 	title="Fastest Overall Time",
-	description="Earn the fastest combined time over all 32 stages",
+	description="Earn the fastest combined time over all 32 stages in Normal Mode",
 
-	start=all_levels_complete() && is_personal_best(current_world(), current_stage()),
+	start=current_mode() == MODE_NORMAL && all_levels_complete() && is_personal_best(current_world(), current_stage()),
 	cancel=always_false(),
 	submit=always_true(),
 
