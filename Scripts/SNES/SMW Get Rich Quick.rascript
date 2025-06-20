@@ -60,6 +60,11 @@ function current_stage() => word(0x00103D)
 //          0x0023 = 4-4 secret room (greedy mode)
 function level_id() => word(0x001041)
 
+// $001059: Transition Timer [8 bit] (in frames)
+//          Used for collecting mode unlock orbs, 0x30 at start
+//          at 0x00, the mode unlock bit is set and the screen fades out
+function transition_timer() => byte(0x001059)
+
 // $2600: Best Times [64 bytes]
 //        16 bytes per world, each time stored in 16-bit format
 function best_time(w, s) => word(0x002600 + (w * 8 + s) * 2)
@@ -446,28 +451,40 @@ achievement(
 	title="Mario Wings to the Sky",
 	description="Unlock P-Wing Mode by finding a secret room in World 2",
 	points=2,
-	trigger=in_level(2, 1) && level_id() == 0x0020 && is_set(mode_pwing_unlocked())
+	trigger=(
+		in_level(2, 1) && level_id() == 0x0020 && 
+		prev(transition_timer()) == 1 && transition_timer() == 0 && mode_pwing_unlocked() == 1
+	)
 )
 
 achievement(
 	title="Use the Boost to Get Through!",
 	description="Unlock Dash Mode by finding a secret room in World 3",
 	points=2,
-	trigger=in_level(3, 3) && level_id() == 0x0021 && is_set(mode_dash_unlocked())
+	trigger=(
+		in_level(3, 3) && level_id() == 0x0021 && 
+		prev(transition_timer()) == 1 && transition_timer() == 0 && mode_dash_unlocked() == 1
+	)
 )
 
 achievement(
 	title="I'll Never Grow Up",
 	description="Unlock Small Only Mode by finding a secret room in World 4",
 	points=3,
-	trigger=in_level(4, 2) && level_id() == 0x0022 && is_set(mode_small_unlocked())
+	trigger=(
+		in_level(4, 2) && level_id() == 0x0022 && 
+		prev(transition_timer()) == 1 && transition_timer() == 0 && mode_small_unlocked() == 1
+	)
 )
 
 achievement(
 	title="Getting and Spending, We Lay Waste Our Powers",
 	description="Unlock Greedy Mode by finding a secret room in World 4",
 	points=10,
-	trigger=in_level(4, 4) && level_id() == 0x0023 && is_set(mode_greedy_unlocked())
+	trigger=(
+		in_level(4, 4) && level_id() == 0x0023 && 
+		prev(transition_timer()) == 1 && transition_timer() == 0 && mode_greedy_unlocked() == 1
+	)
 )
 
 COIN_TARGET = 500
