@@ -52,7 +52,7 @@
 		"prefix": "rich_presence_display",
 		"body": [
 			"rich_presence_display(",
-			"\t\"${1:format_string}\"",
+			"\t\"${1:format_string}\",",
 			"\tparameters...",
 			")"
 		],
