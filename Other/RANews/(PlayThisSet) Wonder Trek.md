@@ -1,0 +1,9 @@
+Game: https://retroachievements.org/game/27056
+
+This game is a masterpiece, and the set gives you everything you would want. I've always said that the best RetroAchievements sets are the ones that celebrate an interesting game by giving you a guided tour through all the content that a real fan would want to see. It's like you're sitting down to play a game with a friend who recommended it to you, while they point out all of the cool stuff you shouldn't miss.
+
+Wonder Trek's set is exactly that!
+
+First, what is Wonder Trek? Wonder Trek is an obscure Japanese-only action-adventure game where you play the role of a zoologist Nick, wielding a giant, comical ultrasonic hammer, and partnered up with your elderly do-nothing boss, Professor Favreau. He is AI controlled, and while he is occasionally needed to solve a puzzle or two, he mostly (thankfully) stays out of your way (figuratively, not literally; he loves to jump in front of your hammer all the time). The timing is perfect to play this as it just recently got a translation patch, making it finally possible to experience this game in English.
+
+Wonder Trek is dripping with charming writing, quirky art design, and a compelling story with interesting characters and a few twists and turns. You owe it to yourself to play this game, and I don't say those words lightly. The set is worthy of praise as well; light on challenges (a big win for the challenge haters), but it highlights all of the best parts of the 100% playthrough, the best ending, and some guidance toward easily-missable dialogue that is worth seeking out. If you haven't left yet to go play Wonder Trek, I don't know what else I can say.
