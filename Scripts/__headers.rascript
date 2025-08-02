@@ -13,8 +13,8 @@
 // --- LEADERBOARDS -------------------------------------------------------------------
 
 NULL = 0
-function if_else(p, t, f) { if (p) { return t } else return f }
 id = (x) => x
+function if_else(p, t, f) { if (p) { return t } else return f }
 ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 function bitx(i, addr) => bit(i % 8, addr + i / 8)
 function is_set(acc) => acc > prev(acc)
