@@ -111,8 +111,7 @@ rich_presence_conditional_display(in_game(),
 )
 
 rich_presence_display(
-	"🏃 Athletic Land | © Konami 1984",
-	rich_presence_number(current_scene())
+	"🏃 Athletic Land | © Konami 1984"
 )
 
 // --- ACHIEVEMENTS -------------------------------------------------------------------

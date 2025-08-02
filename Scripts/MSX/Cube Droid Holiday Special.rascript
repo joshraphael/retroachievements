@@ -125,12 +125,35 @@ POINTS_MEDIUM = 3
 POINTS_TRICKY = 5
 POINTS_HARD = 5
 
+/*
+Filler names:
+- Hark the Herald
+- Ornaments
+- Eggnog
+- Nutcracker
+- Snowball
+- Evergreen
+- Tannenbaum
+- Candlelight
+- Advent Calendar
+- Humbug
+- Christmas Cracker
+- Glad Tidings
+- Wassail
+- Holly Wreath (The Holly and the Ivy)
+- Magi
+
+- Feliz Natal
+- Feliz Navidad
+- Joyeux Noel
+*/
+
 STAGE_INFO = [
 	{
 		"name": "1-1",
 		"planet": "Noelion",
 		"password": "FROST",
-		"title": "Sleigh Bells",
+		"title": "Yuletide Greetings",
 		"challenge": {
 			"trigger": (step_counter() <= 12),
 			"desc": "in 12 steps or fewer",
@@ -141,7 +164,7 @@ STAGE_INFO = [
 		"name": "1-2",
 		"planet": "Noelion",
 		"password": "BLIZZARD",
-		"title": "Gift Wrapped",
+		"title": "Glad Tidings",
 		"challenge": {
 			"trigger": always_false(),
 			"desc": "",
@@ -163,7 +186,7 @@ STAGE_INFO = [
 		"name": "1-4",
 		"planet": "Noelion",
 		"password": "SNOWMAN",
-		"title": "",
+		"title": "Gift Wrapped",
 		"challenge": {
 			"trigger": always_false(),
 			"desc": "",
@@ -174,8 +197,9 @@ STAGE_INFO = [
 		"name": "1-5",
 		"planet": "Noelion",
 		"password": "FREEZING",
-		"title": "",
+		"title": "Reindeer Games",
 		"challenge": {
+			// a cool challenge would be "don't grab center battery last"
 			"trigger": always_false(),
 			"desc": "",
 			"points": 0,
@@ -185,8 +209,9 @@ STAGE_INFO = [
 		"name": "1-6",
 		"planet": "Noelion",
 		"password": "ARCTIC",
-		"title": "",
+		"title": "Deck the Halls",
 		"challenge": {
+			// possible to grab the top 2 batteries first?
 			"trigger": always_false(),
 			"desc": "",
 			"points": 0,
@@ -197,8 +222,9 @@ STAGE_INFO = [
 		"name": "2-1",
 		"planet": "Hollytis",
 		"password": "HIBERNATE",
-		"title": "",
+		"title": "Sleigh Bells",
 		"challenge": {
+			// without blocking any of the alcoves?
 			"trigger": always_false(),
 			"desc": "",
 			"points": 0,
@@ -208,8 +234,9 @@ STAGE_INFO = [
 		"name": "2-2",
 		"planet": "Hollytis",
 		"password": "SNOWFLAKE",
-		"title": "",
+		"title": "Gingerbread House", // Candy Cane would fit here
 		"challenge": {
+			// collecting top battery first
 			"trigger": always_false(),
 			"desc": "",
 			"points": 0,
@@ -219,7 +246,7 @@ STAGE_INFO = [
 		"name": "2-3",
 		"planet": "Hollytis",
 		"password": "COLD",
-		"title": "",
+		"title": "Up the Chimney",
 		"challenge": {
 			"trigger": always_false(),
 			"desc": "",
@@ -241,7 +268,7 @@ STAGE_INFO = [
 		"name": "2-5",
 		"planet": "Hollytis",
 		"password": "AVALANCHE",
-		"title": "",
+		"title": "White Elephant",
 		"challenge": {
 			"trigger": always_false(),
 			"desc": "",
@@ -252,7 +279,7 @@ STAGE_INFO = [
 		"name": "2-6",
 		"planet": "Hollytis",
 		"password": "POLAR",
-		"title": "",
+		"title": "Wassail", // got kind of a Pac-Man vibe
 		"challenge": {
 			"trigger": always_false(),
 			"desc": "",
@@ -264,7 +291,7 @@ STAGE_INFO = [
 		"name": "3-1",
 		"planet": "Yulethra",
 		"password": "SNOWBOARD",
-		"title": "",
+		"title": "Star of Bethlehem",
 		"challenge": {
 			"trigger": always_false(),
 			"desc": "",
@@ -275,7 +302,7 @@ STAGE_INFO = [
 		"name": "3-2",
 		"planet": "Yulethra",
 		"password": "MITTENS",
-		"title": "",
+		"title": "Nutcracker",
 		"challenge": {
 			"trigger": always_false(),
 			"desc": "",
