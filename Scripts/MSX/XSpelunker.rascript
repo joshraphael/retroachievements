@@ -354,10 +354,14 @@ achievement(
 	description="Complete the first world without using any ropes or bombs",
 	points=5,
 	trigger=(
-		// complete
+		// complete world 1
 		in_game() && trigger_when(complete_world(1)) &&
+		// for both items (bombs & ropes)
 		all_of([ITEM_BOMB, ITEM_ROPE], item => (
-			all_of(range(0,7), i => never(prev(inv_slot_id(i)) == item && inv_slot_count(i) < prev(inv_slot_count(i))))
+			// check every inventory slot; is this the item we're looking for, and did the count go down?
+			all_of(range(0,7), i => never(prev(inv_slot_id(i)) == item && inv_slot_count(i) < prev(inv_slot_count(i)))) &&
+			// when you use the last consumable item, the count doesn't go down, but the id goes to 0
+			all_of(range(0,7), i => never(prev(inv_slot_id(i)) == item && inv_slot_id(i) == 0))
 		))
 	)
 )
