@@ -148,28 +148,25 @@ Filler names:
 - Joyeux Noel
 */
 
+/*
+"challenge": {
+	"trigger": always_false(),
+	"desc": "",
+	"points": 0,
+},
+*/
 STAGE_INFO = [
 	{
 		"name": "1-1",
 		"planet": "Noelion",
 		"password": "FROST",
 		"title": "Yuletide Greetings",
-		"challenge": {
-			"trigger": (step_counter() <= 12),
-			"desc": "in 12 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "1-2",
 		"planet": "Noelion",
 		"password": "BLIZZARD",
 		"title": "Glad Tidings",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "1-3",
@@ -187,35 +184,20 @@ STAGE_INFO = [
 		"planet": "Noelion",
 		"password": "SNOWMAN",
 		"title": "Gift Wrapped",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "1-5",
 		"planet": "Noelion",
 		"password": "FREEZING",
 		"title": "Reindeer Games",
-		"challenge": {
-			// a cool challenge would be "don't grab center battery last"
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
+		// a cool challenge would be "don't grab center battery last"
 	},
 	{
 		"name": "1-6",
 		"planet": "Noelion",
 		"password": "ARCTIC",
 		"title": "Deck the Halls",
-		"challenge": {
-			// possible to grab the top 2 batteries first?
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
+		// possible to grab the top 2 batteries first?
 	},
 	
 	{
@@ -223,68 +205,38 @@ STAGE_INFO = [
 		"planet": "Hollytis",
 		"password": "HIBERNATE",
 		"title": "Sleigh Bells",
-		"challenge": {
-			// without blocking any of the alcoves?
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
+		// without blocking any of the alcoves?
 	},
 	{
 		"name": "2-2",
 		"planet": "Hollytis",
 		"password": "SNOWFLAKE",
 		"title": "Gingerbread House", // Candy Cane would fit here
-		"challenge": {
-			// collecting top battery first
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
+		// collecting top battery first
 	},
 	{
 		"name": "2-3",
 		"planet": "Hollytis",
 		"password": "COLD",
 		"title": "Up the Chimney",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "2-4",
 		"planet": "Hollytis",
 		"password": "GLACIER",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "2-5",
 		"planet": "Hollytis",
 		"password": "AVALANCHE",
 		"title": "White Elephant",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "2-6",
 		"planet": "Hollytis",
 		"password": "POLAR",
 		"title": "Wassail", // got kind of a Pac-Man vibe
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	
 	{
@@ -292,66 +244,36 @@ STAGE_INFO = [
 		"planet": "Yulethra",
 		"password": "SNOWBOARD",
 		"title": "Star of Bethlehem",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "3-2",
 		"planet": "Yulethra",
 		"password": "MITTENS",
 		"title": "Nutcracker",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "3-3",
 		"planet": "Yulethra",
 		"password": "FIREPLACE",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "3-4",
 		"planet": "Yulethra",
 		"password": "ICEBERG",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "3-5",
 		"planet": "Yulethra",
 		"password": "FROZEN",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "3-6",
 		"planet": "Yulethra",
 		"password": "FROSTBITE",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	
 	{
@@ -359,66 +281,36 @@ STAGE_INFO = [
 		"planet": "Tinselar",
 		"password": "SUBZERO",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "4-2",
 		"planet": "Tinselar",
 		"password": "SOLSTICE",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "4-3",
 		"planet": "Tinselar",
 		"password": "IGLOO",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "4-4",
 		"planet": "Tinselar",
 		"password": "SNOWDRIFT",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "4-5",
 		"planet": "Tinselar",
 		"password": "PENGUIN",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 	{
 		"name": "4-6",
 		"planet": "Tinselar",
 		"password": "ENDDEMOGAMITAINA",
 		"title": "",
-		"challenge": {
-			"trigger": always_false(),
-			"desc": "",
-			"points": 0,
-		},
 	},
 ]
 
@@ -486,7 +378,7 @@ for level in range(0, STAGE_COUNT-1)
 		trigger=current_level() == level && level_complete()
 	)
 	
-	if (stage["challenge"]["points"] >= POINTS_MEDIUM)
+	if (dictionary_contains_key(stage, "challenge"))
 	{
 		achievement(
 			title=format("{0} Optimized", levelname),

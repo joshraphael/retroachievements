@@ -117,22 +117,12 @@ STAGE_INFO = [
 		"planet": "Aruru",
 		"password": "HEADROOM",
 		"title": "Battery",
-		"challenge": {
-			"trigger": (step_counter() <= 21),
-			"desc": "in 21 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "1-2",
 		"planet": "Aruru",
 		"password": "JOHNNYCAB",
 		"title": "Grand Cross",
-		"challenge": {
-			"trigger": (step_counter() <= 31),
-			"desc": "in 31 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "1-3",
@@ -205,11 +195,6 @@ STAGE_INFO = [
 		"planet": "Ishtar",
 		"password": "T1000",
 		"title": "Chambers",
-		"challenge": {
-			"trigger": (step_counter() <= 45),
-			"desc": "in 45 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "2-3",
@@ -227,33 +212,18 @@ STAGE_INFO = [
 		"planet": "Ishtar",
 		"password": "DOROTHYROBOT",
 		"title": "Security",
-		"challenge": {
-			"trigger": (step_counter() <= 50),
-			"desc": "in 50 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "2-5",
 		"planet": "Ishtar",
 		"password": "PSSSTROBBIE",
 		"title": "Slow Rollin'",
-		"challenge": {
-			"trigger": (step_counter() <= 41),
-			"desc": "in 41 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "2-6",
 		"planet": "Ishtar",
 		"password": "AVA",
 		"title": "Firing Squad",
-		"challenge": {
-			"trigger": (step_counter() <= 28),
-			"desc": "in 28 steps or fewer",
-			"points": 0,
-		},
 	},
 
 	{
@@ -305,22 +275,12 @@ STAGE_INFO = [
 		"planet": "Nergal",
 		"password": "KITT",
 		"title": "Anticipation",
-		"challenge": {
-			"trigger": (step_counter() <= 55),
-			"desc": "in 55 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "3-6",
 		"planet": "Nergal",
 		"password": "THETURK",
 		"title": "Bodyguards",
-		"challenge": {
-			"trigger": (step_counter() <= 40),
-			"desc": "in 40 steps or fewer",
-			"points": 0,
-		},
 	},
 
 	{
@@ -328,11 +288,6 @@ STAGE_INFO = [
 		"planet": "Ninurta",
 		"password": "DRTHEOPOLIS",
 		"title": "Back-to-Back",
-		"challenge": {
-			"trigger": (step_counter() <= 59),
-			"desc": "in 59 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "4-2",
@@ -361,11 +316,6 @@ STAGE_INFO = [
 		"planet": "Ninurta",
 		"password": "SVI2000",
 		"title": "Frenemies",
-		"challenge": {
-			"trigger": (step_counter() <= 120),
-			"desc": "in 120 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "4-5",
@@ -402,11 +352,6 @@ STAGE_INFO = [
 		"planet": "Marduk",
 		"password": "FURBY",
 		"title": "Panopticon",
-		"challenge": {
-			"trigger": (step_counter() <= 87),
-			"desc": "in 87 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "5-2",
@@ -435,11 +380,6 @@ STAGE_INFO = [
 		"planet": "Marduk",
 		"password": "T800",
 		"title": "Portal",
-		"challenge": {
-			"trigger": (step_counter() <= 102),
-			"desc": "in 102 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "5-5",
@@ -491,22 +431,12 @@ STAGE_INFO = [
 		"planet": "Shamash",
 		"password": "SEVENOFNINE",
 		"title": "Spiral",
-		"challenge": {
-			"trigger": (step_counter() <= 102),
-			"desc": "in 102 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "6-4",
 		"planet": "Shamash",
 		"password": "LOCUTUS",
 		"title": "For Want of a Box",
-		"challenge": {
-			"trigger": (step_counter() <= 137),
-			"desc": "in 137 steps or fewer",
-			"points": 0,
-		},
 	},
 	{
 		"name": "6-5",
@@ -598,7 +528,7 @@ for level in range(0, STAGE_COUNT-1)
 		trigger=current_level() == level && level_complete()
 	)
 	
-	if (stage["challenge"]["points"] >= POINTS_MEDIUM)
+	if (dictionary_contains_key(stage, "challenge"))
 	{
 		achievement(
 			title=format("{0} Optimized", levelname),
