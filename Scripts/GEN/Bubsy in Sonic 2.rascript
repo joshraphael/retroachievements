@@ -165,10 +165,10 @@ function time_minutes() => byte(0x00FE22)
 // $FE26: Score [32 bit]
 function score() => dword(0x00FE26)
 
-// $FE30: Active Checkpoint [8 bit]
+// $FE31: Active Checkpoint [8 bit]
 // $FE32: Checkpoint X [16 bit]
 // $FE34: Checkpoint Y [16 bit]
-function active_checkpoint() => byte(0x00FE30)
+function active_checkpoint() => byte(0x00FE31)
 function checkpoint_x() => word(0x00FE32)
 function checkpoint_y() => word(0x00FE34)
 
@@ -426,7 +426,12 @@ achievement(
 	description="Complete Star Cat Zone",
 	type="progression",
 	points=10,
-	trigger=!cheating() && complete_level(STAGE_STAR_CAT_ZONE)
+	trigger=(
+		// rough in-game check (check delta gamestate to ensure it doesn't pop on level select)
+		!cheating() && prev(__game_state_raw()) == STATE_PLAYING && lives() > 0 && 
+		// check for transition from star cat -> wing furtress
+		prev(current_stage()) == STAGE_STAR_CAT_ZONE && current_stage() == STAGE_WING_FURTRESS_ZONE
+	)
 )
 
 achievement(
@@ -434,7 +439,12 @@ achievement(
 	description="Complete Wing Furtress Zone",
 	type="progression",
 	points=10,
-	trigger=!cheating() && complete_level(STAGE_WING_FURTRESS_ZONE)
+	trigger=(
+		// Wing Furtress Zone
+		!cheating() && in_game() && current_stage() == STAGE_WING_FURTRESS_ZONE && 
+		// this is the end of the cutscene chasing Eggman. RIP Bubsy
+		prev(xpos()) <= 11825 && xpos() > 11825 && ypos() == 1516
+	)
 )
 
 achievement(
@@ -459,11 +469,11 @@ achievement(
 
 achievement(
 	title="Bubsy Smash Toolie-Woolies",
-	description="Defeat any end-of-zone boss with invincibility active",
+	description="Defeat any end-of-zone boss with invincibility active. Super Bubsy not allowed",
 	points=5,
 	trigger=(
 		// have invincibility
-		!cheating() && in_game() && has_invincibility() == 1 &&
+		!cheating() && in_game() && has_invincibility() == 1 && super_bubsy_state() == 0 &&
 		// for any of the bosses 
 		any_of(BOSSES, b => (
 			// are you in the current stage, after the x position that triggers the fight starting, and kill the boss?
@@ -488,15 +498,17 @@ achievement(
 
 achievement(
 	title="Press Some Buttons, Will Ya?!",
-	description="Complete Aclawtick Ruin Zone 1 & 2 without ever touching the dpad",
+	description="Complete Aclawtick Ruin Zone 1 & 2 by reaching the boss without ever touching the dpad",
 	points=10,
 	trigger=(
 		// starting from the start (not a checkpoint) of Aclawtick Ruin Zone 1
 		once(start_level_no_checkpoint(STAGE_ACLAWTICK_RUIN_ZONE_1)) &&
 		// trigger at the end of Aclawtick Ruin Zone 2
-		trigger_when(complete_level(STAGE_ACLAWTICK_RUIN_ZONE_2)) &&
+		trigger_when(current_stage() == STAGE_ACLAWTICK_RUIN_ZONE_2 && prev(xpos()) < 10816 && xpos() >= 10816) &&
 		// clear on cheating
 		never(cheating()) &&
+		// clear on returning to the menu
+		never(game_state() <= STATE_DEMO) &&
 		// clear the checkpoint hit if the dpad is ever pressed
 		never(__game_state_raw() == STATE_PLAYING && p1_dpad() != 0)
 	)
@@ -532,8 +544,8 @@ ZONES = [
 	{ "start": STAGE_MYSTIC_CAVE_ZONE_1, "end": STAGE_MYSTIC_CAVE_ZONE_2, "name": "Mystic Cave Zone", },
 	{ "start": STAGE_OIL_OCEAN_ZONE_1, "end": STAGE_OIL_OCEAN_ZONE_2, "name": "Oil Ocean Zone", },
 	{ "start": STAGE_MECLAWPOLIS_ZONE_1, "end": STAGE_MECLAWPOLIS_ZONE_3, "name": "Meclawpolis Zone", },
-	{ "start": STAGE_STAR_CAT_ZONE, "end": STAGE_STAR_CAT_ZONE, "name": "Star Cat Zone", },
-	{ "start": STAGE_WING_FURTRESS_ZONE, "end": STAGE_WING_FURTRESS_ZONE, "name": "Wing Furtress Zone", },
+	//{ "start": STAGE_STAR_CAT_ZONE, "end": STAGE_STAR_CAT_ZONE, "name": "Star Cat Zone", },
+	//{ "start": STAGE_WING_FURTRESS_ZONE, "end": STAGE_WING_FURTRESS_ZONE, "name": "Wing Furtress Zone", },
 	//{ "start": STAGE_CHICKEN_EGG_ZONE, "end": STAGE_CHICKEN_EGG_ZONE, "name": "Chicken Egg Zone", },
 ]
 
@@ -565,6 +577,37 @@ for zone in ZONES
 		lower_is_better=true
 	)
 }
+
+leaderboard(
+	title="Star Cat Zone Speedrun",
+	description="Complete Star Cat Zone in the fastest time without transformations",
+
+	start=start_level_no_checkpoint(STAGE_STAR_CAT_ZONE),
+	cancel=leaderboard_cancel() || prev(current_zone()) != 0x10,
+	submit=prev(current_stage() == STAGE_STAR_CAT_ZONE) && current_stage() == STAGE_WING_FURTRESS_ZONE,
+
+	value=measured(tally(0, paused() == 0 && loading() == 0)),
+	format="FRAMES",
+	lower_is_better=true
+)
+
+leaderboard(
+	title="Wing Furtress Zone Speedrun",
+	description="Complete Wing Furtress Zone in the fastest time without transformations",
+
+	start=start_level_no_checkpoint(STAGE_WING_FURTRESS_ZONE),
+	cancel=leaderboard_cancel() || current_zone() != 0x06,
+	submit=(
+		// Wing Furtress Zone
+		!cheating() && in_game() && current_stage() == STAGE_WING_FURTRESS_ZONE && 
+		// this is the end of the cutscene chasing Eggman. RIP Bubsy
+		prev(xpos()) <= 11825 && xpos() > 11825 && ypos() == 1516
+	),
+
+	value=measured(tally(0, paused() == 0 && loading() == 0)),
+	format="FRAMES",
+	lower_is_better=true
+)
 
 leaderboard(
 	title="Chicken Egg Zone Speedrun",
