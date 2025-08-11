@@ -382,20 +382,6 @@ achievement(
 	trigger=kill_boss(BOSS_GOLVELLIUS)
 )
 
-/*
-achievement(
-	title="Honorable Knights Don't Backstab",
-	description="Defeat Golvellius without ever going behind the boss",
-	points=10,
-	trigger=(
-		once(start_boss(BOSS_GOLVELLIUS)) &&
-		trigger_when(kill_boss(BOSS_GOLVELLIUS)) &&
-		//never() &&
-		never(map_type() == MAP_OVERWORLD) &&
-		never(health() == 0 && herb_count() == 0)
-)
-*/
-
 achievement(
 	title="A Knight in the Valley",
 	description="Buy the Valley Sword",
@@ -568,7 +554,3 @@ leaderboard(
 	format="VALUE",
 	lower_is_better=false
 )
-
-// Super Cooks:
-// Smoked Salmon
-// Shu mai, don't bother me
