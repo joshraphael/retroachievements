@@ -125,36 +125,6 @@ POINTS_MEDIUM = 3
 POINTS_TRICKY = 5
 POINTS_HARD = 5
 
-/*
-Filler names:
-- Hark the Herald
-- Ornaments
-- Eggnog
-- Nutcracker
-- Snowball
-- Evergreen
-- Tannenbaum
-- Candlelight
-- Advent Calendar
-- Humbug
-- Christmas Cracker
-- Glad Tidings
-- Wassail
-- Holly Wreath (The Holly and the Ivy)
-- Magi
-
-- Feliz Natal
-- Feliz Navidad
-- Joyeux Noel
-*/
-
-/*
-"challenge": {
-	"trigger": always_false(),
-	"desc": "",
-	"points": 0,
-},
-*/
 STAGE_INFO = [
 	{
 		"name": "1-1",
@@ -211,7 +181,7 @@ STAGE_INFO = [
 		"name": "2-2",
 		"planet": "Hollytis",
 		"password": "SNOWFLAKE",
-		"title": "Gingerbread House", // Candy Cane would fit here
+		"title": "Gingerbread House",
 		// collecting top battery first
 	},
 	{
@@ -224,7 +194,7 @@ STAGE_INFO = [
 		"name": "2-4",
 		"planet": "Hollytis",
 		"password": "GLACIER",
-		"title": "",
+		"title": "Garland",
 	},
 	{
 		"name": "2-5",
@@ -255,62 +225,62 @@ STAGE_INFO = [
 		"name": "3-3",
 		"planet": "Yulethra",
 		"password": "FIREPLACE",
-		"title": "",
+		"title": "Christmas Cracker",
 	},
 	{
 		"name": "3-4",
 		"planet": "Yulethra",
 		"password": "ICEBERG",
-		"title": "",
+		"title": "Advent Calendar",
 	},
 	{
 		"name": "3-5",
 		"planet": "Yulethra",
 		"password": "FROZEN",
-		"title": "",
+		"title": "Eggnog",
 	},
 	{
 		"name": "3-6",
 		"planet": "Yulethra",
 		"password": "FROSTBITE",
-		"title": "",
+		"title": "Candy Cane",
 	},
 	
 	{
 		"name": "4-1",
 		"planet": "Tinselar",
 		"password": "SUBZERO",
-		"title": "",
+		"title": "Ten Lords A-Leaping",
 	},
 	{
 		"name": "4-2",
 		"planet": "Tinselar",
 		"password": "SOLSTICE",
-		"title": "",
+		"title": "Humbug",
 	},
 	{
 		"name": "4-3",
 		"planet": "Tinselar",
 		"password": "IGLOO",
-		"title": "",
+		"title": "Joy to the World",
 	},
 	{
 		"name": "4-4",
 		"planet": "Tinselar",
 		"password": "SNOWDRIFT",
-		"title": "",
+		"title": "Candlelights",
 	},
 	{
 		"name": "4-5",
 		"planet": "Tinselar",
 		"password": "PENGUIN",
-		"title": "",
+		"title": "The Holly and the Ivy",
 	},
 	{
 		"name": "4-6",
 		"planet": "Tinselar",
 		"password": "ENDDEMOGAMITAINA",
-		"title": "",
+		"title": "O Tannenbaum",
 	},
 ]
 
@@ -371,14 +341,15 @@ for level in range(0, STAGE_COUNT-1)
 	levelname = stage["title"]
 
 	achievement(
-		title=format("{0} Complete", levelname),
+		title=levelname, // format("{0} Complete", levelname),
 		description=format("Complete level {0}", stage["name"]),
 		type=if_else(level == STAGE_COUNT-1, "win_condition", "progression"),
 		points=COMPLETE_BY_WORLD[substring(stage["name"], 0, 1)],
 		trigger=current_level() == level && level_complete()
 	)
 	
-	if (dictionary_contains_key(stage, "challenge"))
+	// if (dictionary_contains_key(stage, "challenge"))
+	if (false) // no challenges for now
 	{
 		achievement(
 			title=format("{0} Optimized", levelname),
