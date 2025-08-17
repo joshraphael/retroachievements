@@ -540,6 +540,19 @@ achievement(
 // --- LEADERBOARDS -------------------------------------------------------------------
 
 leaderboard(
+	title="Riskiest Knight",
+	description="Beat the game with the fewest potions collected. You probably don't need them *all*, right?",
+
+	start=kill_boss(BOSS_GOLVELLIUS),
+	cancel=always_false(),
+	submit=always_true(),
+
+	value=measured(potion_count()),
+	format="VALUE",
+	lower_is_better=true
+)
+
+leaderboard(
 	title="RNG Gods",
 	description="Give praise to these RNG gods who have been blessed to reveal the hidden RNG room and enter it. It only appears with a 1/65535 chance!",
 
