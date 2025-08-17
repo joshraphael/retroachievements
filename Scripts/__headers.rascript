@@ -26,7 +26,7 @@ function rich_presence_flag(str, when=always_true(), lookupname="_F") =>
 	rich_presence_lookup(lookupname, max_of(measured(1, when=when), measured(0)), {1: str}, "")
 
 function rich_presence_condition_table(lookupname, list)
-{
+{ // highest priority needs to be listed first in the pairs list
 	dict = {}
 	expr = max_of(array_map(range(1, length(list)), i => measured(length(list)-i, when=list[i-1][0])))
 	for i in range(1, length(list)) dict[length(list)-i] = list[i-1][1]
