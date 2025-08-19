@@ -719,6 +719,8 @@ AREAS = {
 	0x23: "Under the Sea",
 }
 
+DESC_FORMAT = "Defeat {0} having never used magic or opened a chest; using Silent Flute, Celine's Bell, Replica, Giant's Shoes, Silver Amulet, or Golden Amulet is considered spell-casting by the game, and are banned"
+
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
 
 function boss_killed(x) => bit(x, BOSS_FLAGS) > prev(bit(x, BOSS_FLAGS))
@@ -779,7 +781,7 @@ rich_presence_display(
 
 achievement(
 	title="Mirror Match",
-	description="Defeat Solvaring having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Solvaring"),
 	points=10,
 	trigger=(
 		map_id() == 0x1f && sub_map_id() == 0x01 &&
@@ -789,7 +791,7 @@ achievement(
 
 achievement(
 	title="Blowhard Beatdown",
-	description="Defeat Zelse having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Zelse"),
 	points=10,
 	trigger=(
 		map_id() == 0x21 && sub_map_id() == 0x00 &&
@@ -799,7 +801,7 @@ achievement(
 
 achievement(
 	title="Washed-Up Wizard",
-	description="Defeat Nepty having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Nepty"),
 	points=10,
 	trigger=(
 		map_id() == 0x23 && sub_map_id() == 0x00 &&
@@ -809,7 +811,7 @@ achievement(
 
 achievement(
 	title="The Fight at the End of the Tunnel",
-	description="Defeat Shilf having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Shilf"),
 	points=10,
 	trigger=(
 		map_id() == 0x1c && sub_map_id() == 0x00 &&
@@ -819,7 +821,7 @@ achievement(
 
 achievement(
 	title="Fiery Temper",
-	description="Defeat Fargo having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Fargo"),
 	points=10,
 	trigger=(
 		map_id() == 0x1d && sub_map_id() == 0x00 &&
@@ -829,7 +831,7 @@ achievement(
 
 achievement(
 	title="Guilty of Skipping Leg Day",
-	description="Defeat Guilty having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Guilty"),
 	points=25,
 	trigger=(
 		map_id() == 0x1e && sub_map_id() == 0x0a &&
@@ -839,7 +841,7 @@ achievement(
 
 achievement(
 	title="Royal Rumble",
-	description="Defeat Beigis having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Beigis"),
 	points=25,
 	trigger=(
 		map_id() == 0x1e && sub_map_id() == 0x0e &&
@@ -849,7 +851,7 @@ achievement(
 
 achievement(
 	title="BarbarBrian",
-	description="Defeat Mammon having never used magic or opened a chest",
+	description=format(DESC_FORMAT, "Mammon"),
 	points=50,
 	trigger=(
 		game_state() != STATE_TITLE &&
