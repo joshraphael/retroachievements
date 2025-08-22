@@ -435,7 +435,7 @@ achievement(
 )
 
 achievement(
-	title="My Contract Does Not Mention Pain!",
+	title="Anybody Got a Parachute?",
 	description="Complete Wing Furtress Zone",
 	type="progression",
 	points=10,
