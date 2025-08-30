@@ -1,0 +1,7 @@
+- Get One for Free
+  - you can skip the coin block if you know the yoshi block dupe trick
+- GO WEST
+  - how do you hit that hint box??
+  - can you skip an enemy with a double eat?
+- hallucinogenic
+  - didn't solve it legit GO BACK

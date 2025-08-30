@@ -1,0 +1,14 @@
+Hair Raising High Rise
+- 100 coins without A button
+Bowser 1
+- Reach the statue garden without alerting the guards
+-- one single guard goes from 0x01 -> 0x02 when chasing @ 0x24fc38 (+0x17c) (300 objects)
+-- +0x1D0 = 0x803fa9bc for koopatrol
+-- +0x210 = 0x803fa96c for koopatrol <-- use this
+-- map id = 0x13
+-- start: 4700-5300, 2950-4000, -4430to-6170
+-- end: 4400-4600, 5150-6150, 3230-4100
+- All reds
+Bowser 3
+- (theres a blue bone out of the way in the towers section)
+- big skip around pagoda
