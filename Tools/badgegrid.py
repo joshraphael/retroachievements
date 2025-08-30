@@ -9,11 +9,12 @@ border = 10
 rowlen = 10
 
 images = []
-for fn in glob.glob("*.png"):
+for fn in glob.glob("**/*.png", recursive=True):
 	img = Image.open(fn)
 	if img.width != 64 or img.height != 64: continue
 	if os.path.basename(img.filename).startswith("_"): continue
 	images.append(img)
+print('found', len(images), 'badges')
 
 w = border + (64 + border) * min(rowlen, len(images))
 h = border + (64 + border) * math.ceil(len(images) / rowlen)
