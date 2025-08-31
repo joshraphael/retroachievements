@@ -9,13 +9,16 @@ function plural(x) => rich_presence_lookup("_Pl", x, {1: ""}, fallback="s")
 
 // --- MEMORY -------------------------------------------------------------------
 
+// $23A146: Current Savefile [16bit]
+function file() => word(0x23A146) - 1
+
 // $089CA0: (Save 1) [Bitflags] Progression Flags
 //          --- bit0 | Save File created
 //          --- bit4 | Bowser 2 cleared
 //          --- bit5 | Bowser 1 cleared
-function save_created(i) => bit0(0x089CA0 + 0x40 * i)
-function bowser2_cleared(i) => bit4(0x089CA0 + 0x40 * i)
-function bowser1_cleared(i) => bit5(0x089CA0 + 0x40 * i)
+function save_created() => bit0(0x089CA0 + 0x40 * file())
+function bowser2_cleared() => bit4(0x089CA0 + 0x40 * file())
+function bowser1_cleared() => bit5(0x089CA0 + 0x40 * file())
 
 // $089CA3: (Save 1) [Bitflags] Progresson Flags
 //          --- bit5 | B3 Halfway Point
@@ -55,8 +58,8 @@ function bowser1_cleared(i) => bit5(0x089CA0 + 0x40 * i)
 //          --- bit4 | Inside The Basement Sports Complex
 //          --- bit5 | The Great Scavvenger Hunt
 //          --- bit6 | 100 Coins
-function c3_stars(i, x) => bit(x, 0x089CA7 + 0x40 * i)
-function c3_star_count(i) => bitcount(0x089CA7 + 0x40 * i)
+function c3_stars(x) => bit(x, 0x089CA7 + 0x40 * file())
+function c3_star_count() => bitcount(0x089CA7 + 0x40 * file())
 
 // $089CA8: (Save 1) [Bitflags] Stars Collected - C7 Awe-Inspiring Spires
 //          --- bit0 | High On The Azure Tower
@@ -111,14 +114,14 @@ function c3_star_count(i) => bitcount(0x089CA7 + 0x40 * i)
 
 // $089CB5: (Save 1) [Bitflags] Stars Collected - Bowser's Furious Finale
 //          --- bit0 | Red Coins
-function b3_reds(i) => bit0(0x089CB5 + 0x40 * i)
+function b3_reds() => bit0(0x089CB5 + 0x40 * file())
 
 // $089CB7: (Save 1) [Bitflags] Stars Collected - Bowser's Flying Fortress
 //          --- bit0 | Red Coins
-function b1_reds(i) => bit0(0x089CB7 + 0x40 * i)
+function b1_reds() => bit0(0x089CB7 + 0x40 * file())
 
 // $089CCC: Savefile 1 - Dog Name [12 Bytes; ASCII]
-function dog_name(i) => 0x089CCC + 0x40 * i
+function dog_name() => 0x089CCC + 0x40 * file()
 
 // $15A544: Analog Stick - Y Axis (8-bit)
 function analog_y() => byte(0x15A544)
@@ -143,7 +146,7 @@ function analog_x() => byte(0x15A545)
 //          bit5 - Z Trigger
 //          bit6 - B Button
 //          bit7 - A Button
-function button(x) => bit(x, 0x15A547)
+function button(x) => bit(x, 0x15A546)
 
 // $23905A: Menu Mode (16-bit)
 //          None - 0xffff
@@ -193,9 +196,6 @@ function pause_type() => byte(0x23907B)
 //          0x21 | Bowser's Flying Fortress
 //          0x22 | Bowser's Furious Finale
 function map_id() => word(0x23A140)
-
-// $23A146: Current Savefile [16bit]
-function file() => word(0x23A146)
 
 // $23AD38: last Star - Data ID (8-bit)
 //          Hair-Raising High Rise - 0x01
@@ -333,9 +333,9 @@ function loading_level() => bit2(0x273CD8)
 //          bit5 - Hanging on Ceiling Flag
 //          bit6 - Idle Flag
 //          bit7 - Attack Flag
-function animation() => dword(0x273CF8)
-function collect_star() => bit(12, 0x273CF8)
-function in_water() => bit(13, 0x273CF8)
+function animation() => word(0x273CF8)
+function anim_collect_star() => bit(12, 0x273CF8)
+function anim_in_water() => bit(13, 0x273CF8)
 
 // $273CFC: Previous Animation (4 Bytes)
 //          +0x00 | Animation ID (8-bit)
@@ -381,13 +381,21 @@ function health() => byte(0x273D9D)
 BTN_A = 15
 
 KOOPATROL_BHV = 0x803fa96c
-KOOPATROL_ALERTED = 0x02
+KOOPATROL_ALERTED = 0x02 // @ +0x17c
+
+SOCCERBALL_BHV = 0x803fa200
+SOCCERBALL_KICKED = 5 // @ +0xfc
 
 MAP_C3_HIGHRISE = 0x09
-MAP_B1_FORTRESS = 0x21
-MAP_B3_FINALE = 0x22
+MAP_B1_FORTRESS_A = 0x13
+MAP_B1_FORTRESS_B = 0x21
+MAP_B3_FINALE_A = 0x15
+MAP_B3_FINALE_B = 0x1b
+MAP_B3_FINALE_C = 0x22
 
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
+
+function collected_star(stage, star) => is_set(anim_collect_star()) && last_star_stage() == stage && last_star_num() == star
 
 function guards_alerted() => any_of(range(0,OBJECT_COUNT-1), i => (
 	// behavior script ptr for koopatrol
@@ -398,15 +406,89 @@ function guards_alerted() => any_of(range(0,OBJECT_COUNT-1), i => (
 	byte(object(i) + 0x17c) == KOOPATROL_ALERTED
 ))
 
+function soccerball_kicked(i) => (
+	// behavior script ptr for soccer ball
+	obj_script_ptr(i) == SOCCERBALL_BHV &&
+	// cooldown on soccer ball was 0
+	prev(dword(object(i) + 0xfc)) == 0 &&
+	// cooldown is now 5
+	dword(object(i) + 0xfc) == SOCCERBALL_KICKED
+)
+
+function dog_name_is(s) => (
+	always_false() // may not be possible without ascii_string_equals() being able to handle BE
+)
+
 // --- RICH PRESENCE -------------------------------------------------------------------
 
+ACTIONS = {
+	0x01: "on the Title Screen",
+	0x04: "in #2 Cumulus Correctional Center",
+	0x05: "in #5 Peach Ruins",
+	0x06: "watching the intro cutscene",
+	0x07: "in #9 Forbidden Factory",
+	0x08: "in #7 Awe-Inspiring Spires",
+	0x09: "in #3 Hair-Raising High Rise",
+	0x0a: "in #0 Upturned Deeps (somehow)",
+	0x0b: "in #1 Maple Markindon",
+	0x0c: "in #6 Swirling Circus",
+	0x10: "selecting a level",
+	0x11: "navigating Bowser's Rainbow Rings",
+	0x13: "climbing Bowser's Flying Fortress",
+	0x15: "challenging Bowser's Furious Finale",
+	0x16: "in #8 Sakura Stronghold",
+	0x17: "in #10 Desolate Reservoir",
+	0x18: "in #4 Koopa Atoll",
+	0x19: "watching the ending",
+	0x1b: "fighting Bowser in Bowser's Furious Finale",
+	0x1e: "fighting Bowser in Bowser's Rainbow Rings",
+	0x21: "fighting Bowser in Bowser's Flying Fortress",
+	0x22: "fighting Bowser in Bowser's Furious Finale",
+}
+
+rich_presence_conditional_display(map_id() >= 4,
+	"Mario and {2} are {0} · ⭐ {1}/73",
+	rich_presence_lookup("Action", map_id(), ACTIONS, fallback="playing with his dog"),
+	rich_presence_number(stars()),
+	// rich_presence_lookup("DogName", max_of(measured(1, when=dog_name_is("Goddard")), measured(0)), {1: "Goddard"}, "his dog")
+	rich_presence_lookup("DogName", max_of(measured(1, when=(
+		dword(dog_name() + 0) == 0x476f6464 && 
+		dword(dog_name() + 4) == 0x61726400
+	)), measured(0)), {1: "Goddard"}, "his dog")
+)
+
+rich_presence_display(
+	"Title Screen"
+)
+
 // --- ACHIEVEMENTS -------------------------------------------------------------------
+
+// ######################################
+// ##### C3 Hair-Raising High Rise ######
+// ######################################
 
 achievement(
 	title="The Skyscraper Capers",
 	description="Collect all 7 stars in Hair-Raising High Rise",
 	points=5,
-	trigger=measured(sum_of(range(0,6), i => c3_stars(i, file())) == 7, when=map_id() == MAP_C3_HIGHRISE)
+	trigger=(
+		prev(sum_of(range(0,6), i => c3_stars(i))) == 6 &&
+		measured(sum_of(range(0,6), i => c3_stars(i)) == 7, when=map_id() == MAP_C3_HIGHRISE)
+	)
+)
+
+achievement(
+	title="Goddard's Perfect Penalty Shootout",
+	description="Complete Inside the Basement Sports Complex in Hair-Raising High Rise in five kicks or fewer",
+	points=3,
+	trigger=(
+		// only show the challenge indicator in the sports complex
+		map_id() == MAP_C3_HIGHRISE && submap_id() == 0x07 &&
+		// trigger when earning the star in the sports complex
+		trigger_when(prev(animation()) == 0x1904 && animation() == 0x1302 && last_star_stage() == 0x01 && last_star_num() == 5) &&
+		// reset if the total number of kicks reaches 6
+		disable_when(tally_of(range(0, OBJECT_COUNT-1), 6, i => soccerball_kicked(i)), until=map_id() != MAP_C3_HIGHRISE)
+	)
 )
 
 achievement(
@@ -417,18 +499,78 @@ achievement(
 		// challenge begins when entering through the pipe (maybe make it when landing after pipe)
 		once(map_id() == MAP_C3_HIGHRISE && prev(submap_id()) == 0x02 && submap_id() == 0x00) &&
 		// trigger on collecting the 100-ish coin star
-		trigger_when(is_set(collect_star()) && last_star_stage() == 0x01 && last_star_num() == 7) &&
+		trigger_when(collected_star(0x01, 7)) &&
+		// reset if player leaves the map or submap
+		never(map_id() != MAP_C3_HIGHRISE) && never(submap_id() != 0x00) &&
 		// reset if the player is ever pressing A
 		never(button(BTN_A) == 1)
 	)
 )
 
+// ######################################
+// #### B1 Bowser's Flying Fortress #####
+// ######################################
+
 achievement(
-	title="title",
-	description="description",
-	type="progression|win_condition",
-	points=points,
-	trigger=always_false()
+	title="Red Coins Around the Fortress",
+	description="Collect the red coin star in Bowser's Flying Fortress",
+	points=2,
+	trigger=map_id() == MAP_B1_FORTRESS_A && collected_star(0x11, 1)
+)
+
+achievement(
+	title="A Sneak to the Past",
+	description="In Bowser's Flying Fortress, reach the statue garden without alerting any guards. Return to the area before the throne room to retry.",
+	points=3,
+	trigger=(
+		once( // start of the tunnel
+			map_id() == MAP_B1_FORTRESS_A &&
+			mario_x() >=  4700.0 && mario_x() <=  5300.0 &&
+			mario_y() >=  2950.0 && mario_y() <=  4000.0 &&
+			mario_z() >= -6170.0 && mario_z() <= -4430.0
+		) &&
+		trigger_when( // end of tunnel (entering statue garden)
+			mario_x() >= 4400.0 && mario_x() <= 4600.0 &&
+			mario_y() >= 3230.0 && mario_y() <= 4100.0 &&
+			mario_z() >= 5150.0 && mario_z() <= 6150.0
+		) &&
+		never(map_id() != MAP_B1_FORTRESS_A) &&
+		never(guards_alerted())
+	)
+)
+
+achievement(
+	title="1080° SnowBowser",
+	description="Defeat Bowser in Bowser's Flying Fortress to unlock World 2",
+	type="progression",
+	points=10,
+	trigger=map_id() == MAP_B1_FORTRESS_B && is_set(bowser1_cleared())
+)
+
+// ######################################
+// ##### B3 Bowser's Furious Finale #####
+// ######################################
+
+achievement(
+	title="Twirling, Twirling, Twirling",
+	description="In Bowser's Furious Finale, enter the warp box at the end of the Sakura Stronghold segment while Mario is spinning",
+	points=3,
+	trigger=map_id() == MAP_B3_FINALE_B && submap_id() == 0x04 && trigger_when(prev(animation()) == 0x08a4 && animation() == 0x130a)
+)
+
+achievement(
+	title="Red Coins in the Doggiverse",
+	description="Collect the red coin star in Bowser's Furious Finale",
+	points=5,
+	trigger=map_id() == MAP_B3_FINALE_B && prev(animation()) != 0x1307 && animation() == 0x1307 && last_star_stage() == 0x13 && last_star_num() == 1
+)
+
+achievement(
+	title="Bowser's Last Stand",
+	description="Defeat Bowser in Bowser's Furious Finale and rescue Princess Peach",
+	type="win_condition",
+	points=25,
+	trigger=map_id() == MAP_B3_FINALE_C && submap_id() == 0x01 && prev(animation()) == 0x1306 && animation() == 0x130a
 )
 
 // --- LEADERBOARDS -------------------------------------------------------------------
