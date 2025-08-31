@@ -35,6 +35,12 @@ function game_state() => byte(addr_offset() + 0x002000)
 function is_2p_mode() => bit5(addr_offset() + 0x002002)
 function current_player() => bit7(addr_offset() + 0x002002)
 
+// $2016: Stage State [8 bit]
+//        0x0c = Playing
+//        0x0d = Complete
+//        0x0e = Shade Falling
+function stage_state() => byte(addr_offset() + 0x002016)
+
 // $2040: Hi Score [24 bit BCD]
 // $2043: P1 Score [24 bit BCD]
 // $2046: P2 Score [24 bit BCD]
@@ -53,8 +59,9 @@ function current_sub_round() => byte(addr_offset() + 0x002054)
 
 // $2055: Time - Seconds Remaining [8 bit BCD]
 // $2056: Time - Minutes Remaining [8 bit BCD]
-function time_seconds_remaining() => bcd(addr_offset() + byte(0x002055))
-function time_minutes_remaining() => bcd(addr_offset() + byte(0x002056))
+function time_seconds() => bcd(byte(addr_offset() + 0x002055))
+function time_minutes() => bcd(byte(addr_offset() + 0x002056))
+function time() => time_minutes() * 60 + time_seconds()
 
 // $2057: Strikes [8 bit]
 function strikes() => byte(addr_offset() + 0x002057)
@@ -74,8 +81,8 @@ function crab_state() => byte(addr_offset() + 0x002114)
 // $2153: Current Level [8 bit] (0-4)
 //        0 = Addition
 //        1 = Subtraction
-//        2 = Multiplication
-//        3 = Division
+//        2 = Division
+//        3 = Multiplication
 //        4 = Algebra
 function current_level(p) => byte(addr_offset() + 0x002153 + p)
 
@@ -99,15 +106,15 @@ function correct_answer() => byte(addr_offset() + 0x0021CD)
 
 TYPE_ADD = 0
 TYPE_SUB = 1
-TYPE_MUL = 2
-TYPE_DIV = 3
+TYPE_DIV = 2
+TYPE_MUL = 3
 TYPE_ALG = 4
 
 PROBLEM_TYPES = {
 	TYPE_ADD: "(Lv1) Addition",
 	TYPE_SUB: "(Lv2) Subtraction",
-	TYPE_MUL: "(Lv3) Multiplication",
-	TYPE_DIV: "(Lv4) Division",
+	TYPE_DIV: "(Lv3) Division",
+	TYPE_MUL: "(Lv4) Multiplication",
 	TYPE_ALG: "(Lv5) Algebraic",
 }
 
@@ -146,6 +153,12 @@ function on_title_screen() => game_state() < 0x08
 
 function round_start() => prev(game_state()) == 0x08 && game_state() == 0x09 && current_sub_round() == 0
 
+function complete_one_stage(mode) => (
+	in_game() && current_level(current_player()) == mode && 
+	current_round() > prev(current_round()) && 
+	current_player() == prev(current_player())
+)
+
 function clear_game_mode(player, mode, count) => (
 	// repeat the correct number of times
 	tally(count, (
@@ -156,11 +169,18 @@ function clear_game_mode(player, mode, count) => (
 		// counting the number of times the round increments
 		current_round() > prev(current_round()) && 
 		// reset if we pick any other mode
-		never(current_level(player) != mode) &&
-		// reset if we ever return to the title screen
-		never(on_title_screen())
+		never(current_level(player) != mode)
 	))
 )
+
+function complete_multiple(mode, count) => (
+	// check players separately; no funny business here!
+	any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, mode, count))) &&
+	// reset if we ever return to the title screen
+	never(on_title_screen())
+)
+
+function time_to_secs(m, s) => m * 60 + s
 
 // --- RICH PRESENCE -------------------------------------------------------------------
 
@@ -211,147 +231,127 @@ rich_presence_display(GAME_INFO)
 // --- ACHIEVEMENTS -------------------------------------------------------------------
 
 achievement(
-	title="___Addition1",
+	title="Addition Novice",
 	description="Complete a stage on Level 1: Addition Problems",
 	type="progression",
 	points=2,
-	trigger=(
-		in_game() && current_level(current_player()) == TYPE_ADD && 
-		current_round() > prev(current_round()) && 
-		current_player() == prev(current_player())
-	)
+	trigger=complete_one_stage(TYPE_ADD)
 )
 
 achievement(
-	title="___Addition5",
+	title="The Sum of Its Parts",
 	description="Complete five stages in a row on Level 1: Addition Problems",
 	type="progression",
 	points=5,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_ADD, 5)))
+	trigger=complete_multiple(TYPE_ADD, 5)
 )
 
 achievement(
-	title="___Addition10",
+	title="Fun in the Sum",
 	description="Complete ten stages in a row on Level 1: Addition Problems",
 	type="progression",
 	points=10,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_ADD, 10)))
+	trigger=complete_multiple(TYPE_ADD, 10)
 )
 
 achievement(
-	title="___Subtraction1",
+	title="Subtraction Novice",
 	description="Complete a stage on Level 2: Subtraction Problems",
 	type="progression",
 	points=2,
-	trigger=(
-		in_game() && current_level(current_player()) == TYPE_SUB && 
-		current_round() > prev(current_round()) && 
-		current_player() == prev(current_player())
-	)
+	trigger=complete_one_stage(TYPE_SUB)
 )
 
 achievement(
-	title="___Subtraction5",
+	title="What Difference Does It Make?",
 	description="Complete five stages in a row on Level 2: Subtraction Problems",
 	type="progression",
 	points=5,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_SUB, 5)))
+	trigger=complete_multiple(TYPE_SUB, 5)
 )
 
 achievement(
-	title="___Subtraction10",
+	title="Difference Doyen",
 	description="Complete ten stages in a row on Level 2: Subtraction Problems",
 	type="progression",
 	points=10,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_SUB, 10)))
+	trigger=complete_multiple(TYPE_SUB, 10)
 )
 
 achievement(
-	title="___Multiplication1",
-	description="Complete a stage on Level 3: Multiplication Problems",
+	title="Division Novice",
+	description="Complete a stage on Level 3: Division Problems",
 	type="progression",
 	points=2,
-	trigger=(
-		in_game() && current_level(current_player()) == TYPE_MUL && 
-		current_round() > prev(current_round()) && 
-		current_player() == prev(current_player())
-	)
+	trigger=complete_one_stage(TYPE_DIV)
 )
 
 achievement(
-	title="___Multiplication5",
-	description="Complete five stages in a row on Level 3: Multiplication Problems",
+	title="Divide and Conquer",
+	description="Complete five stages in a row on Level 3: Division Problems",
 	type="progression",
 	points=5,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_MUL, 5)))
+	trigger=complete_multiple(TYPE_DIV, 5)
 )
 
 achievement(
-	title="___Multiplication10",
-	description="Complete ten stages in a row on Level 3: Multiplication Problems",
+	title="Quotient Qualifications",
+	description="Complete ten stages in a row on Level 3: Division Problems",
 	type="progression",
 	points=10,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_MUL, 10)))
+	trigger=complete_multiple(TYPE_DIV, 10)
 )
 
 achievement(
-	title="___Division1",
-	description="Complete a stage on Level 4: Division Problems",
+	title="Multiplication Novice",
+	description="Complete a stage on Level 4: Multiplication Problems",
 	type="progression",
 	points=2,
-	trigger=(
-		in_game() && current_level(current_player()) == TYPE_DIV && 
-		current_round() > prev(current_round()) && 
-		current_player() == prev(current_player())
-	)
+	trigger=complete_one_stage(TYPE_MUL)
 )
 
 achievement(
-	title="___Division5",
-	description="Complete five stages in a row on Level 4: Division Problems",
+	title="The Times They Are A-Changin'",
+	description="Complete five stages in a row on Level 4: Multiplication Problems",
 	type="progression",
 	points=5,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_DIV, 5)))
+	trigger=complete_multiple(TYPE_MUL, 5)
 )
 
 achievement(
-	title="___Division10",
-	description="Complete ten stages in a row on Level 4: Division Problems",
+	title="Product Proficiency",
+	description="Complete ten stages in a row on Level 4: Multiplication Problems",
 	type="progression",
 	points=10,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_DIV, 10)))
+	trigger=complete_multiple(TYPE_MUL, 10)
 )
 
 achievement(
-	title="___Algebra1",
+	title="Algebra Novice",
 	description="Complete a stage on Level 5: Algebra Problems",
 	type="progression",
 	points=2,
-	trigger=(
-		in_game() && current_level(current_player()) == TYPE_ALG && 
-		current_round() > prev(current_round()) && 
-		current_player() == prev(current_player())
-	)
+	trigger=complete_one_stage(TYPE_ALG)
 )
 
 achievement(
-	title="___Algebra5",
+	title="Like a Monkey Doing a Math Problem",
 	description="Complete five stages in a row on Level 5: Algebra Problems",
 	type="progression",
 	points=5,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_ALG, 5)))
+	trigger=complete_multiple(TYPE_ALG, 5)
 )
 
 achievement(
-	title="___Algebra10",
+	title="Arithmetic Adept",
 	description="Complete ten stages in a row on Level 5: Algebra Problems",
 	type="progression",
 	points=10,
-	trigger=any_of(ALL_PLAYERS, p => measured(clear_game_mode(p, TYPE_ALG, 10)))
+	trigger=complete_multiple(TYPE_ALG, 10)
 )
 
 achievement(
-	title="__Score20000",
+	title="A Barrel of Monkeys",
 	description="Score 20,000 points and earn an extra life",
 	points=5,
 	trigger=in_game() && (
@@ -361,17 +361,21 @@ achievement(
 )
 
 achievement(
-	title="__UnderMinute",
-	description="Clear a stage (three sub-stages) with 4 minutes or more left on the clock",
+	// title="Simian Speed",
+	// title="2 Plus 2 Furious",
+	// title="Two Plus Two is Four Minus One That's Three, Quick Maths",
+	// title="Quick Maths",
+	title="2 Plus 2 Furious: Simian Drift",
+	description="Clear a stage (three sub-stages) with 4:00 or more left on the clock",
 	points=10,
 	trigger=(
-		always_false() &&
-		time_minutes_remaining() >= 4
+		in_game() && time() >= time_to_secs(4, 00) &&
+		trigger_when(game_state() == 0x0c && current_sub_round() == 2 && prev(stage_state()) != 0x0d && stage_state() == 0x0d)
 	)
 )
 
 achievement(
-	title="__Kill20Crabs",
+	title="Kabourophobia",
 	description="Kill 20 crabs in a single stage without dying",
 	points=10,
 	trigger=(
@@ -382,6 +386,22 @@ achievement(
 		// reset the counter if we change stage
 		never(current_round() != prev(current_round())) &&
 		// reset if we are back at the title screen for any reason
+		never(on_title_screen())
+	)
+)
+
+FINAL_EXAM_STAGES = 3
+achievement(
+	title="The Final Exam",
+	description="Complete three stages on every level without any strikes and without running out of lives",
+	points=25,
+	trigger=(
+		any_of(ALL_PLAYERS, p => (
+			// clear one stage on each mode
+			measured(tally_of(ALL_MODES, 5 * FINAL_EXAM_STAGES, mode => tally(FINAL_EXAM_STAGES, complete_one_stage(mode) && current_player() == p))) &&
+			// if the strike count goes up for this player, reset
+			never(current_player() == prev(current_player()) && strikes() > prev(strikes()))
+		)) &&
 		never(on_title_screen())
 	)
 )
