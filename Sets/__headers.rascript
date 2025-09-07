@@ -15,9 +15,9 @@
 function is_set(acc) => acc > prev(acc)
 function rich_presence_number(x) => rich_presence_value("_N", x, "VALUE")
 function plural(x) => rich_presence_lookup("_Pl", x, {1: ""}, fallback="s")
+function if_else(p, t, f) { if (p) { return t } else return f }
 NULL = 0
 id = (x) => x
-function if_else(p, t, f) { if (p) { return t } else return f }
 ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 function bitx(i, addr) => bit(i % 8, addr + i / 8)
 function ptr(x) => dword(x)
