@@ -390,9 +390,8 @@ achievement(
 	points=25,
 	trigger=(
 		once(start_game()) &&
-		once(setup_short_game() && short_game_minutes() <= 90) &&
+		once(setup_short_game() && short_game_minutes() <= 90 && never(short_game_timer() == 0)) &&
 		never(!in_game()) &&
-		never(short_game_timer() == 0) &&
 		trigger_when(human_wins())
 	)
 )
@@ -514,7 +513,7 @@ achievement(
 		// current player is a human
 		in_game() && human_count() == 1 && player_is_com(current_player()) == 0 && 
 		// current player is the winner of the auction
-		auction_current_bidder() == current_player() && prev(auction_seconds()) == 1 && auction_seconds() == 0 &&
+		auction_current_bidder() == player_token(current_player())+1 && prev(auction_seconds()) == 1 && auction_seconds() == 0 &&
 		// the auction price is less than the property purchase price
 		any_of(DEED_PRICE, d => position(current_player()) == d && auction_price() < DEED_PRICE[d])
 	)
