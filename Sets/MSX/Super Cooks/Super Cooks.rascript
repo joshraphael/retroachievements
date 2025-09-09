@@ -246,7 +246,7 @@ ZONES = {
 	0: "Cooking School",
 	1: "Carrot Farms",
 	2: "Sushi Swamp",
-	3: "Great Hall of China",
+	3: "The Plate Wall of China",
 	4: "Candy Land",
 	5: "Ending Cutscene"
 }
@@ -276,7 +276,11 @@ rich_presence_conditional_display(in_game(),
 	rich_presence_number(health()),
 	rich_presence_number(health_max()),
 	rich_presence_number(dish()),
-	rich_presence_number(dish_max()),
+	rich_presence_number(dish_max())
+)
+
+rich_presence_conditional_display(current_zone() == 5,
+	"[Ending] Super Cooks | © Compile 1989"
 )
 
 rich_presence_display(
@@ -284,5 +288,8 @@ rich_presence_display(
 )
 
 // --- ACHIEVEMENTS -------------------------------------------------------------------
+
+// The Wok of Ages
+// Shumai, Don't Bother Me
 
 // --- LEADERBOARDS -------------------------------------------------------------------
