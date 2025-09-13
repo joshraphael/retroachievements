@@ -1,5 +1,10 @@
 // --- HELPERS -------------------------------------------------------------------
 
+function is_set(acc) => acc > prev(acc)
+function rich_presence_number(x) => rich_presence_value("_N", x, "VALUE")
+function plural(x) => rich_presence_lookup("_Pl", x, {1: ""}, fallback="s")
+function if_else(p, t, f) { if (p) { return t } else return f }
+
 // --- MEMORY -------------------------------------------------------------------
 
 // --- MAIN DATA -------------------------------------------------------------------
@@ -12,15 +17,15 @@
 
 // --- LEADERBOARDS -------------------------------------------------------------------
 
-function is_set(acc) => acc > prev(acc)
-function rich_presence_number(x) => rich_presence_value("_N", x, "VALUE")
-function plural(x) => rich_presence_lookup("_Pl", x, {1: ""}, fallback="s")
-function if_else(p, t, f) { if (p) { return t } else return f }
 NULL = 0
 id = (x) => x
 ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 function bitx(i, addr) => bit(i % 8, addr + i / 8)
 function ptr(x) => dword(x)
+
+function score_wrap(score, max, n=20, reset=always_false()) => (
+	max_of(array_map(range(0,n), i => measured(max*i+score, when=if_else(i == 0, always_true(), tally(i, score < prev(score)) && never(reset)))))
+)
 
 function rich_presence_flag(str, when=always_true(), lookupname="_F") => 
 	rich_presence_lookup(lookupname, max_of(measured(1, when=when), measured(0)), {1: str}, "")
@@ -57,23 +62,7 @@ function zfill(num, c)
 
 function commas(x)
 {
-	function comma_join(list)
-	{
-		res = ""
-		for i in range(0, length(list)-1)
-		{
-			if (i == length(list) - 1)
-				res = format("{0}", list[i]) + res
-			else res = "," + zfill(list[i], 3) + res
-		}
-		return res
-	}
-
-	parts = []
-	for i in range(1, 10)
-	{
-		if (x == 0) return comma_join(parts)
-		array_push(parts, x % 1000)
-		x = x / 1000
-	}
+	x = format("{0}", x)
+	if (length(x) <= 3) return x
+	return commas(substring(x, 0, -3)) + "," + substring(x, -3)
 }
