@@ -19,6 +19,7 @@ function screen_tiles(r, c) => byte(0x000800 + 0x20*r + c)
 //        0 = Talking Cave/Paused
 //        1 = Overworld
 //        2 = Side Platformer
+//        3 = Top Down
 //        4 = Talk Bubble/Box
 //        5 = Boss Arena
 function map_type() => byte(0x000B01)
@@ -152,15 +153,17 @@ function diploma_count() => byte(0x000F1D)
 
 // $0F1E: Start of Potions & Cookbooks
 function has_upgrade(i) => byte(0x000F1E + i)
+POTIONS = [0, 1, 2, 8, 10, 13, 15, 18, 19, 22, 24, 25, 28, 30, 33, 35]
+COOKBOOKS = [3, 4, 5, 6, 7, 9, 11, 12, 14, 16, 17, 20, 21, 23, 26, 27, 32, 34, 36]
 
 // $0F80: Current Zone [8 bit]
 //        all areas are part of Kitchenland
 //        
-//        0 = Cooking School
-//        1 = Carrot Farms (Fresh Food)
-//        2 = Sushi Swamp (Sushi)
-//        3 = Tempura Town (China, Fried Food)
-//        4 = Candyland (Dessert)
+//        0 = Intro Zone
+//        1 = Farms, Fresh Food
+//        2 = Sushi
+//        3 = China, Fried Food
+//        4 = Desserts
 //        5 = (Ending Cutscenes)
 function current_zone() => byte(0x000F80)
 
@@ -239,11 +242,12 @@ BOSS_GOLVELLIUS = 4
 MAP_TALKING = 0
 MAP_OVERWORLD = 1
 MAP_PLATFORMER = 2
+MAP_TOPDOWN = 3
 MAP_BUBBLE = 4
 MAP_BOSSFIGHT = 5
 
 ZONES = {
-	0: "Cooking School",
+	0: "Intro to Cooking",
 	1: "Carrot Farms",
 	2: "Sushi Swamp",
 	3: "The Plate Wall of China",
@@ -289,7 +293,63 @@ rich_presence_display(
 
 // --- ACHIEVEMENTS -------------------------------------------------------------------
 
+achievement(
+	title="__FryPanUpgrade",
+	description="Find an upgrade to the fry pan weapon",
+	points=3,
+	trigger=loc_check(0, 0x08) && is_set(upgrade_fry_pan())
+)
+
+achievement(
+	title="Orange You Glad You Won?",
+	description="Defeat the mandarin orange and earn your first diploma",
+	type="progression",
+	points=10,
+	trigger=loc_check(0, 0x07) && map_type() == MAP_TOPDOWN && is_set(boss_killed(BOSS_1_MANDARIN))
+)
+
+achievement(
+	title="A Seasoned Warrior",
+	description="Find the salt & pepper weapon",
+	points=5,
+	trigger=loc_check(1, 0x1c) && is_set(has_salt_pepper())
+)
+
+achievement(
+	title="Kinda Scary, Kinda Corny",
+	description="Defeat the corn and earn your second diploma",
+	type="progression",
+	points=10,
+	trigger=loc_check(1, 0x07) && map_type() == MAP_TOPDOWN && is_set(boss_killed(BOSS_2_CORN))
+)
+
+achievement(
+	title="A Taste of Takoyaki",
+	description="Defeat the cotopus and earn your third diploma",
+	type="progression",
+	points=10,
+	trigger=loc_check(2, 0x07) && map_type() == MAP_TOPDOWN && is_set(boss_killed(BOSS_3_OCTOPUS))
+)
+
+achievement(
+	title="Shumai, Don't Bother Me",
+	description="Defeat the shumai and earn your fourth diploma",
+	type="progression",
+	points=10,
+	trigger=loc_check(3, 0x07) && map_type() == MAP_TOPDOWN && is_set(boss_killed(BOSS_4_SHUMAI))
+)
+
+achievement(
+	title="Super Cooks Showdown",
+	description="Defeat the final boss and win the game",
+	type="win_condition",
+	points=25,
+	trigger=loc_check(4, 0x07) && map_type() == MAP_TOPDOWN && is_set(boss_killed(BOSS_GOLVELLIUS))
+)
+
+// all potions
+// all cookbooks
+
 // The Wok of Ages
-// Shumai, Don't Bother Me
 
 // --- LEADERBOARDS -------------------------------------------------------------------
