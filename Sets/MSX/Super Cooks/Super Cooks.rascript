@@ -40,6 +40,16 @@ function player_y_position() => byte(0x000B11)
 // $0B2F: Number of Enemies Killed in Current Room [8 bit]
 function enemies_killed() => byte(0x000B2F)
 
+// $0E2D: Freeze Active for Fry Pan Special [8 bit]
+//        enemies are frozen when non-zero, set back to 0 when 0x0e2e reaches 0
+//        when using fry pan upgrade, sets value to 0xFC (but any non-zero value works)
+//        activated by pressing attack->swap in quick succession? costs 1500 dish
+function time_stop_active() => byte(0x000E2D)
+
+// $0E2E: Freeze Timer for Fry Pan Special [8 bit]
+//        when using fry pan upgrade, sets value to 0xFE (254f, ~4.25 seconds)
+function time_stop_timer() => byte(0x000E2E)
+
 // $0F00: Weapon - Fry Pan [8 bit] (0/1)
 function has_fry_pan() => byte(0x000F00)
 
@@ -49,7 +59,7 @@ function has_fry_pan() => byte(0x000F00)
 function has_salt_pepper() => byte(0x000F01)
 
 // $0F02: Weapon - Knife [8 bit] (0/1)
-//        screen=
+//        screen=2,0x15
 function has_knife() => byte(0x000F02)
 
 // $0F03: Weapon - Fire [8 bit] (0/1)
@@ -231,6 +241,19 @@ function event_cake_opened() => byte(0x000FC2)
 //        loc_check(4, 0x11)
 function event_cake_door() => byte(0x000FC3)
 
+// $1020: Weapon Active [8 bit] (0/1)
+function weapon_active() => byte(0x001020)
+
+// $103E: Weapon Type [16 bit]
+//        0x6a87 = salt special
+//        0x6b36 = knife projectile
+//        0x6b8a = flame projectile
+//        0x6e08 = fry pan weapon
+//        0x6e60 = salt weapon
+//        0x6e7f = flame weapon
+//        0x6e98 = knife weapon
+function weapon_type() => word(0x00103E)
+
 // --- MAIN DATA -------------------------------------------------------------------
 
 BOSS_1_MANDARIN = 0
@@ -255,12 +278,24 @@ ZONES = {
 	5: "Ending Cutscene"
 }
 
+SALT_SPECIAL = 0x6a87
+KNIFE_SPECIAL = 0x6b36
+FLAME_SPECIAL = 0x6b8a
+PAN_ATTACK = 0x6e08
+SALT_ATTACK = 0x6e60
+FLAME_ATTACK = 0x6e7f
+KNIFE_ATTACK = 0x6e98
+
 WEAPONS = {
 	0: "Fry Pan",
 	1: "Salt & Pepper",
 	2: "Knife",
 	3: "Fire",
 }
+
+SCREEN_MAX_X = 254
+SCREEN_MAX_Y = 175
+EDGE_BUFFER = 25
 
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
 
@@ -269,6 +304,9 @@ function in_game() => current_zone_width() != 0 && current_zone() < 5
 
 // check zone and screen
 function loc_check(zone, screen) => in_game() && current_zone() == zone && screen_id() == screen
+
+// attack functions
+function attack_used(type) => is_set(weapon_active()) && weapon_type() == type
 
 // --- RICH PRESENCE -------------------------------------------------------------------
 
@@ -294,7 +332,7 @@ rich_presence_display(
 // --- ACHIEVEMENTS -------------------------------------------------------------------
 
 achievement(
-	title="__FryPanUpgrade",
+	title="Cast Iron Magic",
 	description="Find an upgrade to the fry pan weapon",
 	points=3,
 	trigger=loc_check(0, 0x08) && is_set(upgrade_fry_pan())
@@ -309,10 +347,24 @@ achievement(
 )
 
 achievement(
+	title="Word on the Street",
+	description="Learn a new language in the second area",
+	points=3,
+	trigger=loc_check(1, 0x1a) && is_set(english_language_learned())
+)
+
+achievement(
 	title="A Seasoned Warrior",
 	description="Find the salt & pepper weapon",
 	points=5,
 	trigger=loc_check(1, 0x1c) && is_set(has_salt_pepper())
+)
+
+achievement(
+	title="A Salt and Battery",
+	description="Find an upgrade to the salt & pepper weapon",
+	points=2,
+	trigger=loc_check(1, 0x0f) && is_set(upgrade_salt_pepper())
 )
 
 achievement(
@@ -324,11 +376,53 @@ achievement(
 )
 
 achievement(
+	title="Wade and See",
+	description="Find the bung, an item that helps Keresis walk on water",
+	points=3,
+	trigger=loc_check(2, 0x16) && is_set(has_bung())
+)
+
+achievement(
+	title="Honesty Is the Best Policy",
+	description="Find the knife weapon",
+	points=5,
+	trigger=loc_check(2, 0x15) && is_set(has_knife())
+)
+
+achievement(
+	title="The Lady of the Lake",
+	description="Find an upgrade to the knife weapon",
+	points=1,
+	trigger=loc_check(2, 0x14) && is_set(upgrade_knife())
+)
+
+achievement(
 	title="A Taste of Takoyaki",
 	description="Defeat the cotopus and earn your third diploma",
 	type="progression",
 	points=10,
 	trigger=loc_check(2, 0x07) && map_type() == MAP_TOPDOWN && is_set(boss_killed(BOSS_3_OCTOPUS))
+)
+
+achievement(
+	title="Canton-easy",
+	description="Learn a new language in the fourth area",
+	points=3,
+	trigger=loc_check(3, 0x1d) && is_set(chinese_language_learned())
+)
+
+achievement(
+	title="Char-Grilled Champion",
+	description="Find the flame weapon",
+	points=5,
+	trigger=loc_check(3, 0x0a) && is_set(has_fire())
+)
+
+achievement(
+	title="The Wok of Ages",
+	description="Find an upgrade to the flame weapon",
+	points=5,
+	trigger=loc_check(3, 0x0a) && is_set(has_fire())
 )
 
 achievement(
@@ -340,6 +434,38 @@ achievement(
 )
 
 achievement(
+	title="Order Up!",
+	description="Find a spatula, the perfect complement to your humble fry pan",
+	points=2,
+	trigger=loc_check(4, 0x16) && is_set(has_spatula())
+)
+
+achievement(
+	title="We All Scream for Ice Cream",
+	description="Release the Munches!",
+	points=1,
+	trigger=(
+		loc_check(4, 0x19) &&
+		prev(screen_tiles(13, 11)) == 0x18 &&
+		screen_tiles(13, 11) == 0x03 &&
+
+		// which screen you are doesn't consistently update at the same time as the tile data
+		// so this ensures that the change doesnt happen while the player is near a screen edge
+		player_x_position() >= EDGE_BUFFER &&
+		player_x_position() <= SCREEN_MAX_X - EDGE_BUFFER &&
+		player_y_position() >= EDGE_BUFFER &&
+		player_y_position() <= SCREEN_MAX_Y - EDGE_BUFFER
+	) 
+)
+
+achievement(
+	title="That Puzzle Was a Piece of Cake",
+	description="Solve the puzzle of the cake and reveal the final dungeon",
+	points=4,
+	trigger=loc_check(4, 0x0a) && is_set(event_cake_opened())
+)
+
+achievement(
 	title="Super Cooks Showdown",
 	description="Defeat the final boss and win the game",
 	type="win_condition",
@@ -347,9 +473,27 @@ achievement(
 	trigger=loc_check(4, 0x07) && map_type() == MAP_TOPDOWN && is_set(boss_killed(BOSS_GOLVELLIUS))
 )
 
-// all potions
-// all cookbooks
+achievement(
+	title="Mise en Place",
+	description="Use any weapon's special attack",
+	points=1,
+	trigger=(
+		(has_fry_pan() == 1 && upgrade_fry_pan() == 1 && selected_weapon() == 0 && is_set(time_stop_active())) ||
+		(has_salt_pepper() == 1 && upgrade_salt_pepper() == 1 && selected_weapon() == 1 && attack_used(SALT_SPECIAL)) ||
+		(has_knife() == 1 && upgrade_knife() == 1 && selected_weapon() == 2 && attack_used(KNIFE_SPECIAL)) ||
+		(has_fire() == 1 && upgrade_fire() == 1 && selected_weapon() == 3 && attack_used(FLAME_SPECIAL))
+	)
+)
 
-// The Wok of Ages
+// all potions
+achievement(
+	title="Red Red Wine",
+	description="Purchase all potions",
+	points=10,
+	trigger=(
+		sum_of(POTIONS, i => prev(has_upgrade(i))) == length(POTIONS)-1 &&
+		measured(sum_of(POTIONS, has_upgrade) == length(POTIONS), when=in_game())
+	)
+)
 
 // --- LEADERBOARDS -------------------------------------------------------------------
