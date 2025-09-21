@@ -13,6 +13,32 @@
 |**Set Developers**|[BoomEX](https://retroachievements.org/user/BoomEX), [WilHiteWarrior](https://retroachievements.org/user/WilHiteWarrior)|
 |**Guide Author**|[authorblues](https://retroachievements.org/user/authorblues)|
 
+- [Synopsis](#synopsis)
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [The Ancients](#the-ancients)
+	- [Chattur'gha, the Warrior 🔴](#chatturgha-the-warrior-)
+	- [Ulyaoth, the Sorcerer 🔵](#ulyaoth-the-sorcerer-)
+	- [Xel'lotath, the Scholar 🟢](#xellotath-the-scholar-)
+	- [Mantorok, the Corpse God 🟣](#mantorok-the-corpse-god-)
+- [Achievement Information](#achievement-information)
+	- [Full Game](#full-game)
+	- [Chapters](#chapters)
+		- [Chapter Interludes](#chapter-interludes)
+		- [Chapter 1: The Chosen One](#chapter-1-the-chosen-one)
+		- [Chapter 2: The Binding of the Corpse God](#chapter-2-the-binding-of-the-corpse-god)
+		- [Chapter 3: Suspicions of a Conspiracy](#chapter-3-suspicions-of-a-conspiracy)
+		- [Chapter 4: The Gift of Forever](#chapter-4-the-gift-of-forever)
+		- [Chapter 5: The Lurking Horror](#chapter-5-the-lurking-horror)
+		- [Chapter 6: A Journey Into Darkness](#chapter-6-a-journey-into-darkness)
+		- [Chapter 7: Heresy!](#chapter-7-heresy)
+		- [Chapter 8: The Forbidden City](#chapter-8-the-forbidden-city)
+		- [Chapter 9: A War to End All Wars](#chapter-9-a-war-to-end-all-wars)
+		- [Chapter 10: A Legacy of Darkness](#chapter-10-a-legacy-of-darkness)
+		- [Chapter 11: Ashes to Ashes](#chapter-11-ashes-to-ashes)
+		- [Finale](#finale)
+	- [Sanity Effects](#sanity-effects)
+
 # Introduction
 
 _**Eternal Darkness: Sanity's Requiem**_ is an action-adventure survival horror game developed by Silicon Knights, and produced and directed by Denis Dyack. It tells the story of ancient gods vying for power, putting you in the role of deciding which god takes power, and then defeating them. The game visits a small number of locations repeatedly, such as a forgotten city, the ruins of Angkor Thom in Cambodia, the Oublié Cathedral in Amiens, France, and the Roivas family mansion in (regrettably) Rhode Island.
@@ -347,7 +373,7 @@ The only thing you need to know for the setup of this achievement is to not coll
 _Witness Anthony practice self-mutilation_
 </pre></big>
 
-After Anthony goes through a few transformations and his body starts decaying, with the two-handed sword equipped, stand still for a moment. Part of Anthony's idle animation is for him to stick his sword through his hand. Ouch!
+After Anthony goes through a few transformations and his body starts decaying, with the two-handed sword or Scramasax equipped, stand still for a moment. Part of Anthony's idle animation is for him to stick his sword through his hand. Ouch!
 
 ### Chapter 4: The Gift of Forever
 <a name="ch4"></a>
