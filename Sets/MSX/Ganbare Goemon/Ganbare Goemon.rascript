@@ -442,7 +442,10 @@ achievement(
 	title="Lord of the Gourds",
 	description="Reach the maximum health capacity",
 	points=10,
-	trigger=sanity_check() && prev(health_max()) == 28 && health_max() == 32
+	trigger=(
+		sanity_check() && prev(health_max()) == 28 && 
+		measured(health_max() == 32, format="percent", when=game_active() == 1)
+	)
 )
 
 // buy 3 passes
@@ -454,13 +457,13 @@ achievement(
 		any_of([CHAR_GOEMON, CHAR_NEZUMI], ch => (
 			measured(tally(3, (
 				// current player is correct and didn't just change
-				current_player() == ch && current_player() == prev(current_player()) &&
+				sanity_check() && current_player() == ch &&
 				// pass count went up by one
 				passes() == prev(passes()) + 1 &&
 				// currently in a shop, but not in a maze
 				in_shop() == 1 && !in_maze() &&
 				// reset this counter if the player changes levels
-				never(sanity_check() && prev(current_zone()) != current_zone())
+				never(sanity_check() && current_player() == ch && prev(current_zone()) != current_zone())
 			)),
 			when=current_player() == ch)
 		)) &&
@@ -471,9 +474,11 @@ achievement(
 
 // 3 gambling wins
 achievement(
-	title="I Can Stop Any Time I Want",
+	title="It's Only a Gambling Problem If You Lose",
 	description="Win three gambling games in a row",
 	points=5,
+	// FIXME: this is not emitting correct code with RATools and has been generated, in part, by hand
+	// backup logic - R:0xS000002=0SA:0xH000d8e_A:0xH000d8d_K:0xH000d8f_N:0xT000002=0_N:0xH000600=36_N:d0xH000601=2_N:0xH000601=3_A:{recall}%2_Z:0=0_N:0xT000002=0_N:0xH000600=36_N:d0xH000601=2_N:0xH000601=3_A:{recall}%2_M:0=1.3._Q:0xT000002=0SA:0xH000d8e_A:0xH000d8d_K:0xH000d8f_N:0xT000002=1_N:0xH000600=36_N:d0xH000601=2_N:0xH000601=3_A:{recall}%2_Z:0=0_N:0xT000002=1_N:0xH000600=36_N:d0xH000601=2_N:0xH000601=3_A:{recall}%2_M:0=1.3._Q:0xT000002=1
 	trigger=(
 		any_of([CHAR_GOEMON, CHAR_NEZUMI], ch => (
 			measured(tally(3, (
@@ -489,8 +494,17 @@ achievement(
 	)
 )
 
-// maze completion? might need to search maze structure
-
+achievement(
+	title="Stop and Ask For Directions",
+	description="Complete any maze without collecting the map",
+	points=2,
+	trigger=(
+		// formerly in the maze
+		prev(maze()) == 1 && prev(in_shop()) == 1 && 
+		// still in game, but no longer in the maze (not in shop), without map
+		in_game() && in_shop() == 0 && item_maze_map() == 0
+	)
+)
 
 // --- LEADERBOARDS -------------------------------------------------------------------
 
