@@ -422,14 +422,11 @@ achievement(
 	description="Collect 32 gold medals in Normal Mode and unlock a surprise",
 	points=25,
 	trigger=(
-		// all times are logged
-		current_mode() == MODE_NORMAL && all_levels_complete() &&
+		// normal mode only
+		current_mode() == MODE_NORMAL &&
 
-		// the bit for the player select flips first
-		player_select_available() == 1 &&
-
-		// transition from complete screen to unlock luigi
-		prev(game_state()) == STATE_COMPLETE && game_state() == STATE_UNLOCK_LUIGI
+		// transition to unlock luigi screen
+		prev(game_state()) != STATE_UNLOCK_LUIGI && game_state() == STATE_UNLOCK_LUIGI
 	) 
 )
 
@@ -487,29 +484,24 @@ achievement(
 	)
 )
 
-COIN_TARGET = 500
-achievement(
-	title="Do You Wanna Make More Money?",
-	description=format("Collect {0} total coins on one profile in Normal Mode", COIN_TARGET),
-	points=3,
-	trigger=current_mode() == MODE_NORMAL && game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
-)
+COIN_GOALS = [
+	{ "coins": 500, "points": 3, "title": "Do You Wanna Make More Money?", },
+	{ "coins": 1000, "points": 5, "title": "A Small Investment", },
+	{ "coins": 2500, "points": 10, "title": "Generational Wealth", },
+]
 
-COIN_TARGET = 1000
-achievement(
-	title="A Small Investment",
-	description=format("Collect {0} total coins on one profile in Normal Mode", COIN_TARGET),
-	points=5,
-	trigger=current_mode() == MODE_NORMAL && game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
-)
-
-COIN_TARGET = 2500
-achievement(
-	title="Generational Wealth",
-	description=format("Collect {0} total coins on one profile in Normal Mode", COIN_TARGET),
-	points=10,
-	trigger=current_mode() == MODE_NORMAL && game_state() == STATE_PLAYING && prev(total_coins()) < COIN_TARGET && total_coins() >= COIN_TARGET
-)
+for goal in COIN_GOALS
+{
+	achievement(
+		title=goal["title"],
+		description=format("Collect {0} total coins on one profile in Normal Mode", goal["coins"]),
+		points=goal["points"],
+		trigger=(
+			current_mode() == MODE_NORMAL && game_state() == STATE_PLAYING && 
+			prev(total_coins()) < goal["coins"] && total_coins() >= goal["coins"]
+		)
+	)
+}
 
 // --- LEADERBOARDS -------------------------------------------------------------------
 
@@ -553,7 +545,11 @@ leaderboard(
 	title="Fastest Overall Time",
 	description="Earn the fastest combined time over all 32 stages in Normal Mode",
 
-	start=current_mode() == MODE_NORMAL && all_levels_complete() && is_personal_best(current_world(), current_stage()),
+	start=(
+		// all 
+		current_mode() == MODE_NORMAL && all_levels_complete() && 
+		prev(game_state()) != STATE_LEVEL_SELECT && game_state() == STATE_LEVEL_SELECT
+	),
 	cancel=always_false(),
 	submit=always_true(),
 
