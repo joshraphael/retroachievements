@@ -217,7 +217,7 @@ function maze() => byte(0x000DB1)
 
 // --- MAIN DATA -------------------------------------------------------------------
 
-ORDINALS = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th"]
+ORDINALS = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh"]
 ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII"]
 
 PROGRESSION_POINTS_PER_PROVINCE = [3, 4, 4, 5, 5, 5, 10]
@@ -277,22 +277,79 @@ SHOP_INFORMANT = 0x14
 
 PROVINCES = {
 	0: "Izumo Province", 
-	// https://www.roningallery.com/Hirose-Izumo-province
 	1: "Tanba Province", 
-	// https://www.roningallery.com/Tanba-Province.-Kanegasaka
 	2: "Settsu Province", 
-	// https://www.roningallery.com/Settsu-Province.-Sumiyoshi-Beach
 	3: "Oumi Province", 
-	// https://www.roningallery.com/Omi-Province-Lake-Biwa-Ishiyama-Temple_2
 	4: "Owari Province", 
-	// https://www.roningallery.com/Owari.-Festival-at-Tsushima
 	5: "Shinano Province", 
-	// https://www.roningallery.com/sarashina-in-shinano-province
 	6: "Edo",
-	// https://www.metmuseum.org/art/collection/search/45434
-	// https://www.metmuseum.org/art/collection/search/36932
-	// https://www.metmuseum.org/art/collection/search/36461
 }
+
+PROGRESSION_TITLES = [
+	// izumo
+	[
+		"Hirose Han",
+		"Matsue",
+		"Okuizumo",
+		"Taisha",
+		"Izumo Kokufu",
+		"Gassantoda Castle",
+	],
+	// tanba
+	[
+		"Tanba-Sasayama",
+		"Shirakami-yama",
+		"Kototaki",
+		"Mount Yajuro",
+		"Kyōtanba",
+		"Yakami Castle",
+	],
+	// settsu
+	[
+		"Sakai",
+		"Akutagawa River",
+		"Naniwa",
+		"Settsu-kyo",
+		"Takatsuki",
+		"Itami Castle",
+	],
+	// oumi
+	[
+		"Oiso-no-mori",
+		"Ōmihachiman",
+		"Mount Mikami",
+		"Adogawa",
+		"Katata",
+		"Hikone Castle",
+	],
+	// owari
+	[
+		"Atsuta-jingū",
+		"Nagoya",
+		"Shichiri no Watashi",
+		"Komaki-yama",
+		"Kiyosu",
+		"Inuyama Castle",
+	],
+	// shinano
+	[
+		"Kiso Valley",
+		"Narai-juku",
+		"Togakushi",
+		"Mount Ontake",
+		"Zenko-ji-machi",
+		"Matsumoto Castle",
+	],
+	// edo
+	[
+		"Yokohama Port",
+		"Kamakura",
+		"Mount Kumotori",
+		"Tama Forest",
+		"Kawagoe",
+		"Edo Castle",
+	],
+]
 
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
 
@@ -371,7 +428,8 @@ for loop in range(0,6)
 	for zone in range(0,5)
 	{
 		achievement(
-			title=format("{0} {1}", PROVINCES[loop], ROMAN[zone]),
+			title=PROGRESSION_TITLES[loop][zone],
+			// title=format("{0} {1}", PROVINCES[loop], ROMAN[zone]),
 			description=format("Complete the {0} stage of {1}", ORDINALS[zone], loopname),
 			type="progression",
 			points=PROGRESSION_POINTS_PER_PROVINCE[loop],
