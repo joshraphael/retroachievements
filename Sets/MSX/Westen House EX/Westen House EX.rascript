@@ -1,5 +1,5 @@
 // ~Homebrew~ Westen House EX
-// #ID = 34906
+// #ID = ?????
 
 // --- HELPERS -------------------------------------------------------------------
 
@@ -365,24 +365,18 @@ function lab_notes_state() => byte(0x002FB2)
 //        0 = door closed
 //        1 = door open
 //        2 = killed
-function vampire_1_july_state() => byte(0x002FB3)
-
 // $2FB4: Vampire #2 (Westen) State [8 bit]
 //        0 = door closed
 //        1 = door open
 //        2 = killed
-function vampire_2_westen_state() => byte(0x002FB4)
-
 // $2FB5: Vampire #3 (Lucy) State [8 bit]
 //        0 = door closed
 //        1 = door open
 //        2 = killed (never set, assumed in ending calc)
-function vampire_3_lucy_state() => byte(0x002FB5)
-
 // $2FB6: Vampire #4 (Lucard) State [8 bit]
 //        0 = door closed
 //        1 = door open
-function vampire_4_lucard_state() => byte(0x002FB6)
+function vampire(i) => byte(0x002FB3 + i)
 
 // $2FB7: Luggage Taken [8 bit] (0/1)
 function luggage_taken() => byte(0x002FB7)
@@ -497,6 +491,9 @@ function music() => word(0x002FCE)
 LANGUAGE_EN = 13
 LANGUAGE_ES = 15
 
+MUSIC_INTRO = 0x0902
+MUSIC_TITLE = 0x0907
+
 ITEM_EMPTY = 0
 ITEM_STOOL = 1
 ITEM_YELLOW_KEY = 2
@@ -563,86 +560,123 @@ DATETIMES = {
 }
 
 ROOM_NAMES = {
-	0x00: "outside the Westen House",
-	0x01: "outside the Westen House",
-	0x02: "parlor room",
-	0x03: "southeast hallway",
-	0x04: "northeast hallway",
-	0x05: "dining room",
-	0x06: "hallway",
-	0x07: "study",
-	0x08: "kitchen",
-	0x09: "larder",
-	0x0a: "upstairs landing",
-	0x0b: "back garden",
-	0x10: "west hallway",
-	0x11: "music room",
-	0x12: "hallway bathroom",
-	0x13: "west hallway",
-	0x14: "library",
-	0x15: "storage room",
-	0x16: "storage room",
-	0x17: "back rooms",
-	0x18: "pentagram chamber",
-	0x20: "basement",
-	0x21: "basement",
-	0x22: "basement",
-	0x23: "basement",
-	0x24: "basement",
-	0x25: "basement",
-	0x26: "basement",
-	0x27: "basement hallway",
-	0x28: "basement altar",
-	0x29: "basement",
-	0x2a: "basement",
-	0x2b: "fireplace study",
-	0x2c: "basement dining room",
-	0x2d: "basement",
-	0x2e: "cellar",
-	0x30: "upstairs hallway",
-	0x31: "upstairs hallway",
-	0x32: "upstairs hallway",
-	0x33: "upstairs hallway bathroom",
-	0x34: "upstairs bedroom",
-	0x35: "upstairs bedroom",
-	0x36: "upstairs bedroom",
-	0x37: "upstairs bathroom",
-	0x38: "upstairs bedroom",
-	0x39: "upstairs bathroom",
-	0x3a: "upstairs bedroom",
-	0x3b: "upstairs bathroom",
-	0x3c: "attic access",
-	0x3d: "Westen's lab",
-	0x40: "Edward's home",
-	0x41: "Edward's living room",
-	0x42: "Edward's kitchen",
-	0x43: "Edward's bedroom",
-	0x44: "Edward's washroom",
+	0x00: "Outside the Westen House",
+	0x01: "Outside the Westen House",
+	0x02: "Parlor Room",
+	0x03: "Southeast Hallway",
+	0x04: "Northeast Hallway",
+	0x05: "Dining Room",
+	0x06: "Hallway",
+	0x07: "Study",
+	0x08: "Kitchen",
+	0x09: "Larder",
+	0x0a: "Upstairs Landing",
+	0x0b: "Back Garden",
+	0x10: "West Hallway",
+	0x11: "Music Room",
+	0x12: "Hallway Bathroom",
+	0x13: "West Hallway",
+	0x14: "Library",
+	0x15: "Storage Room",
+	0x16: "Storage Room",
+	0x17: "Back Rooms",
+	0x18: "Pentagram Chamber",
+	0x20: "Basement",
+	0x21: "Basement",
+	0x22: "Basement",
+	0x23: "Basement",
+	0x24: "Basement",
+	0x25: "Basement",
+	0x26: "Basement",
+	0x27: "Basement Hallway",
+	0x28: "Basement Altar",
+	0x29: "Basement",
+	0x2a: "Basement",
+	0x2b: "Fireplace Study",
+	0x2c: "Basement Dining Room",
+	0x2d: "Basement",
+	0x2e: "Cellar",
+	0x30: "Upstairs Hallway",
+	0x31: "Upstairs Hallway",
+	0x32: "Upstairs Hallway",
+	0x33: "Upstairs Hallway Bathroom",
+	0x34: "Upstairs Bedroom",
+	0x35: "Upstairs Bedroom",
+	0x36: "Upstairs Bedroom",
+	0x37: "Upstairs Bathroom",
+	0x38: "Upstairs Bedroom",
+	0x39: "Upstairs Bathroom",
+	0x3a: "Upstairs Bedroom",
+	0x3b: "Upstairs Bathroom",
+	0x3c: "Attic Access",
+	0x3d: "Westen's Lab",
+	0x40: "Edward's Home",
+	0x41: "Edward's Living Room",
+	0x42: "Edward's Kitchen",
+	0x43: "Edward's Bedroom",
+	0x44: "Edward's Washroom",
 	0x45: "Jermin Street, London",
-	0x46: "back alley",
+	0x46: "London Back Alley",
 	0x47: "Jermin Street, London",
 	0x48: "Watkins' Bookstore",
-	0x50: "sub-basement ossuary",
-	0x51: "sub-basement hallway",
-	0x52: "sub-basement",
-	0x53: "sub-basement hallway",
-	0x54: "sub-basement dining table",
-	0x55: "sub-basement coffin room",
-	0x56: "sub-basement coffin room",
-	0x57: "sub-basement ritual chamber",
-	0x58: "sub-basement bedroom",
-	0x59: "sub-basement prison",
-	0x5a: "sub-basement prison",
-	0x5b: "sub-basement prison",
-	0x5c: "sub-basement chamber",
-	0x5d: "sub-basement chamber",
-	0x5e: "sub-basement hallway",
-	0x5f: "sub-basement hallway",
+	0x50: "Sub-basement Ossuary",
+	0x51: "Sub-basement Hallway",
+	0x52: "Sub-basement",
+	0x53: "Sub-basement Hallway",
+	0x54: "Sub-basement Dining Table",
+	0x55: "Sub-basement Coffin Room",
+	0x56: "Sub-basement Coffin Room",
+	0x57: "Sub-basement Ritual Chamber",
+	0x58: "Sub-basement Bedroom",
+	0x59: "Sub-basement Prison",
+	0x5a: "Sub-basement Prison",
+	0x5b: "Sub-basement Prison",
+	0x5c: "Sub-basement Chamber",
+	0x5d: "Sub-basement Chamber",
+	0x5e: "Sub-basement Hallway",
+	0x5f: "Sub-basement Hallway",
 }
 
 // --- AUX FUNCTIONS  -------------------------------------------------------------------
 
+function in_ending() => music() == 0x091a
+function win_the_game() => room() == 0x57 && prev(music()) == 0x0919 && music() == 0x091a
+
+function vampires_killed() => max_of(
+	measured(sum_of(range(0,2), i => vampire(i)/2) + 1, when=in_ending()),
+	measured(sum_of(range(0,2), i => vampire(i)/2))
+)
+
+function secondary_objectives() => (
+	(chauffer_bookstore_state() / 3) +
+	(reveal_clue_taken() / 1) +
+	(ritual_room_state() / 3) +
+	(quincey_grave_state() / quincey_grave_state()) +
+	(frankey_key_taken() / 2) +
+	(frankey_boss_state() / frankey_boss_state())
+)
+
 // --- RICH PRESENCE -------------------------------------------------------------------
+
+rich_presence_conditional_display(language_selection() == 0xff,
+	"[Language Select] Westen House EX | © Brain Games 2024"
+)
+
+rich_presence_conditional_display(music() == MUSIC_INTRO,
+	"[Intro Cutscene] Westen House EX | © Brain Games 2024"
+)
+
+rich_presence_conditional_display(music() == MUSIC_TITLE,
+	"[Title Screen] Westen House EX | © Brain Games 2024"
+)
+
+rich_presence_display(
+	"🗺️ {0} · ❤️ {1}/{2} · 🧛 Vampires killed: {3}/3 · 📋 Secondary objectives: {4}/6",
+	rich_presence_lookup("Location", room(), ROOM_NAMES, fallback="Westen House"),
+	rich_presence_number(vitality()), rich_presence_number(vitality_max()),
+	rich_presence_number(vampires_killed()),
+	rich_presence_number(secondary_objectives())
+)
 
 // --- ACHIEVEMENTS -------------------------------------------------------------------
 
