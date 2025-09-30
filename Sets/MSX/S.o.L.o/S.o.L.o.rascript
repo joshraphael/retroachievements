@@ -185,6 +185,7 @@ achievement(
 	trigger=in_game() && room() == 0x04 && prev(progress()) == 0 && progress() == 1
 )
 
+/*
 achievement(
 	title="Hangar Defragmented",
 	description="Complete the Hangar without losing any CPUs",
@@ -192,6 +193,7 @@ achievement(
 	points=5,
 	trigger=deathless_zone(0x02, 0x11, 0x05)
 )
+*/
 
 achievement(
 	title="Lithium-Powered Lifeform",
@@ -201,6 +203,7 @@ achievement(
 	trigger=in_game() && room() == 0x26 && prev(progress()) == 1 && progress() == 2
 )
 
+/*
 achievement(
 	title="Organic Zone Defragmented",
 	description="Complete the Organic Zone without losing any CPUs",
@@ -208,6 +211,7 @@ achievement(
 	points=10,
 	trigger=deathless_zone(0x19, 0x26, 0x06)
 )
+*/
 
 achievement(
 	title="An Icy Reception",
@@ -217,6 +221,7 @@ achievement(
 	trigger=in_game() && room() == 0x36 && prev(progress()) == 3 && progress() == 5
 )
 
+/*
 achievement(
 	title="Cold Zone Defragmented",
 	description="Complete the Cold Zone without losing any CPUs",
@@ -224,6 +229,7 @@ achievement(
 	points=10,
 	trigger=deathless_zone(0x2b, 0x36, 0x06)
 )
+*/
 
 achievement(
 	title="Live Wires and Water Don't Mix",
@@ -233,6 +239,7 @@ achievement(
 	trigger=in_game() && room() == 0x1c && prev(progress()) == 4 && progress() == 6
 )
 
+/*
 achievement(
 	title="Drainage Zone Defragmented",
 	description="Complete the Drainage Zone without losing any CPUs",
@@ -240,6 +247,7 @@ achievement(
 	points=10,
 	trigger=deathless_zone(0x20, 0x1c, 0x06)
 )
+*/
 
 achievement(
 	title="Mind in Mine",
@@ -249,6 +257,7 @@ achievement(
 	trigger=in_game() && progress() == 7 && room_change(0x39, 0x06)
 )
 
+/*
 achievement(
 	title="Mine Defragmented",
 	description="Complete the Mines without losing any CPUs",
@@ -256,6 +265,7 @@ achievement(
 	points=25,
 	trigger=deathless_zone(0x09, 0x39, 0x06)
 )
+*/
 
 achievement(
 	title="Asimov's Ambush",
@@ -265,6 +275,7 @@ achievement(
 	trigger=in_game() && progress() == 8 && room_change(0x16, 0x0a)
 )
 
+/*
 achievement(
 	title="Spacecraft Defragmented",
 	description="Climb to the top of the Spacecraft without losing any CPUs",
@@ -272,6 +283,7 @@ achievement(
 	points=10,
 	trigger=deathless_zone(0x3a, 0x16, 0x0a)
 )
+*/
 
 achievement(
 	title="For Saint Camillus' Relic",
