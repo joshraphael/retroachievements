@@ -71,6 +71,11 @@ function game_state() => byte(0x000100)
 // $0DB4: Mario Lives [8 bit]
 function lives() => byte(0x000DB4)
 
+// $0DC1: Yoshi "Carried" State [8 bit]
+//        0 = not riding
+//        non-0 = "carried" (might not be riding in castle/house)
+function yoshi_carried() => byte(0x000DC1)
+
 // $0DC2: Current Player Reserve Box Item [8 bit]
 //        0x00 = Empty
 //        0x01 = Mushroom
@@ -79,6 +84,10 @@ function lives() => byte(0x000DB4)
 //        0x04 = Cape Feather
 //        0xd7 = Orb
 function item_box() => byte(0x000DC2)
+
+// $0DC3: Backup Frame Counter [32 bit]
+//        freezes in-level, but otherwise copied directly from $F3A
+function backup_frame_counter() => dword(0x000DC3)
 
 // $0DD5: Level Exit ID [8bit]
 //        0x01 = Normal Exit
@@ -91,6 +100,12 @@ function exit_id() => byte(0x000DD5)
 
 // $0F3A: Frame Counter [32 bit]
 function frame_counter() => dword(0x000F3A)
+
+// $187A: Riding Yoshi State [8 bit] (0 on overworld)
+//        0 = not riding
+//        1 = riding
+//        2 = turning around
+function yoshi_ride_state() => byte(0x00187A)
 
 // $13BF: Level ID [8 bit]
 //        0x00 = Intro Level
@@ -252,6 +267,7 @@ STAGE_NAMES = {
 	0x0F: "Cheese Bridge Area",
 	0x10: "Cookie Mountain",
 	0x11: "Soda Lake",
+	0x13: "Donut Secret House",
 	0x14: "Yellow Switch Palace",
 	0x15: "Donut Plains 1",
 	0x18: "Sunken Ghost Ship",
@@ -710,8 +726,10 @@ EXITS = [
 	// Noise de Gole | [frames=2404] enter 102511, end 104915 <-- boss kill
 ]
 
+RTA_OFFSET = 120
+
 // frames from the start of the game to entering the first level
-INTRO_TIME = 1458 - 459 // frame counts from bahamete et al.
+INTRO_TIME = 1458 - 459 - RTA_OFFSET // frame counts from bahamete et al.
 
 // frames from entering back door to spawning peach
 BOWSER_TIME = 269434 - 261581 // frame counts from bahamete et al.
@@ -723,7 +741,15 @@ POWERUPS = {
 	0x00: "Small",
 	0x01: "🍄 Super",
 	0x02: "🪶 Cape",
-	0x03: "🌹 Fire",
+	0x03: "🔥 Fire",
+}
+
+YOSHI_ARE = {
+	0x00: "is",
+	0x04: "and 🟡 Yellow Yoshi are",
+	0x06: "and 🔵 Blue Yoshi are",
+	0x08: "and 🔴 Red Yoshi are",
+	0x0a: "and 🟢 Green Yoshi are",
 }
 
 // --- AUX FUNCTIONS -------------------------------------------------------------------
@@ -740,59 +766,74 @@ function forbidden_actions() => (
 
 RULES_TEXT = "No arbitrary code execution or Chuck eat item swap glitches allowed."
 
-function valid_run() => once(start_new_run() && never(forbidden_actions()) && never(game_state() < 0x0B))
+function valid_run() => once(start_new_run() && never(forbidden_actions()) && never(game_state() < 0x0B)) && frame_counter() >= RTA_OFFSET
+
+// small adjustment to the frame counter
+function current_time() => frame_counter() - RTA_OFFSET
+function backup_current_time() => backup_frame_counter() - RTA_OFFSET
 
 // the exit id is set back to 0 on the map screen whenever mario regains control on the map
 // this means that it waits for mario to walk *and* for the save prompt
 function level_completed() => game_state() == 0x0e && prev(exit_id()) > 0 && exit_id() == 0
 
 // we are on pace if all remaining levels played perfectly could still come under the target time
-function on_pace() => frame_counter() + OPTIMAL_TIME - INTRO_TIME - sum_of(EXITS, x => x["addr"] * x["frames"]) < TARGET_TIME
+function on_pace() => backup_current_time() + OPTIMAL_TIME - INTRO_TIME - sum_of(EXITS, x => x["addr"] * x["frames"]) < TARGET_TIME
 
 // check to see if Peach is in the sprite table (though it seems like she is always at +8)
-function win_the_game() => game_state() == 0x14 && level_id() == 0x31 && any_of(range(0, 11), i => byte(SPRITE_IDS + i) == 0x7c)
+function win_the_game() => (
+	game_state() == 0x14 && level_id() == 0x31 &&
+	all_of(range(0, 11), i => prev(byte(SPRITE_IDS + i)) != 0x7c) &&
+	__ornext(any_of(range(0, 11), i => byte(SPRITE_IDS + i) == 0x7c))
+)
 
 // don't trust the exit count because we don't trust the player
 function intended_exit_count() => sum_of(EXITS, x => x["addr"])
 
+// the *work* i gotta do just to figure out what fricken color of yoshi we're riding, if we're riding one at all...
+function yoshi_color_world() => current_player_yoshi() * (yoshi_carried() / yoshi_carried())
+function yoshi_color_level() => yoshi_color_world() * (yoshi_ride_state() / yoshi_ride_state())
+
 // --- RICH PRESENCE -------------------------------------------------------------------
 
-rich_presence_conditional_display(game_state() < 0x0B,
+rich_presence_conditional_display(game_state() < 0x0B || frame_counter() < 120,
 	"Getting ready to start a Super Mario World speedrun"
 )
 
-rich_presence_conditional_display(valid_run() && game_state() >= 0x18,
+rich_presence_conditional_display(valid_run() && once(win_the_game()),
 	"Run Complete! | 📌 {0}/96 exits",
 	rich_presence_number(intended_exit_count())
 )
 
-v_sec = (frame_counter() / 60) % 60
-v_min = (frame_counter() / (60 * 60)) % 60
-v_hrs = (frame_counter() / (60 * 60 * 60))
-
-rich_presence_conditional_display(valid_run() && game_state() < 0x12,
-	"{0} Mario is{1} on the overworld map 🗺️ | 📌 {2}/96 exits complete | ⏱️ {3}{4}:{5}{6}:{7}{8}",
+rich_presence_conditional_display(valid_run() && game_state() < 0x0F,
+	"{0} Mario {1}{2} on the overworld map 🗺️ | 📌 {3}/96 exits complete | ⏱️ {4}",
 	rich_presence_lookup("Powerup", powerup(), POWERUPS, fallback="⚠️ Illegal"),
+	rich_presence_lookup("Yoshi", yoshi_color_world(), YOSHI_ARE, fallback="is"),
 	rich_presence_flag(" still on pace", when=on_pace(), lookupname="OnPace"),
 	rich_presence_number(intended_exit_count()),
-	rich_presence_flag("0", when=v_hrs < 10, lookupname="_Z"), rich_presence_number(v_hrs),
-	rich_presence_flag("0", when=v_min < 10, lookupname="_Z"), rich_presence_number(v_min),
-	rich_presence_flag("0", when=v_sec < 10, lookupname="_Z"), rich_presence_number(v_sec)
+	rich_presence_value("Timer", current_time(), "FRAMES")
 )
 
 rich_presence_conditional_display(valid_run(),
-	"{0} Mario is{1} in 🗺️ {2} | 📌 {3}/96 exits complete | ⏱️ {4}{5}:{6}{7}:{8}{9}",
+	"{0} Mario {1}{2} in 🗺️ {3} | 📌 {4}/96 exits complete | ⏱️ {5}",
 	rich_presence_lookup("Powerup", powerup(), POWERUPS, fallback="⚠️ Illegal"),
+	rich_presence_lookup("Yoshi", yoshi_color_level(), YOSHI_ARE, fallback="is"),
 	rich_presence_flag(" still on pace", when=on_pace(), lookupname="OnPace"),
 	rich_presence_lookup("Stage", level_id(), STAGE_NAMES, fallback="Dinosaur Land"),
 	rich_presence_number(intended_exit_count()),
-	rich_presence_flag("0", when=v_hrs < 10, lookupname="_Z"), rich_presence_number(v_hrs),
-	rich_presence_flag("0", when=v_min < 10, lookupname="_Z"), rich_presence_number(v_min),
-	rich_presence_flag("0", when=v_sec < 10, lookupname="_Z"), rich_presence_number(v_sec)
+	rich_presence_value("Timer", current_time(), "FRAMES")
+)
+
+rich_presence_conditional_display(game_state() < 0x0F,
+	"{0} Mario {1} not currently on a run",
+	rich_presence_lookup("Powerup", powerup(), POWERUPS, fallback="⚠️ Illegal"),
+	rich_presence_lookup("Yoshi", yoshi_color_world(), YOSHI_ARE, fallback="is")
 )
 
 rich_presence_display(
-	"Mario is not currently on a run"
+	"{0} Mario {1} not currently on a run ({2})",
+	rich_presence_lookup("Powerup", powerup(), POWERUPS, fallback="⚠️ Illegal"),
+	rich_presence_lookup("Yoshi", yoshi_color_level(), YOSHI_ARE, fallback="is"),
+	rich_presence_lookup("Stage", level_id(), STAGE_NAMES, fallback="Dinosaur Land")
 )
 
 // --- ACHIEVEMENTS -------------------------------------------------------------------
@@ -803,7 +844,7 @@ MILESTONE_POINTS = [
 	{"exits": 30, "points": 10, },
 	{"exits": 40, "points": 10, },
 	{"exits": 50, "points": 10, },
-	{"exits": 60, "points": 25, },
+	{"exits": 60, "points": 10, },
 	{"exits": 70, "points": 25, },
 	{"exits": 80, "points": 25, },
 	{"exits": 90, "points": 50, },
@@ -827,11 +868,27 @@ for milestone in MILESTONE_POINTS
 	)
 }
 
+/*
+-- to rebuild this achievement --
+Core: main checks and trigger
+Alt 1: (copy the dummy measured tracker below here)
+Alt 2: (add `Trigger Val 0 = Val 1` here)
+*/
 achievement(
 	title="Sub 90-Minute 96 Exit Speedrun Complete!",
 	description="Defeat Bowser and rescue Peach in less than 90 minutes after completing all 96 intended exits. " + RULES_TEXT,
 	points=100,
-	trigger=frame_counter() < TARGET_TIME && measured(intended_exit_count() == 96, when=valid_run()) && win_the_game()
+	trigger=(
+		valid_run() && never(!on_pace() && game_state() < 0x0F && exit_id() == 0) &&
+		current_time() < TARGET_TIME && trigger_when(win_the_game())
+	)
+)
+
+achievement(
+	title="__DUMMY_MEASURED_TRACKER_DO_NOT_UPLOAD",
+	description="[measured data for the win condition]",
+	points=0,
+	trigger=measured(intended_exit_count() == 96, when=valid_run())
 )
 
 // --- LEADERBOARDS -------------------------------------------------------------------
@@ -844,7 +901,10 @@ leaderboard(
 	cancel=forbidden_actions() || game_state() < 0x0B,
 	submit=win_the_game() && intended_exit_count() == 96,
 
-	value=measured(frame_counter()),
+	value=max_of(
+		measured(current_time(), when=frame_counter() >= RTA_OFFSET),
+		measured(0)
+	),
 	format="FRAMES",
 	lower_is_better=true
 )
