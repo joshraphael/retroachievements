@@ -781,7 +781,7 @@ function on_pace() => backup_current_time() + OPTIMAL_TIME - INTRO_TIME - sum_of
 
 // check to see if Peach is in the sprite table (though it seems like she is always at +8)
 function win_the_game() => (
-	game_state() == 0x14 && level_id() == 0x31 &&
+	game_state() == 0x14 && level_id() >= 0x31 && level_id() <= 0x32 &&
 	all_of(range(0, 11), i => prev(byte(SPRITE_IDS + i)) != 0x7c) &&
 	__ornext(any_of(range(0, 11), i => byte(SPRITE_IDS + i) == 0x7c))
 )
