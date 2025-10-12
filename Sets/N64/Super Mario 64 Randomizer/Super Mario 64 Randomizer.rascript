@@ -720,7 +720,7 @@ achievement(
         once(prev(map_id()) <= MAP_MIN && in_game() && star_count() == 0) &&
 
         // collected any 10 stars
-        prev(star_count()) < GREEN_DEMON_STARS && trigger_when(star_count() >= GREEN_DEMON_STARS) &&
+        prev(star_count()) < GREEN_DEMON_STARS && trigger_when(star_count() == GREEN_DEMON_STARS) &&
 
         // reset if the leaves their file
         never(leave_game())
