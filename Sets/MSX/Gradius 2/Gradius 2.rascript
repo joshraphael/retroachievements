@@ -515,7 +515,7 @@ leaderboard(
 	cancel=always_false(),
 	submit=always_true(),
 
-	value=measured(0),
+	value=measured(stage()),
 	format="VALUE",
 	lower_is_better=false
 )
