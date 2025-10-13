@@ -382,7 +382,7 @@ achievement(
 		// count the number of times the crab was killed
 		measured(tally(20, game_state() == 0x0c && prev(crab_state()) != 0x09 && crab_state() == 0x09)) &&
 		// reset the counter if the lives goes down
-		never(lives() < prev(lives())) &&
+		never(game_state() == 0x0d) &&
 		// reset the counter if we change stage
 		never(current_round() != prev(current_round())) &&
 		// reset if we are back at the title screen for any reason

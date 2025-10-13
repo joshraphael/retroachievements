@@ -353,7 +353,7 @@ achievement(
 
 achievement(
 	title="Call the Rescue Team! Wait, We *Are* the Rescue Team",
-	description="Softlock the ship in the room holding the ball",
+	description="In Level 07, softlock the ship in the room holding the ball",
 	points=1,
 	trigger=(
 		level() == 7 && in_stage() && toggle_door_state(0) == 0 &&
