@@ -31,12 +31,15 @@ function raw_timer() => word(addr_offset() + 0x002210)
 //        0x07 = Car Select
 //        0x0a = Race Loading
 //        0x0b = Racing
+//        0x0c = Pit Stop
+//        0x0d = Pit Service
 //        0x0e = Race Results Loading
 //        0x0f = Race Results
 //        0x10 = Ending Sequence Loading
 //        0x11 = Ending Sequence
 //        0x1a = Cross Finish Line
 //        0x1b = Cross Finish Line Cutscene
+//        0x1c = Paused
 //        0x1d = Returning to Title after Credits
 function game_state() => byte(addr_offset() + 0x002250)
 
@@ -259,12 +262,15 @@ MODE_LOADING_CAR_SELECT = 0x06
 MODE_CAR_SELECT = 0x07
 MODE_LOADING_RACE = 0x0a
 MODE_RACE = 0x0b
+MODE_PIT_STOP = 0x0c
+MODE_PIT_SERVICE = 0x0d
 MODE_LOADING_RACE_RESULTS = 0x0e
 MODE_RACE_RESULTS = 0x0f
 MODE_LOADING_ENDING = 0x10
 MODE_ENDING = 0x11
 MODE_FINISH_LINE = 0x1a
 MODE_FINISH_LINE_CUTSCENE = 0x1b
+MODE_PAUSED = 0x1c
 MODE_POST_CREDITS_RETURN = 0x1d
 
 MODES = {
@@ -278,12 +284,15 @@ MODES = {
 	MODE_CAR_SELECT: "Car Select",
 	MODE_LOADING_RACE: "Racing",
 	MODE_RACE: "Racing",
+	MODE_PIT_STOP: "Racing (Pit Stop)",
+	MODE_PIT_SERVICE: "Racing (Pit Stop)",
 	MODE_LOADING_RACE_RESULTS: "Race Results",
 	MODE_RACE_RESULTS: "Race Results",
 	MODE_LOADING_ENDING: "Credits",
 	MODE_ENDING: "Credits",
 	MODE_FINISH_LINE: "Finish Line",
 	MODE_FINISH_LINE_CUTSCENE: "Finish Line",
+	MODE_PAUSED: "Paused",
 	MODE_POST_CREDITS_RETURN: "Credits",
 }
 
@@ -332,7 +341,7 @@ ORDINAL = {
 function is_game_mode(x) => game_state() == x-1 || game_state() == x
 
 // MODE_RACE includes the countdown at the start of the race, so we have a supporting value
-function racing() => game_state() == MODE_RACE && race_active() == 1
+function racing() => game_state() >= MODE_RACE && game_state() <= MODE_PIT_SERVICE && race_active() == 1
 
 function make_custom_car() => (
 	prev(game_state()) == MODE_CAR_SELECT && 
@@ -357,7 +366,7 @@ rp_custom_car = rich_presence_lookup("CustomCar",
 	{1: "Original Design"}, fallback="Ready Made")
 rp_transmission = rich_presence_lookup("Transmission", is_automatic_transmission(), {1: "AT"}, fallback="MT")
 
-rich_presence_conditional_display(game_state() == MODE_RACE && race_active() == 1,
+rich_presence_conditional_display(racing() && race_active() == 1,
 	"🗺️ {0} ({1} lap{2} remaining) · 🏅 Position: {8} · ⏱️ {9} · 🏎️ {3} ({4}) [{6} km/h, {5} gear, fuel {7}%]",
 	rich_presence_lookup("Event", event(), EVENTS, fallback="Unknown Event"),
 	rich_presence_number(laps_remaining()), plural(laps_remaining()),
@@ -647,7 +656,8 @@ achievement(
 		event() >= 5 &&
 		trigger_when(prev(game_state()) == MODE_RACE && game_state() == MODE_FINISH_LINE) &&
 		never(vehicle_damage_indicators() != 0) &&
-		never(prev(game_state()) != MODE_RACE)
+		never(game_state() == MODE_RACE_RESULTS) &&
+		never(game_state() < MODE_LOADING_RACE)
 	)
 )
 
