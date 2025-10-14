@@ -476,8 +476,7 @@ achievement(
 	description="Purchase and wear all five defensive items at the same time: Armor, Talisman, Inrou, Straw Hat, and Helmet",
 	points=10,
 	trigger=(
-		sanity_check() &&
-		measured(sum_of(ALL_DEFENSE_ITEMS, x => x / x) == length(ALL_DEFENSE_ITEMS)) &&
+		measured(sum_of(ALL_DEFENSE_ITEMS, x => x / x) == length(ALL_DEFENSE_ITEMS), when=sanity_check()) &&
 		sum_of(ALL_DEFENSE_ITEMS, x => prev(x) / prev(x)) == length(ALL_DEFENSE_ITEMS)-1
 	)
 )
